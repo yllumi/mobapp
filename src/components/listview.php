@@ -1,4 +1,4 @@
-<?php include('../partials/header.php') ?>
+<?php include __DIR__ . '/../partials/header.php' ?>
 
 <div id="components">
 
@@ -152,7 +152,7 @@
     </div>
 </div>
 
-<?php include('../partials/bottommenu.php') ?>
+<?php include __DIR__ . '/../partials/bottommenu.php' ?>
 </div>
 
-<?php include('../partials/footer.php') ?>
+<?php include __DIR__ . '/../partials/footer.php' ?>
