@@ -1,4 +1,4 @@
-<?php include('partials/header.php') ?>
+<?php include('../partials/header.php') ?>
 
 <div id="components">
 
@@ -119,7 +119,7 @@
                 <a href="#">
                     <div class="col">
                         <div class="listview-icon">
-                            <i class="bi bi-folder"></i>
+                            <i class="bi bi-list"></i>
                         </div>
                         <strong>Iconed item 1</strong>
                     </div>
@@ -173,7 +173,7 @@
         </div>
     </div>
 
-    <?php include('partials/bottommenu.php') ?>
+    <?php include('../partials/bottommenu.php') ?>
 </div>
 
-<?php include('partials/footer.php') ?>
+<?php include('../partials/footer.php') ?>
