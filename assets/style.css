@@ -1,7 +1,29 @@
 /*=====================================
+ * Class Utilities
+ *=====================================*/
+.w32 {
+    width: 32px !important;
+}
+.w48 {
+    width: 48px !important;
+}
+.w64 {
+    width: 64px !important;
+}
+.w72 {
+    width: 72px !important;
+}
+.w96 {
+    width: 96px !important;
+}
+.w128 {
+    width: 128px !important;
+}
+
+/*=====================================
  * Application Header
  *=====================================*/
- .app-header {
+.app-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -124,5 +146,202 @@
 .app-container {
     max-width: 768px;
     margin: 0 auto;
-    padding: 20px 15px 60px;
+    padding: 0 0 60px;
+}
+
+/*=====================================
+ * ListView
+ *=====================================*/
+/* Base styles for listview */
+.listview {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.listview-title {
+    padding: 20px 16px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    background: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Simple Listview */
+.listview-item {
+    border-bottom: 1px solid #eee;
+    padding: 16px 16px;
+    font-size: 16px;
+    color: #333;
+}
+
+.listview-item:last-child {
+    border-bottom: none;
+}
+
+/* Link Listview */
+.listview-item a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    transition: background 0.3s ease;
+    position: relative;
+}
+
+.listview-item a:hover {
+    background: #f1f1f1;
+}
+
+/* Menambahkan caret secara otomatis */
+.listview-item a::after {
+    content: "\F285";
+    /* Unicode Bootstrap Icons bi-chevron-right */
+    font-family: "Bootstrap-icons";
+    font-size: 18px;
+    color: #999;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Image and text container */
+.listview-item .col:first-child {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+/* Badge container (right side) */
+.listview-item .col:last-child {
+    flex: 0 0 auto;
+    padding-right: 28px;
+}
+
+/* Text styles */
+.listview-item .col strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.listview-item .col span {
+    display: block;
+    font-size: 14px;
+    color: #777;
+}
+
+/* Base styles for listview */
+.image-listview {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Image Listview Items */
+.image-listview .listview-item {
+    border-bottom: 1px solid #eee;
+}
+
+.image-listview .listview-item:last-child {
+    border-bottom: none;
+}
+
+.image-listview .listview-item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    transition: background 0.3s ease;
+}
+
+.image-listview .listview-item a:hover {
+    background: #f1f1f1;
+}
+
+.listview-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #d5e3f0; /* Warna background default */
+    font-size: 24px;
+    color: #666;
+    flex-shrink: 0;
+}
+.listview-icon.no-bg {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent !important;
+    font-size: 36px;
+    color: #666;
+    flex-shrink: 0;
+}
+
+/* Image styling */
+.image-listview .listview-item img {
+    width: 48px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Text styling */
+.image-listview .listview-item .col {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+    .listview-title {
+        padding: 20px 12px 10px;
+        font-size: 13px;
+    }
+
+    .listview-item {
+        padding: 12px 12px;
+        font-size: 15px;
+    }
+
+    .listview-item .col:last-child {
+        padding-right: 20px;
+    }
+
+    .listview-item .col strong {
+        font-size: 15px;
+    }
+
+    .listview-item .col span {
+        font-size: 13px;
+    }
+
+    .listview-item a::after {
+        font-size: 16px;
+        right: 0;
+    }
+
+    .image-listview .listview-item img {
+        width: 40px;
+        border-radius: 6px;
+    }
+
+    .image-listview .listview-item .col {
+        font-size: 15px;
+    }
+
 }
