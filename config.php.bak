@@ -1,0 +1,6 @@
+<?php
+
+// Change basepath if you host your site in a subdirectory
+// Example: if your site is hosted at http://example.com/my-site/
+// then change $basePath to "/my-site/"
+$basePath = "/";

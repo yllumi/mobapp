@@ -83,7 +83,7 @@
         <!-- List Groups -->
         <div class="listview image-listview">
             <div class="listview-title">List Groups</div>
-            <a href="/components/listview.php" class="listview-item">
+            <a href="<?= $basePath ?>components/listview.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-list-ul"></i></div> <strong>Listview</strong>
                 </div>

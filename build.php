@@ -6,33 +6,16 @@ chdir(__DIR__ . "/src");
 // Konfigurasi direktori sumber dan output
 $sourceDir = __DIR__ . "/src";  
 $outputDir = isset($argv[1]) ? __DIR__ . "/" . trim($argv[1], "/") : __DIR__ . "/dist"; 
-$basePath = isset($argv[2]) ? trim($argv[2], "/") . "/" : "/";
 
 $assetsSource = $sourceDir . "/assets"; 
 $assetsDestination = $outputDir . "/assets"; 
 $pagesFile = __DIR__ . "/pages.txt"; // File daftar halaman
-$headerFile = "$sourceDir/partials/header.php"; // Lokasi file header.php
 
 // Membaca daftar halaman dari pages.txt
 $pages = file_exists($pagesFile) ? file($pagesFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) : [];
 
 if (empty($pages)) {
     die("❌ Tidak ada halaman yang ditemukan di pages.txt\n");
-}
-
-// Fungsi untuk mengganti `<base href="">` di `header.php`
-function updateBaseHref($file, $newBase)
-{
-    if (!file_exists($file)) {
-        echo "⚠️ File header.php tidak ditemukan, dilewati.\n";
-        return;
-    }
-
-    $content = file_get_contents($file);
-    $content = preg_replace('/<base href=["\'].*?["\']>/', '<base href="' . $newBase . '">', $content);
-
-    file_put_contents($file, $content);
-    echo "🔄 Base href diperbarui: <base href=\"$newBase\">\n";
 }
 
 // Fungsi untuk mengubah semua tautan dari .php ke .html
@@ -90,9 +73,6 @@ function copyFolder($src, $dst)
     }
 }
 
-// Update <base href> sebelum build
-updateBaseHref($headerFile, $basePath);
-
 // Loop semua halaman untuk diekspor
 foreach ($pages as $page) {
     $sourceFile = $sourceDir . "/" . $page;
@@ -109,5 +89,5 @@ foreach ($pages as $page) {
 // Menyalin folder /assets/
 copyFolder($assetsSource, $assetsDestination);
 
-echo "🎉 Build selesai! Semua file telah diekspor ke $outputDir dengan basePath <base href=\"$basePath\">\n";
+echo "🎉 Build selesai! Semua file telah diekspor ke $outputDir\n";
 ?>
