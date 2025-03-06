@@ -70,6 +70,7 @@ php build.php
 - Build Mode: Convert PHP files to static .html
 - Automatic Link Conversion: All .php links in the HTML output will be changed to .html
 - Asset Copying: The /assets/ folder is automatically copied to /dist/assets/
+- Minify /dist/assets/style.css
 
 🔥 Now you're ready to develop and deploy your static mobile app UI!
 If you have any issues or suggestions, feel free to improve the project! 🚀
