@@ -42,16 +42,17 @@ php build.php
 # or
 php build.php output
 # will build to output/
-# or
-php build.php output basepath
-# will build to output/ and set basepath/
-# basepath will correct your path if you host in subfolder 
 ```
 
 #### 3. Check the output
 
 - The generated static files will be available in the /dist/ directory.
 - PHP files will be converted into .html and all links inside will be updated automatically.
+
+#### 4. Set Base Path (optional)
+
+If you'll host your site inside subfolder, i.e. mysite.com/app/, then you have to make sure all urls prefixed with the right base path.
+To do that, copy config.php.bak to config.php and set $basePath to '/app/' or any folder name you want. Make sure folder name begin and end with slash. After that you can then build the site. 
 
 ## 📂 Project Structure
 
