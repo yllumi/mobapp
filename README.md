@@ -38,6 +38,10 @@ Execute the following command in the terminal:
 
 ```sh
 php build.php
+# will build to dist/
+# or
+php build.php output
+# will build to output/
 ```
 
 #### 3. Check the output

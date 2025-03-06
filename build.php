@@ -5,7 +5,7 @@ chdir(__DIR__ . "/src");
 
 // Konfigurasi direktori sumber dan output
 $sourceDir = __DIR__ . "/src";  
-$outputDir = __DIR__ . "/dist";  
+$outputDir = isset($argv[1]) ? __DIR__ . "/" . trim($argv[1], "/") : __DIR__ . "/dist"; // Bisa custom folder
 $assetsSource = $sourceDir . "/assets"; 
 $assetsDestination = $outputDir . "/assets"; 
 $pagesFile = __DIR__ . "/pages.txt"; // File daftar halaman
@@ -110,4 +110,5 @@ foreach ($pages as $page) {
 // Menyalin dan meminify folder /assets/
 copyFolder($assetsSource, $assetsDestination);
 
-echo "🎉 Build selesai! Semua file telah diekspor ke /dist/\n";
+echo "🎉 Build selesai! Semua file telah diekspor ke $outputDir\n";
+?>
