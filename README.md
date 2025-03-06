@@ -42,6 +42,10 @@ php build.php
 # or
 php build.php output
 # will build to output/
+# or
+php build.php output basepath
+# will build to output/ and set basepath/
+# basepath will correct your path if you host in subfolder 
 ```
 
 #### 3. Check the output

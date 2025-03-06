@@ -5,12 +5,13 @@ chdir(__DIR__ . "/src");
 
 // Konfigurasi direktori sumber dan output
 $sourceDir = __DIR__ . "/src";  
-$outputDir = isset($argv[1]) ? __DIR__ . "/" . trim($argv[1], "/") : __DIR__ . "/dist"; // Bisa custom folder
+$outputDir = isset($argv[1]) ? __DIR__ . "/" . trim($argv[1], "/") : __DIR__ . "/dist"; 
+$basePath = isset($argv[2]) ? trim($argv[2], "/") . "/" : "/";
+
 $assetsSource = $sourceDir . "/assets"; 
 $assetsDestination = $outputDir . "/assets"; 
 $pagesFile = __DIR__ . "/pages.txt"; // File daftar halaman
-$cssFile = "$assetsSource/style.css"; // File CSS yang akan di-minify
-$cssOutput = "$assetsDestination/style.css"; // Hasil minify
+$headerFile = "$sourceDir/partials/header.php"; // Lokasi file header.php
 
 // Membaca daftar halaman dari pages.txt
 $pages = file_exists($pagesFile) ? file($pagesFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) : [];
@@ -19,10 +20,25 @@ if (empty($pages)) {
     die("❌ Tidak ada halaman yang ditemukan di pages.txt\n");
 }
 
+// Fungsi untuk mengganti `<base href="">` di `header.php`
+function updateBaseHref($file, $newBase)
+{
+    if (!file_exists($file)) {
+        echo "⚠️ File header.php tidak ditemukan, dilewati.\n";
+        return;
+    }
+
+    $content = file_get_contents($file);
+    $content = preg_replace('/<base href=["\'].*?["\']>/', '<base href="' . $newBase . '">', $content);
+
+    file_put_contents($file, $content);
+    echo "🔄 Base href diperbarui: <base href=\"$newBase\">\n";
+}
+
 // Fungsi untuk mengubah semua tautan dari .php ke .html
 function convertLinks($content)
 {
-    return preg_replace('/href=["\']([^"\']+)\.php(["\'])/', 'href="$1.html$2"', $content);
+    return preg_replace('/href=["\']([^"\']+)\.php(["\'])/', 'href="$1.html$2', $content);
 }
 
 // Fungsi untuk membangun file HTML statis
@@ -67,32 +83,15 @@ function copyFolder($src, $dst)
             if ($fileinfo->isDir()) {
                 copyFolder($srcFile, $dstFile);
             } else {
-                // Jika file adalah style.css, minify terlebih dahulu
-                if ($fileinfo->getFilename() === "style.css") {
-                    minifyCSS($srcFile, $dstFile);
-                } else {
-                    copy($srcFile, $dstFile);
-                }
+                copy($srcFile, $dstFile);
                 echo "📂 Menyalin: $srcFile -> $dstFile\n";
             }
         }
     }
 }
 
-// Fungsi untuk meminify CSS
-function minifyCSS($srcFile, $dstFile)
-{
-    $css = file_get_contents($srcFile);
-    
-    // Hapus komentar, spasi berlebih, dan baris baru
-    $css = preg_replace('!/\*.*?\*/!s', '', $css); // Hapus komentar
-    $css = preg_replace('/\s*([{};:,])\s*/', '$1', $css); // Hapus spasi berlebih
-    $css = preg_replace('/\s+/', ' ', $css); // Hapus spasi ekstra
-    $css = trim($css);
-
-    file_put_contents($dstFile, $css);
-    echo "🎨 Minify CSS: $srcFile -> $dstFile\n";
-}
+// Update <base href> sebelum build
+updateBaseHref($headerFile, $basePath);
 
 // Loop semua halaman untuk diekspor
 foreach ($pages as $page) {
@@ -107,8 +106,8 @@ foreach ($pages as $page) {
     }
 }
 
-// Menyalin dan meminify folder /assets/
+// Menyalin folder /assets/
 copyFolder($assetsSource, $assetsDestination);
 
-echo "🎉 Build selesai! Semua file telah diekspor ke $outputDir\n";
+echo "🎉 Build selesai! Semua file telah diekspor ke $outputDir dengan basePath <base href=\"$basePath\">\n";
 ?>
