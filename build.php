@@ -9,6 +9,8 @@ $outputDir = __DIR__ . "/dist";
 $assetsSource = $sourceDir . "/assets"; 
 $assetsDestination = $outputDir . "/assets"; 
 $pagesFile = __DIR__ . "/pages.txt"; // File daftar halaman
+$cssFile = "$assetsSource/style.css"; // File CSS yang akan di-minify
+$cssOutput = "$assetsDestination/style.css"; // Hasil minify
 
 // Membaca daftar halaman dari pages.txt
 $pages = file_exists($pagesFile) ? file($pagesFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) : [];
@@ -52,12 +54,6 @@ function copyFolder($src, $dst)
         return;
     }
 
-    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-        shell_exec("xcopy /E /I /Y \"$src\" \"$dst\"");
-    } else {
-        shell_exec("cp -r \"$src\" \"$dst\"");
-    }
-
     if (!is_dir($dst)) {
         mkdir($dst, 0777, true);
     }
@@ -71,10 +67,31 @@ function copyFolder($src, $dst)
             if ($fileinfo->isDir()) {
                 copyFolder($srcFile, $dstFile);
             } else {
-                copy($srcFile, $dstFile);
+                // Jika file adalah style.css, minify terlebih dahulu
+                if ($fileinfo->getFilename() === "style.css") {
+                    minifyCSS($srcFile, $dstFile);
+                } else {
+                    copy($srcFile, $dstFile);
+                }
+                echo "📂 Menyalin: $srcFile -> $dstFile\n";
             }
         }
     }
+}
+
+// Fungsi untuk meminify CSS
+function minifyCSS($srcFile, $dstFile)
+{
+    $css = file_get_contents($srcFile);
+    
+    // Hapus komentar, spasi berlebih, dan baris baru
+    $css = preg_replace('!/\*.*?\*/!s', '', $css); // Hapus komentar
+    $css = preg_replace('/\s*([{};:,])\s*/', '$1', $css); // Hapus spasi berlebih
+    $css = preg_replace('/\s+/', ' ', $css); // Hapus spasi ekstra
+    $css = trim($css);
+
+    file_put_contents($dstFile, $css);
+    echo "🎨 Minify CSS: $srcFile -> $dstFile\n";
 }
 
 // Loop semua halaman untuk diekspor
@@ -90,7 +107,7 @@ foreach ($pages as $page) {
     }
 }
 
-// Menyalin folder /assets/
+// Menyalin dan meminify folder /assets/
 copyFolder($assetsSource, $assetsDestination);
 
 echo "🎉 Build selesai! Semua file telah diekspor ke /dist/\n";
