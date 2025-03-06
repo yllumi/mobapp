@@ -4,6 +4,7 @@ Mobile web application UI template kit based on Bootstrap 5
 
 > This project is still in development and there will still be many changes in the structure and code.
 
+
 ## 🚀 Development Mode (Dev Mode)
 
 To run the project in development mode, use PHP's built-in development server:
@@ -15,21 +16,23 @@ php -S localhost:8080 -t src/
 This command will start a local server and serve files from the /src/ directory.
 You can then access the project at `http://localhost:8080/`
 
-### 📦 Build Static Files
+## 📦 Build Static Files
+
 To export the project into static HTML files:
 
-1. Edit pages.txt
+#### 1. Edit pages.txt
 
 Add the paths of the PHP pages you want to build, one per line.
 Example:
 
 ```bash
 index.php
+components/index.php
 components/listview.php
 components/buttons.php
 ```
 
-2. Run the build script
+#### 2. Run the build script
 
 Execute the following command in the terminal:
 
@@ -37,7 +40,7 @@ Execute the following command in the terminal:
 php build.php
 ```
 
-3. Check the output
+#### 3. Check the output
 
 - The generated static files will be available in the /dist/ directory.
 - PHP files will be converted into .html and all links inside will be updated automatically.
@@ -49,6 +52,7 @@ php build.php
 │── /src/               # Development source files
 │   ├── index.php
 │   ├── /components/    # UI components
+│   │   ├── index.php
 │   │   ├── listview.php
 │   │   ├── buttons.php
 │   ├── /partials/      # Reusable parts (header, footer, etc.)
