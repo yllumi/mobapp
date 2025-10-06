@@ -13,76 +13,7 @@
         </div>
     </div>
 
-    <div class="app-container">
-
-        <!-- Static Notification Examples -->
-        <div class="section-title">Static Notifications</div>
-        
-        <!-- Success Notification -->
-        <div class="notify notify-success">
-            <div class="notify-icon">
-                <i class="bi bi-check-circle"></i>
-            </div>
-            <div class="notify-content">
-                <div class="notify-title">Success!</div>
-                <div class="notify-text">Your action has been completed successfully.</div>
-            </div>
-            <div class="notify-close">
-                <i class="bi bi-x"></i>
-            </div>
-        </div>
-
-        <!-- Error Notification -->
-        <div class="notify notify-error">
-            <div class="notify-icon">
-                <i class="bi bi-exclamation-circle"></i>
-            </div>
-            <div class="notify-content">
-                <div class="notify-title">Error!</div>
-                <div class="notify-text">Something went wrong. Please try again.</div>
-            </div>
-            <div class="notify-close">
-                <i class="bi bi-x"></i>
-            </div>
-        </div>
-
-        <!-- Warning Notification -->
-        <div class="notify notify-warning">
-            <div class="notify-icon">
-                <i class="bi bi-exclamation-triangle"></i>
-            </div>
-            <div class="notify-content">
-                <div class="notify-title">Warning!</div>
-                <div class="notify-text">Please check your input before proceeding.</div>
-            </div>
-            <div class="notify-close">
-                <i class="bi bi-x"></i>
-            </div>
-        </div>
-
-        <!-- Info Notification -->
-        <div class="notify notify-info">
-            <div class="notify-icon">
-                <i class="bi bi-info-circle"></i>
-            </div>
-            <div class="notify-content">
-                <div class="notify-title">Information</div>
-                <div class="notify-text">Here's some important information for you.</div>
-            </div>
-            <div class="notify-close">
-                <i class="bi bi-x"></i>
-            </div>
-        </div>
-
-        <!-- Simple Notification without icon -->
-        <div class="notify notify-simple">
-            <div class="notify-content">
-                <div class="notify-text">This is a simple notification without icon.</div>
-            </div>
-            <div class="notify-close">
-                <i class="bi bi-x"></i>
-            </div>
-        </div>
+    <div class="app-container px-2">
 
         <!-- Demo Buttons -->
         <div class="section-title">Interactive Notifications</div>
@@ -102,8 +33,35 @@
             </button>
         </div>
 
-        <!-- Notification Container for dynamic notifications -->
-        <div id="notification-container"></div>
+        <!-- Demo Buttons for Fixed Notifications -->
+        <div class="section-title">Fixed Top Notifications</div>
+        
+        <div class="button-group">
+            <button class="btn btn-success" onclick="showNotification('success', 'Success!', 'Operation completed successfully.', {position: 'fixed-top', style: 'fullwidth'})">
+                Fullwidth Success
+            </button>
+            <button class="btn btn-danger" onclick="showNotification('error', 'Error!', 'Something went wrong.', {position: 'fixed-top', style: 'rounded'})">
+                Rounded Error
+            </button>
+            <button class="btn btn-warning" onclick="showNotification('warning', 'Warning!', 'Please be careful.', {position: 'fixed-top', style: 'fullwidth'})">
+                Fullwidth Warning
+            </button>
+            <button class="btn btn-info" onclick="showNotification('info', 'Info', 'Here is some information.', {position: 'fixed-top', style: 'rounded'})">
+                Rounded Info
+            </button>
+        </div>
+
+        <!-- Demo Multiple Notifications -->
+        <div class="section-title">Test Multiple Notifications</div>
+        
+        <div class="button-group">
+            <button class="btn btn-outline-primary" onclick="testMultipleNotifications()">
+                Test Rapid Notifications
+            </button>
+            <button class="btn btn-outline-danger" onclick="clearAllNotifications()">
+                Clear All Notifications
+            </button>
+        </div>
 
     </div>
 
@@ -111,72 +69,24 @@
 </div>
 
 <script>
-// Notification system
-function showNotification(type, title, message, duration = 5000) {
-    const container = document.getElementById('notification-container');
+// Test function for multiple notifications
+function testMultipleNotifications() {
+    const notifications = [
+        {type: 'info', title: 'First', message: 'This will be replaced immediately'},
+        {type: 'warning', title: 'Second', message: 'This will also be replaced'},
+        {type: 'success', title: 'Third', message: 'This will be replaced too'},
+        {type: 'error', title: 'Final', message: 'Only this one should remain visible'}
+    ];
     
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `notify notify-${type} notify-dynamic`;
-    
-    let iconClass = '';
-    switch(type) {
-        case 'success': iconClass = 'bi-check-circle'; break;
-        case 'error': iconClass = 'bi-exclamation-circle'; break;
-        case 'warning': iconClass = 'bi-exclamation-triangle'; break;
-        case 'info': iconClass = 'bi-info-circle'; break;
-        default: iconClass = 'bi-info-circle';
-    }
-    
-    notification.innerHTML = `
-        <div class="notify-icon">
-            <i class="bi ${iconClass}"></i>
-        </div>
-        <div class="notify-content">
-            <div class="notify-title">${title}</div>
-            <div class="notify-text">${message}</div>
-        </div>
-        <div class="notify-close" onclick="closeNotification(this)">
-            <i class="bi bi-x"></i>
-        </div>
-    `;
-    
-    // Add to container
-    container.appendChild(notification);
-    
-    // Show animation
-    setTimeout(() => {
-        notification.classList.add('notify-show');
-    }, 100);
-    
-    // Auto remove
-    if (duration > 0) {
+    notifications.forEach((notif, index) => {
         setTimeout(() => {
-            closeNotification(notification.querySelector('.notify-close'));
-        }, duration);
-    }
-}
-
-function closeNotification(closeBtn) {
-    const notification = closeBtn.closest('.notify');
-    notification.classList.add('notify-hide');
-    
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.parentNode.removeChild(notification);
-        }
-    }, 300);
-}
-
-// Add close functionality to static notifications
-document.addEventListener('DOMContentLoaded', function() {
-    const closeButtons = document.querySelectorAll('.notify-close');
-    closeButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            closeNotification(this);
-        });
+            showNotification(notif.type, notif.title, notif.message, {
+                position: 'fixed-top',
+                style: 'rounded'
+            });
+        }, index * 500);
     });
-});
+}
 </script>
 
 <?php include __DIR__ . '/../partials/footer.php' ?>

@@ -18,27 +18,27 @@
         <!-- Alerts -->
         <div class="listview image-listview">
             <div class="listview-title">Alerts</div>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/notification.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-bell"></i></div> <strong>Notifications</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/toast.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-chat-square-dots"></i></div> <strong>Toast</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/dialog.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-chat-square"></i></div> <strong>Dialog Box</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/alert.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-exclamation-triangle"></i></div> <strong>Alert Box</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/error-page.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-bug"></i></div> <strong>Error Page</strong>
                 </div>

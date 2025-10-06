@@ -1,3 +1,8 @@
 index.php
 components/index.php
+components/alert.php
+components/dialog.php
+components/error-page.php
 components/listview.php
+components/notification.php
+components/toast.php
