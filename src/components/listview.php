@@ -11,7 +11,7 @@
         </div>
     </div>
 
-<div class="app-container">
+    <div class="app-container">
 
     <!-- Simple Listview -->
     <div class="listview">
