@@ -4,18 +4,23 @@
 .w32 {
     width: 32px !important;
 }
+
 .w48 {
     width: 48px !important;
 }
+
 .w64 {
     width: 64px !important;
 }
+
 .w72 {
     width: 72px !important;
 }
+
 .w96 {
     width: 96px !important;
 }
+
 .w128 {
     width: 128px !important;
 }
@@ -91,9 +96,8 @@
     right: 0;
     display: flex;
     justify-content: space-around;
-    background: #fff;
+    background: aliceblue;
     padding: 8px 0 2px;
-    border-top: 1px solid #ddd;
     z-index: 1000;
     max-width: 768px;
     margin: 0 auto;
@@ -124,6 +128,15 @@
     font-size: 24px;
     display: block;
     line-height: 1;
+}
+
+.app-bottommenu a.item .bullet {
+    padding: 3px 20px;
+    border-radius: 15px;
+}
+
+.app-bottommenu a.item.active .bullet {
+    background: rgb(211, 234, 255);
 }
 
 @media (max-width: 480px) {
@@ -217,6 +230,105 @@ a.listview-item::after {
     flex: 1;
 }
 
+/* Sidebar */
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1040;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 270px;
+    background: #fff;
+    z-index: 1050;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.show {
+    transform: translateX(0);
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.sidebar-header .sidebar-logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.sidebar-close {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0.5rem 0;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1.2rem;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.97rem;
+    transition: background 0.2s;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background: #f5f5f5;
+    color: #0d6efd;
+}
+
+.sidebar-nav a i {
+    font-size: 1.2rem;
+    width: 1.4rem;
+    text-align: center;
+}
+
+.sidebar-nav .nav-divider {
+    border-top: 1px solid #f0f0f0;
+    margin: 0.4rem 0;
+}
+
+.sidebar-footer {
+    padding: 1rem 1.2rem;
+    border-top: 1px solid #f0f0f0;
+    font-size: 0.82rem;
+    color: #aaa;
+}
+
 /* Badge container (right side) */
 .listview-item .col:last-child {
     flex: 0 0 auto;
@@ -277,6 +389,7 @@ a.listview-item::after {
     color: #666;
     flex-shrink: 0;
 }
+
 .listview-icon-bordered {
     width: 40px;
     height: 40px;
@@ -284,7 +397,8 @@ a.listview-item::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #d5e3f0; /* Warna background default */
+    background: #d5e3f0;
+    /* Warna background default */
     font-size: 24px;
     color: #666;
     flex-shrink: 0;
@@ -1048,8 +1162,13 @@ a.listview-item::after {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /*=====================================
@@ -1447,29 +1566,29 @@ a.listview-item::after {
         height: 100vh;
         max-height: 100vh;
     }
-    
+
     .dialog-large,
     .dialog-medium {
         max-width: 95%;
     }
-    
+
     .error-page {
         max-width: 95%;
         margin: 20px;
     }
-    
+
     .error-page-content {
         padding: 32px 24px;
     }
-    
+
     .error-page .error-code {
         font-size: 56px;
     }
-    
+
     .error-page .error-title {
         font-size: 20px;
     }
-    
+
     .error-page .error-message {
         font-size: 14px;
     }
@@ -1480,69 +1599,69 @@ a.listview-item::after {
         font-size: 16px;
         margin: 20px 0 12px;
     }
-    
+
     .button-group {
         gap: 8px;
         margin-bottom: 20px;
     }
-    
+
     .btn {
         padding: 8px 12px;
         font-size: 13px;
     }
-    
+
     .notify,
     .alert {
         padding: 12px;
         margin-bottom: 12px;
     }
-    
+
     .notify-title,
     .alert-title {
         font-size: 15px;
     }
-    
+
     .notify-text,
     .alert-message {
         font-size: 13px;
     }
-    
+
     .toast-container {
         padding: 0 12px;
     }
-    
+
     .toaster {
         padding: 10px 12px;
         margin-bottom: 6px;
     }
-    
+
     .toast-message {
         font-size: 13px;
     }
-    
+
     .dialog-header,
     .dialog-body,
     .dialog-footer {
         padding: 16px 20px;
     }
-    
+
     .dialog-title {
         font-size: 16px;
     }
-    
+
     .error-card {
         padding: 24px 16px;
         margin-bottom: 16px;
     }
-    
+
     .error-card .error-code {
         font-size: 36px;
     }
-    
+
     .error-card .error-title {
         font-size: 18px;
     }
-    
+
     .error-card .error-message {
         font-size: 13px;
     }

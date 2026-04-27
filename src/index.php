@@ -46,16 +46,19 @@
             margin-top: 1rem;
         }
 </style>
+
+<?php include __DIR__ . '/partials/sidebar.php' ?>
+
 <div id="homepage">
 
     <!-- Header -->
     <div class="app-header">
-        <i class="bi bi-list icon"></i>
+        <i class="bi bi-list icon" id="sidebarToggle" style="cursor:pointer"></i>
         <i class="bi bi-search icon"></i>
     </div>
 
     <!-- Page Content -->
-    <div class="app-container">
+    <div class="app-container px-3">
         <h1 class="section-title">Discover</h1>
         <p>Welcome to Mobilekit</p>
 
@@ -86,11 +89,32 @@
             </div>
         </div>
 
-        <!-- Discover Image -->
-        <img src="https://via.placeholder.com/300x150" class="discover-image">
     </div>
 
     <?php include __DIR__ . '/partials/bottommenu.php' ?>
 </div>
+
+<script>
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    const toggleBtn = document.getElementById('sidebarToggle');
+    const closeBtn = document.getElementById('sidebarClose');
+
+    function openSidebar() {
+        sidebar.classList.add('show');
+        overlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+        sidebar.classList.remove('show');
+        overlay.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
+    toggleBtn.addEventListener('click', openSidebar);
+    closeBtn.addEventListener('click', closeSidebar);
+    overlay.addEventListener('click', closeSidebar);
+</script>
 
 <?php include __DIR__ . '/partials/footer.php' ?>
