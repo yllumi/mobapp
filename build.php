@@ -45,6 +45,39 @@ function buildPage($sourceFile, $outputPath)
     echo "✅ Berhasil membangun: $outputPath\n";
 }
 
+// Fungsi untuk minify CSS
+function minifyCSS($content)
+{
+    // Hapus komentar /* ... */
+    $content = preg_replace('/\/\*[\s\S]*?\*\//', '', $content);
+    // Hapus whitespace berlebih, newline, tab
+    $content = preg_replace('/\s+/', ' ', $content);
+    // Hapus spasi di sekitar karakter khusus
+    $content = preg_replace('/\s*([{}:;,>~+])\s*/', '$1', $content);
+    // Hapus titik koma sebelum tanda tutup kurung
+    $content = str_replace(';}', '}', $content);
+    return trim($content);
+}
+
+// Fungsi untuk minify JavaScript
+function minifyJS($content)
+{
+    // Hapus komentar satu baris // ... (hindari URL https://)
+    $content = preg_replace('/(?<!:)(?<!\/)\/\/[^\n]*$/m', '', $content);
+    // Hapus komentar blok /* ... */
+    $content = preg_replace('/\/\*[\s\S]*?\*\//', '', $content);
+    // Ganti multiple whitespace/newline dengan satu spasi
+    $content = preg_replace('/[ \t]+/', ' ', $content);
+    $content = preg_replace('/\s*\n\s*/', "\n", $content);
+    // Hapus spasi di sekitar operator (BUKAN kurung kurawal, hindari template literals)
+    $content = preg_replace('/\s*([=+\-*\/&|!<>?,;:])\s*/', '$1', $content);
+    // Hapus spasi berlebih di sekitar tanda kurung biasa dan siku (aman)
+    $content = preg_replace('/\s*([\[\]])\s*/', '$1', $content);
+    // Hapus baris kosong
+    $content = preg_replace('/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/', "\n", $content);
+    return trim($content);
+}
+
 // Fungsi untuk menyalin folder assets secara rekursif
 function copyFolder($src, $dst)
 {
@@ -66,8 +99,21 @@ function copyFolder($src, $dst)
             if ($fileinfo->isDir()) {
                 copyFolder($srcFile, $dstFile);
             } else {
-                copy($srcFile, $dstFile);
-                echo "📂 Menyalin: $srcFile -> $dstFile\n";
+                $ext = strtolower(pathinfo($srcFile, PATHINFO_EXTENSION));
+                if ($ext === 'css') {
+                    $minified = minifyCSS(file_get_contents($srcFile));
+                    file_put_contents($dstFile, $minified);
+                    $saved = strlen(file_get_contents($srcFile)) - strlen($minified);
+                    echo "🗜️  Minify CSS: $srcFile (hemat {$saved} bytes)\n";
+                } elseif ($ext === 'js') {
+                    $minified = minifyJS(file_get_contents($srcFile));
+                    file_put_contents($dstFile, $minified);
+                    $saved = strlen(file_get_contents($srcFile)) - strlen($minified);
+                    echo "🗜️  Minify JS : $srcFile (hemat {$saved} bytes)\n";
+                } else {
+                    copy($srcFile, $dstFile);
+                    echo "📂 Menyalin: $srcFile -> $dstFile\n";
+                }
             }
         }
     }

@@ -4,32 +4,7 @@ let alertCounter = 0;
 let currentDialog = null;
 let currentErrorPage = null;
 
-/*=function closeToast(toastId) {
-    const toast =    containers.forEach(container => {
-        if (container) {
-            const toasts = container.querySelectorAll('.toaster');
-            toasts.forEach(toast => {
-                toast.classList.remove('toaster-show');
-                toast.classList.add('toaster-hide');
-                setTimeout(() => {
-                    if (toast.parentNode) {
-                        toast.parentNode.removeChild(toast);
-                    }
-                }, 300);
-            });
-        }
-    });lementById(toastId);
-    if (toast) {
-        toast.classList.remove('toaster-show');
-        toast.classList.add('toaster-hide');
-        
-        setTimeout(() => {
-            if (toast.parentNode) {
-                toast.parentNode.removeChild(toast);
-            }
-        }, 300);
-    }
-}=======================
+/*=======================
  * Toast System
  *=====================================*/
 function showToast(type = 'default', message, duration = 3000, position = 'bottom') {
