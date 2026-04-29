@@ -53,7 +53,7 @@
         <!-- Action Modals -->
         <div class="listview image-listview">
             <div class="listview-title">Action Modals</div>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/actionsheet.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-ui-checks"></i></div> <strong>Action Sheet</strong>
                 </div>
@@ -63,7 +63,7 @@
                     <div class="listview-icon"><i class="bi bi-house-add"></i></div> <strong>Add to Home</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/modal.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-window"></i></div> <strong>Modal</strong>
                 </div>
