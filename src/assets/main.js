@@ -789,14 +789,183 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Close dialog on Escape key
+    // Close dialog / overlays on Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
-            if (currentDialog) {
-                closeDialog();
-            } else if (currentErrorPage) {
-                closeErrorPage();
-            }
+            if (currentDialog) closeDialog();
+            else if (currentErrorPage) closeErrorPage();
+            else if (activeAndroidAlert) closeAndroidAlert();
+            else if (activeAndroidSheet) closeAndroidSheet();
+            else if (activeIosAlert) closeIosAlert();
+            else if (activeIosSheet) closeIosSheet();
         }
     });
 });
+
+/*=====================================
+ * Input with Clear Button
+ *=====================================*/
+
+/**
+ * Show/hide the clear button based on input value.
+ * @param {string} inputId - ID of the input element
+ * @param {string} btnId   - ID of the clear button element
+ */
+function toggleClear(inputId, btnId) {
+    const input = document.getElementById(inputId);
+    const btn   = document.getElementById(btnId);
+    if (!input || !btn) return;
+    btn.classList.toggle('d-none', input.value === '');
+}
+
+/**
+ * Clear the value of an input and hide its clear button.
+ * @param {string} inputId - ID of the input element
+ * @param {string} btnId   - ID of the clear button element
+ */
+function clearInput(inputId, btnId) {
+    const input = document.getElementById(inputId);
+    if (!input) return;
+    input.value = '';
+    document.getElementById(btnId)?.classList.add('d-none');
+    input.focus();
+}
+
+/*=====================================
+ * Generic Overlay Helper
+ *=====================================*/
+
+/**
+ * Open a custom overlay element paired with a backdrop.
+ * @param {HTMLElement} el       - The overlay element
+ * @param {HTMLElement} backdrop - The backdrop element
+ * @param {string}      display  - CSS display value to use when showing ('flex'|'block')
+ */
+function _openOverlay(el, backdrop, display = 'block') {
+    if (!el || !backdrop) return;
+    backdrop.classList.add('active');
+    el.style.display = display;
+    el.getBoundingClientRect(); // force reflow for transition
+    el.classList.add('active');
+}
+
+/**
+ * Close a custom overlay element and its backdrop.
+ * @param {HTMLElement} el        - The overlay element
+ * @param {HTMLElement} backdrop  - The backdrop element
+ * @param {number}      delay     - Transition duration in ms before hiding
+ */
+function _closeOverlay(el, backdrop, delay = 300) {
+    if (!el || !backdrop) return;
+    backdrop.classList.remove('active');
+    el.classList.remove('active');
+    setTimeout(() => { el.style.display = 'none'; }, delay);
+}
+
+/*=====================================
+ * Android Alert Dialog
+ *=====================================*/
+let activeAndroidAlert = null;
+
+/**
+ * Open an Android-style alert dialog.
+ * @param {string} id - ID of the dialog element
+ */
+function openAndroidAlert(id) {
+    if (activeAndroidAlert) closeAndroidAlert();
+    const el       = document.getElementById(id);
+    const backdrop = document.getElementById('androidBackdrop');
+    if (!el) return;
+    activeAndroidAlert = el;
+    _openOverlay(el, backdrop, 'flex');
+}
+
+/** Close the active Android alert dialog. */
+function closeAndroidAlert() {
+    if (!activeAndroidAlert) return;
+    const el       = activeAndroidAlert;
+    const backdrop = document.getElementById('androidBackdrop');
+    activeAndroidAlert = null;
+    _closeOverlay(el, backdrop, 200);
+}
+
+/*=====================================
+ * Android Bottom Sheet
+ *=====================================*/
+let activeAndroidSheet = null;
+
+/**
+ * Open an Android-style bottom sheet.
+ * @param {string} id - ID of the sheet element
+ */
+function openAndroidSheet(id) {
+    if (activeAndroidSheet) closeAndroidSheet();
+    const el       = document.getElementById(id);
+    const backdrop = document.getElementById('androidSheetBackdrop');
+    if (!el) return;
+    activeAndroidSheet = el;
+    _openOverlay(el, backdrop, 'block');
+}
+
+/** Close the active Android bottom sheet. */
+function closeAndroidSheet() {
+    if (!activeAndroidSheet) return;
+    const el       = activeAndroidSheet;
+    const backdrop = document.getElementById('androidSheetBackdrop');
+    activeAndroidSheet = null;
+    _closeOverlay(el, backdrop, 300);
+}
+
+/*=====================================
+ * iOS Alert
+ *=====================================*/
+let activeIosAlert = null;
+
+/**
+ * Open an iOS-style alert dialog.
+ * @param {string} id - ID of the alert element
+ */
+function openIosAlert(id) {
+    if (activeIosAlert) closeIosAlert();
+    const el       = document.getElementById(id);
+    const backdrop = document.getElementById('iosAlertBackdrop');
+    if (!el) return;
+    activeIosAlert = el;
+    _openOverlay(el, backdrop, 'flex');
+}
+
+/** Close the active iOS alert. */
+function closeIosAlert() {
+    if (!activeIosAlert) return;
+    const el       = activeIosAlert;
+    const backdrop = document.getElementById('iosAlertBackdrop');
+    activeIosAlert = null;
+    _closeOverlay(el, backdrop, 200);
+}
+
+/*=====================================
+ * iOS Card Sheet
+ *=====================================*/
+let activeIosSheet = null;
+
+/**
+ * Open an iOS-style card sheet.
+ * @param {string} id - ID of the sheet element
+ */
+function openIosSheet(id) {
+    if (activeIosSheet) closeIosSheet();
+    const el       = document.getElementById(id);
+    const backdrop = document.getElementById('iosSheetBackdrop');
+    if (!el) return;
+    activeIosSheet = el;
+    _openOverlay(el, backdrop, 'flex');
+}
+
+/** Close the active iOS card sheet. */
+function closeIosSheet() {
+    if (!activeIosSheet) return;
+    const el       = activeIosSheet;
+    const backdrop = document.getElementById('iosSheetBackdrop');
+    activeIosSheet = null;
+    _closeOverlay(el, backdrop, 350);
+}

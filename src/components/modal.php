@@ -399,18 +399,7 @@
 </div>
 
 <script>
-function toggleClear(inputId, btnId) {
-    const input = document.getElementById(inputId);
-    const btn = document.getElementById(btnId);
-    btn.classList.toggle('d-none', input.value === '');
-}
-
-function clearInput(inputId, btnId) {
-    const input = document.getElementById(inputId);
-    input.value = '';
-    document.getElementById(btnId).classList.add('d-none');
-    input.focus();
-}
+/* ---- Demo-specific functions ---- */
 
 function selectContact(name) {
     alert('Kontak dipilih: ' + name);
@@ -418,9 +407,9 @@ function selectContact(name) {
 
 function applyCategories() {
     const checked = [...document.querySelectorAll('#modalCheckbox .form-check-input:checked')];
-    const result = document.getElementById('selectedResult');
-    const labels = document.getElementById('selectedLabels');
-    const modal = bootstrap.Modal.getInstance(document.getElementById('modalCheckbox'));
+    const result  = document.getElementById('selectedResult');
+    const labels  = document.getElementById('selectedLabels');
+    const modal   = bootstrap.Modal.getInstance(document.getElementById('modalCheckbox'));
     modal.hide();
     if (checked.length === 0) {
         result.classList.add('d-none');
@@ -428,98 +417,6 @@ function applyCategories() {
     }
     labels.textContent = checked.map(c => c.value).join(', ');
     result.classList.remove('d-none');
-}
-
-/* ---- Android Alert ---- */
-let activeAndroidAlert = null;
-function openAndroidAlert(id) {
-    closeAndroidAlert();
-    const el = document.getElementById(id);
-    const backdrop = document.getElementById('androidBackdrop');
-    if (!el) return;
-    activeAndroidAlert = el;
-    backdrop.classList.add('active');
-    el.style.display = 'flex';
-    el.getBoundingClientRect();
-    el.classList.add('active');
-}
-function closeAndroidAlert() {
-    document.getElementById('androidBackdrop').classList.remove('active');
-    if (activeAndroidAlert) {
-        activeAndroidAlert.classList.remove('active');
-        const el = activeAndroidAlert;
-        activeAndroidAlert = null;
-        setTimeout(() => { el.style.display = 'none'; }, 200);
-    }
-}
-
-/* ---- Android Sheet ---- */
-let activeAndroidSheet = null;
-function openAndroidSheet(id) {
-    closeAndroidSheet();
-    const el = document.getElementById(id);
-    const backdrop = document.getElementById('androidSheetBackdrop');
-    if (!el) return;
-    activeAndroidSheet = el;
-    backdrop.classList.add('active');
-    el.style.display = 'block';
-    el.getBoundingClientRect();
-    el.classList.add('active');
-}
-function closeAndroidSheet() {
-    document.getElementById('androidSheetBackdrop').classList.remove('active');
-    if (activeAndroidSheet) {
-        activeAndroidSheet.classList.remove('active');
-        const el = activeAndroidSheet;
-        activeAndroidSheet = null;
-        setTimeout(() => { el.style.display = 'none'; }, 300);
-    }
-}
-
-/* ---- iOS Alert ---- */
-let activeIosAlert = null;
-function openIosAlert(id) {
-    closeIosAlert();
-    const el = document.getElementById(id);
-    const backdrop = document.getElementById('iosAlertBackdrop');
-    if (!el) return;
-    activeIosAlert = el;
-    backdrop.classList.add('active');
-    el.style.display = 'flex';
-    el.getBoundingClientRect();
-    el.classList.add('active');
-}
-function closeIosAlert() {
-    document.getElementById('iosAlertBackdrop').classList.remove('active');
-    if (activeIosAlert) {
-        activeIosAlert.classList.remove('active');
-        const el = activeIosAlert;
-        activeIosAlert = null;
-        setTimeout(() => { el.style.display = 'none'; }, 200);
-    }
-}
-
-/* ---- iOS Sheet ---- */
-let activeIosSheet2 = null;
-function openIosSheet(id) {
-    closeIosSheet();
-    const el = document.getElementById(id);
-    const backdrop = document.getElementById('iosSheetBackdrop');
-    if (!el) return;
-    activeIosSheet2 = el;
-    backdrop.classList.add('active');
-    el.style.display = 'flex';
-    el.getBoundingClientRect();
-    el.classList.add('active');
-}
-function closeIosSheet() {
-    document.getElementById('iosSheetBackdrop').classList.remove('active');
-    if (activeIosSheet2) {
-        activeIosSheet2.classList.remove('active');
-        const el = activeIosSheet2;
-        activeIosSheet2 = null;
-        setTimeout(() => { el.style.display = 'none'; }, 350);
-    }
 }
 </script>
 
