@@ -248,7 +248,7 @@
         <!-- Navigation -->
         <div class="listview image-listview">
             <div class="listview-title">Navigation</div>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/bottommenu.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-menu-app"></i></div> <strong>Bottom Menu</strong>
                 </div>

@@ -154,6 +154,208 @@
 }
 
 /*=====================================
+ * Bottom Menu Variations (Demo)
+ *=====================================*/
+.bm-demo {
+    background: #f5f6f8;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bm {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 16px;
+    padding: 6px 0;
+}
+
+.bm-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #8e8e93;
+    font-size: 11px;
+    gap: 2px;
+    transition: all 0.25s ease;
+    position: relative;
+    padding: 4px 0;
+    flex: 1;
+    text-align: center;
+}
+
+.bm-item i {
+    font-size: 24px;
+    line-height: 1;
+    transition: all 0.25s ease;
+}
+
+.bm-item span {
+    display: block;
+    line-height: 1.2;
+}
+
+.bm-item.active,
+.bm-item:hover {
+    color: #007aff;
+}
+
+/* --- Icons Only --- */
+.bm-icons-only {
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 8px 0 4px;
+    border-radius: 20px;
+}
+
+.bm-icons-only .bm-item span {
+    display: none;
+}
+
+/* --- Icons with Labels --- */
+.bm-label {
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 6px 0 8px;
+    border-radius: 20px;
+}
+
+.bm-label .bm-item {
+    gap: 3px;
+}
+
+.bm-label .bm-item i {
+    font-size: 22px;
+}
+
+.bm-label .bm-item.active span {
+    font-weight: 600;
+}
+
+/* --- Center Prominent Button --- */
+.bm-center {
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 6px 0 8px;
+    border-radius: 20px;
+}
+
+.bm-center .bm-item {
+    gap: 3px;
+}
+
+.bm-center .bm-item i {
+    font-size: 22px;
+}
+
+.bm-center .bm-center-btn {
+    margin-top: -20px;
+}
+
+.bm-center .bm-center-btn i {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #007aff, #00c6ff);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 24px;
+    box-shadow: 0 4px 14px rgba(0, 122, 255, 0.45);
+    transition: transform 0.25s ease;
+}
+
+.bm-center .bm-center-btn:hover i {
+    transform: scale(1.08);
+}
+
+.bm-center .bm-center-btn span {
+    display: none;
+}
+
+/* --- Android Style (Material You) --- */
+.bm-label-on-active {
+    background: #fff;
+    border-radius: 28px;
+    padding: 4px 8px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+}
+
+.bm-label-on-active .bm-item {
+    flex-direction: row;
+    gap: 6px;
+    padding: 8px 12px;
+    border-radius: 24px;
+    flex: 0 1 auto;
+    font-size: 12px;
+    font-weight: 500;
+    color: #444;
+    transition: background 0.3s, color 0.3s, padding 0.3s;
+}
+
+.bm-label-on-active .bm-item i {
+    font-size: 20px;
+    transition: margin 0.3s;
+}
+
+.bm-label-on-active .bm-item span {
+    display: none;
+}
+
+.bm-label-on-active .bm-item.active {
+    background: #e8f0fe;
+    color: #1a73e8;
+    padding: 8px 16px;
+}
+
+.bm-label-on-active .bm-item.active span {
+    display: inline;
+}
+
+.bm-label-on-active .bm-item.active i {
+    color: #1a73e8;
+}
+
+/* --- iOS Style --- */
+.bm-ios {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 0;
+    padding: 6px 0 16px;
+    box-shadow: 0 -0.5px 0 rgba(0, 0, 0, 0.15);
+    border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.bm-ios .bm-item {
+    gap: 1px;
+    font-size: 10px;
+    color: #8e8e93;
+    letter-spacing: -0.2px;
+}
+
+.bm-ios .bm-item i {
+    font-size: 26px;
+    margin-bottom: 1px;
+}
+
+.bm-ios .bm-item.active {
+    color: #007aff;
+}
+
+.bm-ios .bm-item.active i {
+    font-weight: 600;
+}
+
+/*=====================================
  * Application Container
  *=====================================*/
 .app-container {
