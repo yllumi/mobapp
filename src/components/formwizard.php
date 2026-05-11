@@ -1,0 +1,203 @@
+<?php include __DIR__ . '/../partials/header.php' ?>
+
+<div id="components">
+
+    <div class="app-header">
+        <div class="left">
+            <a href="javascript:void()" onclick="history.back()">
+                <i class="bi bi-arrow-left"></i>
+            </a>
+        </div>
+        <div class="page-title">Form Wizard</div>
+        <div class="right">
+        </div>
+    </div>
+
+    <div class="app-container px-2">
+        <div id="panel-ios" class="panel">
+            <div class="phone-frame ios-frame">
+                <div class="dynamic-island"></div>
+                <div class="screen i">
+
+                    <!-- iOS Wizard Steps Bar -->
+                    <div class="i-wizard-bar">
+                        <div class="i-steps-track">
+
+                            <div class="i-step-wrap done" id="i-sw-0">
+                                <div class="i-step-circle" id="i-sc-0">1</div>
+                                <div class="i-step-lbl">Check</div>
+                            </div>
+
+                            <div class="i-step-line done" id="i-sl-0"></div>
+
+                            <div class="i-step-wrap active" id="i-sw-1">
+                                <div class="i-step-circle" id="i-sc-1">2</div>
+                                <div class="i-step-lbl">Address</div>
+                            </div>
+
+                            <div class="i-step-line" id="i-sl-1"></div>
+
+                            <div class="i-step-wrap" id="i-sw-2">
+                                <div class="i-step-circle" id="i-sc-2">3</div>
+                                <div class="i-step-lbl">Payment</div>
+                            </div>
+
+                            <div class="i-step-line" id="i-sl-2"></div>
+
+                            <div class="i-step-wrap" id="i-sw-3">
+                                <div class="i-step-circle" id="i-sc-3">
+                                    <ion-icon name="checkmark-outline"></ion-icon>
+                                </div>
+                                <div class="i-step-lbl">Done</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="i-content">
+
+                        <!-- Step 1: Personal Info -->
+                        <div class="i-step-content active" id="i-sc-0p">
+                            <div class="i-section-hdr">Personal Info</div>
+                            <div class="i-card">
+                                <div class="i-row">
+                                    <label for="i-name">Full Name</label>
+                                    <input class="i-inp" id="i-name" type="text" placeholder="Enter your full name" />
+                                </div>
+                                <div class="i-row">
+                                    <label for="i-email">E-mail</label>
+                                    <input class="i-inp" id="i-email" type="email" placeholder="E-mail address" />
+                                </div>
+                                <div class="i-row">
+                                    <label for="i-phone">Phone</label>
+                                    <input class="i-inp" id="i-phone" type="tel" placeholder="Phone number" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Address -->
+                        <div class="i-step-content" id="i-sc-1p">
+                            <div class="i-section-hdr">Shipping Address</div>
+                            <div class="i-card">
+                                <div class="i-row">
+                                    <label for="i-addr">Street Address</label>
+                                    <input class="i-inp" id="i-addr" type="text" placeholder="Street address" />
+                                </div>
+                                <div class="i-row">
+                                    <label for="i-city">City</label>
+                                    <input class="i-inp" id="i-city" type="text" placeholder="City" />
+                                </div>
+                                <div class="i-row">
+                                    <label for="i-country">Country</label>
+                                    <select class="i-sel" id="i-country">
+                                        <option value="" disabled selected>Select country</option>
+                                        <option>Indonesia</option>
+                                        <option>United States</option>
+                                        <option>United Kingdom</option>
+                                        <option>Singapore</option>
+                                        <option>Malaysia</option>
+                                    </select>
+                                    <div class="i-chevron">
+                                        <ion-icon name="chevron-forward-outline"></ion-icon>
+                                    </div>
+                                </div>
+                                <div class="i-row">
+                                    <label for="i-zip">ZIP / Postal Code</label>
+                                    <input class="i-inp" id="i-zip" type="text" placeholder="ZIP / Postal code" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Payment -->
+                        <div class="i-step-content" id="i-sc-2p">
+                            <div class="i-section-hdr">Payment Details</div>
+                            <div class="i-card">
+                                <div class="i-row">
+                                    <label for="i-card">Card Number</label>
+                                    <input class="i-inp" id="i-card" type="text" placeholder="0000 0000 0000 0000"
+                                        maxlength="19" oninput="fmtCard(this)" />
+                                </div>
+                                <div class="i-row" style="flex-direction:row;gap:0">
+                                    <div style="flex:1;display:flex;flex-direction:column">
+                                        <label for="i-exp"
+                                            style="font-size:11px;font-weight:600;color:#8e8e93;text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px">Expiry</label>
+                                        <input class="i-inp" id="i-exp" type="text" placeholder="MM / YY" maxlength="7"
+                                            oninput="fmtExpiry(this)" />
+                                    </div>
+                                    <div style="width:.5px;background:rgba(0,0,0,.1);margin:0 14px;align-self:stretch">
+                                    </div>
+                                    <div style="flex:1;display:flex;flex-direction:column">
+                                        <label for="i-cvv"
+                                            style="font-size:11px;font-weight:600;color:#8e8e93;text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px">CVV</label>
+                                        <input class="i-inp" id="i-cvv" type="password" placeholder="•••"
+                                            maxlength="4" />
+                                    </div>
+                                </div>
+                                <div class="i-row">
+                                    <label for="i-cardname">Name on Card</label>
+                                    <input class="i-inp" id="i-cardname" type="text" placeholder="Cardholder name" />
+                                </div>
+                            </div>
+
+                            <div class="i-section-hdr">Order Summary</div>
+                            <div class="i-card" style="margin-bottom:12px">
+                                <div class="i-summary-row"><span class="lbl">Product</span><span
+                                        class="val">Mobapp</span></div>
+                                <div class="i-summary-row"><span class="lbl">Qty</span><span class="val">1</span></div>
+                                <div class="i-summary-row"><span class="lbl">Subtotal</span><span
+                                        class="val">$49.00</span>
+                                </div>
+                                <div class="i-summary-row"><span class="lbl">Tax (10%)</span><span
+                                        class="val">$4.90</span>
+                                </div>
+                                <div class="i-summary-row" style="border-top:1.5px solid rgba(0,0,0,.1);margin-top:2px">
+                                    <span class="lbl" style="font-weight:700;color:#000;font-size:15px">Total</span>
+                                    <span class="val" style="font-size:16px;color:#007aff;font-weight:700">$53.90</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Done -->
+                        <div class="i-step-content" id="i-sc-3p">
+                            <div class="i-success">
+                                <div class="i-success-icon">
+                                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                </div>
+                                <h3>Order Placed!</h3>
+                                <p>Your order has been successfully placed.<br>You'll receive a confirmation email
+                                    shortly.
+                                </p>
+                                <div class="i-card" style="width:100%;border-radius:12px;margin:0">
+                                    <div class="i-summary-row"><span class="lbl">Order ID</span><span
+                                            class="val">#MK-20250507</span></div>
+                                    <div class="i-summary-row"><span class="lbl">Product</span><span
+                                            class="val">Mobapp</span></div>
+                                    <div class="i-summary-row"><span class="lbl">Total</span><span class="val"
+                                            style="color:#007aff">$53.90</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- /.i-content -->
+
+                    <!-- iOS Nav Buttons -->
+                    <div class="i-nav-btns">
+                        <button class="i-btn-prev" id="i-prev-btn" onclick="iPrev()">Back</button>
+                        <button class="i-btn-next" id="i-next-btn" onclick="iNext()">
+                            <span id="i-next-label">Next</span>
+                            <ion-icon name="arrow-forward-outline" id="i-next-icon"></ion-icon>
+                        </button>
+                    </div>
+
+                </div><!-- /.screen -->
+            </div><!-- /.phone-frame -->
+        </div>
+    </div>
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+
+    <?php include __DIR__ . '/../partials/bottommenu.php' ?>
+</div>
+
+<?php include __DIR__ . '/../partials/footer.php' ?>

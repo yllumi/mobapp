@@ -1,0 +1,150 @@
+<?php include __DIR__ . '/../partials/header.php' ?>
+
+<div id="components">
+
+    <div class="app-header">
+        <div class="left">
+            <a href="javascript:void()" onclick="history.back()">
+                <i class="bi bi-arrow-left"></i>
+            </a>
+        </div>
+        <div class="page-title">Form Validation</div>
+        <div class="right">
+        </div>
+    </div>
+
+    <div class="app-container">
+        <div>
+            <div class="py-3">
+
+                <!-- Animated Form -->
+                <div class="md-card">
+                    <div class="md-card-title">Animated Form Example</div>
+                    <div class="md-card-body">
+                        <form onsubmit="return validateMD(this, event)">
+                            <div class="md-field">
+                                <input type="text" class="md-input" id="a-user" placeholder=" " required>
+                                <label class="md-label" for="a-user">Username</label>
+                                <button type="button" class="md-clear" onclick="clearMD('a-user')">
+                                    <ion-icon name="close-circle"></ion-icon>
+                                </button>
+                                <div class="md-feedback md-valid-text" id="a-user-v">✓ Looks good!</div>
+                                <div class="md-feedback md-invalid-text" id="a-user-i">Please enter your username.</div>
+                            </div>
+                            <div class="md-field">
+                                <input type="password" class="md-input" id="a-pass" placeholder=" " required>
+                                <label class="md-label" for="a-pass">Password</label>
+                                <button type="button" class="md-clear" onclick="clearMD('a-pass')">
+                                    <ion-icon name="close-circle"></ion-icon>
+                                </button>
+                                <div class="md-feedback md-valid-text" id="a-pass-v">✓ Done!</div>
+                                <div class="md-feedback md-invalid-text" id="a-pass-i">Password required.</div>
+                            </div>
+                            <button type="submit" class="md-btn">SUBMIT</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Boxed Form -->
+                <div class="md-card">
+                    <div class="md-card-title">Boxed Form Example</div>
+                    <div class="md-card-body">
+                        <form onsubmit="return validateMD(this, event)">
+                            <div class="md-field py-2">
+                                <label class="text-secondary p-1" for="a-name2">Name</label>
+                                <input type="text" class="form-control" id="a-name2" placeholder="Enter your name"
+                                    required>
+                                <button type="button" class="md-clear" onclick="clearMD('a-name2')">
+                                    <ion-icon name="close-circle"></ion-icon>
+                                </button>
+                                <div class="md-feedback md-valid-text" id="a-name2-v">✓ Looks good!</div>
+                                <div class="md-feedback md-invalid-text" id="a-name2-i">Please enter your name.</div>
+                            </div>
+                            <div class="md-field py-2">
+                                <label class="text-secondary p-1" for="a-email2">Email</label>
+                                <input type="email" class="form-control" id="a-email2" placeholder="E-mail address"
+                                    required>
+                                <button type="button" class="md-clear" onclick="clearMD('a-email2')">
+                                    <ion-icon name="close-circle"></ion-icon>
+                                </button>
+                                <div class="md-feedback md-valid-text" id="a-email2-v">✓ Looks good!</div>
+                                <div class="md-feedback md-invalid-text" id="a-email2-i">Please enter a valid e-mail.
+                                </div>
+                            </div>
+                            <div class="md-field">
+                                <label class="text-secondary p-1" for="a-city2">City</label>
+                                <select class="form-control" id="a-city2" required>
+                                    <option value="" disabled selected>Choose...</option>
+                                    <option>New York City</option>
+                                    <option>Austin</option>
+                                    <option>Colorado</option>
+                                </select>
+                                <div class="md-feedback md-valid-text" id="a-city2-v">✓ Looks good!</div>
+                                <div class="md-feedback md-invalid-text" id="a-city2-i">Please choose a city.</div>
+                            </div>
+                            <button type="submit" class="md-btn">SUBMIT</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Basic Form -->
+                <div class="md-card">
+                    <div class="md-card-title">Basic Form Example</div>
+                    <div class="md-card-body">
+                        <form onsubmit="return validateMD(this, event)">
+                            <div class="md-field">
+                                <input type="text" class="md-input" id="a-fname" placeholder=" " required>
+                                <label class="md-label" for="a-fname">Name</label>
+                                <button type="button" class="md-clear" onclick="clearMD('a-fname')">
+                                    <ion-icon name="close-circle"></ion-icon>
+                                </button>
+                                <div class="md-feedback md-valid-text" id="a-fname-v">✓ Looks good!</div>
+                                <div class="md-feedback md-invalid-text" id="a-fname-i">Please enter your name.</div>
+                            </div>
+                            <div class="md-field">
+                                <input type="text" class="md-input" id="a-lname" placeholder=" " required>
+                                <label class="md-label" for="a-lname">Last name</label>
+                                <button type="button" class="md-clear" onclick="clearMD('a-lname')">
+                                    <ion-icon name="close-circle"></ion-icon>
+                                </button>
+                                <div class="md-feedback md-valid-text" id="a-lname-v">✓ Looks good!</div>
+                                <div class="md-feedback md-invalid-text" id="a-lname-i">Please enter your last name.
+                                </div>
+                            </div>
+                            <div class="md-field">
+                                <select class="md-select" id="a-city3" required>
+                                    <option value="" disabled selected>Choose...</option>
+                                    <option>New York City</option>
+                                    <option>Austin</option>
+                                    <option>Colorado</option>
+                                </select>
+                                <span class="md-select-label">City</span>
+                                <div class="md-feedback md-valid-text" id="a-city3-v">✓ Looks good!</div>
+                                <div class="md-feedback md-invalid-text" id="a-city3-i">Please select a city.</div>
+                            </div>
+                            <div class="md-check-group">
+                                <div class="md-check">
+                                    <input type="checkbox" id="a-agree" required>
+                                    <label for="a-agree">Agree to terms and conditions</label>
+                                </div>
+                                <div class="md-feedback md-invalid-text" id="a-agree-i">Please accept the terms.</div>
+                            </div>
+                            <button type="submit" class="md-btn">SUBMIT</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div><!-- /android-body -->
+
+        </div>
+    </div>
+
+    <div class="success-toast" id="toast-validation">✓ Form submitted successfully!</div>
+
+    <!-- Ionicons -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+
+    <?php include __DIR__ . '/../partials/bottommenu.php' ?>
+</div>
+
+<?php include __DIR__ . '/../partials/footer.php' ?>

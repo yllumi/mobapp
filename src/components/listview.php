@@ -4,7 +4,9 @@
 
     <div class="app-header">
         <div class="left">
-            <i class="bi bi-arrow-left"></i>
+            <a href="javascript:void()" onclick="history.back()">
+                <i class="bi bi-arrow-left"></i>
+            </a>
         </div>
         <div class="page-title">Listview</div>
         <div class="right">

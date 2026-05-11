@@ -1,0 +1,222 @@
+<?php include __DIR__ . '/../partials/header.php' ?>
+
+<div id="components">
+
+    <div class="app-header">
+        <div class="left">
+            <a href="javascript:void()" onclick="history.back()">
+                <i class="bi bi-arrow-left"></i>
+            </a>
+        </div>
+        <div class="page-title">Comment Boxes</div>
+        <div class="right">
+        </div>
+    </div>
+
+    <div class="app-container">
+        <div id="panel-ios" class="panel">
+            <div class="phone-frame ios-frame">
+                <div class="dynamic-islan"></div>
+                <div class="screen i">
+                    <div class="i-content">
+                        <!-- Comment Block -->
+                        <div class="i-section-hdr">Comment Block</div>
+                        <div class="i-block">
+
+                            <div class="i-comment-item">
+                                <div class="i-avatar">DM</div>
+                                <div class="i-comment-body">
+                                    <div class="i-comment-header">
+                                        <span class="i-comment-name">Diego Morata</span>
+                                        <span class="i-comment-time">just now</span>
+                                    </div>
+                                    <div class="i-comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </div>
+                                    <div class="i-comment-actions">
+                                        <a href="#" class="i-comment-btn" onclick="toggleLikeIOS(this)">
+                                            <ion-icon name="heart-outline"></ion-icon> Like (523)
+                                        </a>
+                                        <a href="#" class="i-comment-btn">
+                                            <ion-icon name="chatbubble-outline"></ion-icon> Reply
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="i-comment-item">
+                                <div class="i-avatar" style="background: linear-gradient(135deg,#ff6b35,#c0392b)">HI
+                                </div>
+                                <div class="i-comment-body">
+                                    <div class="i-comment-header">
+                                        <span class="i-comment-name">Henry Itondo</span>
+                                        <span class="i-comment-time">05:50 PM</span>
+                                    </div>
+                                    <div class="i-comment-text">Sed laoreet leo eget maximus ultricies. Nunc vitae enim
+                                        facilisis tortor aliquet ullamcorper.</div>
+                                    <div class="i-comment-actions">
+                                        <a href="#" class="i-comment-btn liked" onclick="toggleLikeIOS(this)">
+                                            <ion-icon name="heart"></ion-icon> Like (4)
+                                        </a>
+                                        <a href="#" class="i-comment-btn">
+                                            <ion-icon name="chatbubble-outline"></ion-icon> Reply
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="i-comment-item">
+                                <div class="i-avatar" style="background: linear-gradient(135deg,#af52de,#7b2d8b)">CM
+                                </div>
+                                <div class="i-comment-body">
+                                    <div class="i-comment-header">
+                                        <span class="i-comment-name">Carmelita Marsham</span>
+                                        <span class="i-comment-time">Sep 23</span>
+                                    </div>
+                                    <div class="i-comment-text">Vivamus lobortis, orci et commodo pulvinar, eros nibh
+                                        volutpat ipsum, in rhoncus risus dolor sed ipsum.</div>
+                                    <div class="i-comment-actions">
+                                        <a href="#" class="i-comment-btn" onclick="toggleLikeIOS(this)">
+                                            <ion-icon name="heart-outline"></ion-icon> Like (5)
+                                        </a>
+                                        <a href="#" class="i-comment-btn">
+                                            <ion-icon name="chatbubble-outline"></ion-icon> Reply
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Comment Boxes iOS -->
+                        <div class="i-section-hdr">Comment Box</div>
+
+                        <div class="i-comment-box cb-default">
+                            <div class="cb-avatar">CM</div>
+                            <div class="cb-name">Carmelita Marsham</div>
+                            <div class="cb-date">Sep 23, 2020</div>
+                            <div class="cb-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet
+                                leo
+                                eget maximus ultricies.</div>
+                        </div>
+
+                        <div class="i-comment-box cb-primary">
+                            <div class="cb-avatar">CM</div>
+                            <div class="cb-name">Carmelita Marsham</div>
+                            <div class="cb-date">Sep 23, 2020</div>
+                            <div class="cb-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet
+                                leo
+                                eget maximus ultricies.</div>
+                        </div>
+
+                        <div class="i-comment-box cb-secondary">
+                            <div class="cb-avatar">CM</div>
+                            <div class="cb-name">Carmelita Marsham</div>
+                            <div class="cb-date">Sep 23, 2020</div>
+                            <div class="cb-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet
+                                leo
+                                eget maximus ultricies.</div>
+                        </div>
+
+                        <div class="i-comment-box cb-success">
+                            <div class="cb-avatar">CM</div>
+                            <div class="cb-name">Carmelita Marsham</div>
+                            <div class="cb-date">Sep 23, 2020</div>
+                            <div class="cb-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet
+                                leo
+                                eget maximus ultricies.</div>
+                        </div>
+
+                        <div class="i-comment-box cb-danger">
+                            <div class="cb-avatar">CM</div>
+                            <div class="cb-name">Carmelita Marsham</div>
+                            <div class="cb-date">Sep 23, 2020</div>
+                            <div class="cb-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet
+                                leo
+                                eget maximus ultricies.</div>
+                        </div>
+
+                        <div class="i-comment-box cb-warning">
+                            <div class="cb-avatar">CM</div>
+                            <div class="cb-name">Carmelita Marsham</div>
+                            <div class="cb-date">Sep 23, 2020</div>
+                            <div class="cb-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet
+                                leo
+                                eget maximus ultricies.</div>
+                        </div>
+
+                        <div class="i-comment-box cb-info">
+                            <div class="cb-avatar">CM</div>
+                            <div class="cb-name">Carmelita Marsham</div>
+                            <div class="cb-date">Sep 23, 2020</div>
+                            <div class="cb-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet
+                                leo
+                                eget maximus ultricies.</div>
+                        </div>
+
+                        <div class="i-comment-box cb-dark" style="margin-bottom:16px">
+                            <div class="cb-avatar">CM</div>
+                            <div class="cb-name">Carmelita Marsham</div>
+                            <div class="cb-date">Sep 23, 2020</div>
+                            <div class="cb-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet
+                                leo
+                                eget maximus ultricies.</div>
+                        </div>
+
+                    </div>
+
+                    <!-- iOS Reply Bar -->
+                    <div class="i-reply-bar">
+                        <input class="i-reply-inp" type="text" placeholder="Write a comment..." />
+                        <button class="i-reply-send">
+                            <ion-icon name="arrow-up-outline"></ion-icon>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* ── Like toggle iOS ── */
+        function toggleLikeIOS(el) {
+            event.preventDefault();
+            const isLiked = el.classList.contains('liked');
+            const text = el.textContent.trim();
+            const match = text.match(/\((\d+)\)/);
+            let count = match ? parseInt(match[1]) : 0;
+            if (isLiked) {
+                el.classList.remove('liked');
+                count = Math.max(0, count - 1);
+            } else {
+                el.classList.add('liked');
+                count++;
+            }
+            el.innerHTML = '';
+            const newIcon = document.createElement('ion-icon');
+            newIcon.setAttribute('name', isLiked ? 'heart-outline' : 'heart');
+            el.appendChild(newIcon);
+            el.append(` Like (${count})`);
+            if (!isLiked) el.classList.add('liked');
+            else el.classList.remove('liked');
+        }
+
+        /* ── Reply bar send (both) ── */
+        document.querySelectorAll('.a-reply-send, .i-reply-send').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const inp = btn.previousElementSibling;
+                if (inp && inp.value.trim()) {
+                    inp.value = '';
+                    inp.placeholder = 'Comment sent!';
+                    setTimeout(() => inp.placeholder = 'Write a comment...', 1500);
+                }
+            });
+        });
+    </script>
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+
+    <?php include __DIR__ . '/../partials/bottommenu.php' ?>
+</div>
+
+<?php include __DIR__ . '/../partials/footer.php' ?>

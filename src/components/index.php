@@ -35,7 +35,8 @@
             </a>
             <a href="<?= $basePath ?>components/alert.php" class="listview-item">
                 <div class="col">
-                    <div class="listview-icon"><i class="bi bi-exclamation-triangle"></i></div> <strong>Alert Box</strong>
+                    <div class="listview-icon"><i class="bi bi-exclamation-triangle"></i></div> <strong>Alert
+                        Box</strong>
                 </div>
             </a>
             <a href="<?= $basePath ?>components/error-page.php" class="listview-item">
@@ -45,7 +46,8 @@
             </a>
             <a href="#" class="listview-item">
                 <div class="col">
-                    <div class="listview-icon"><i class="bi bi-wifi-off"></i></div> <strong>Online / Offline Detection</strong>
+                    <div class="listview-icon"><i class="bi bi-wifi-off"></i></div> <strong>Online / Offline
+                        Detection</strong>
                 </div>
             </a>
         </div>
@@ -68,12 +70,12 @@
                     <div class="listview-icon"><i class="bi bi-window"></i></div> <strong>Modal</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/offcanvas.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-layout-sidebar"></i></div> <strong>Offcanvas</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/stories.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-collection-play"></i></div> <strong>Stories</strong>
                 </div>
@@ -88,22 +90,22 @@
                     <div class="listview-icon"><i class="bi bi-list-ul"></i></div> <strong>Listview</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/multiplelistview.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-card-list"></i></div> <strong>Multiple Listview</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/stickylistview.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-pin-angle"></i></div> <strong>Sticky Listview</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/accordion.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-sort-numeric-up"></i></div> <strong>Accordion</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/commentboxes.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-chat-left-text"></i></div> <strong>Comment Boxes</strong>
                 </div>
@@ -113,45 +115,46 @@
         <!-- Form Elements -->
         <div class="listview image-listview">
             <div class="listview-title">Form Elements</div>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/inputs.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-cursor-text"></i></div> <strong>Inputs</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/checkbox.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-check-square"></i></div> <strong>Checkbox</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/toggle.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-toggle-off"></i></div> <strong>Toggle</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/search.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-search"></i></div> <strong>Search</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/radio.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-ui-radios"></i></div> <strong>Radio</strong>
                 </div>
             </a>
 
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/stepper.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-plus-circle"></i></div> <strong>Stepper</strong>
                 </div>
             </a>
 
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/formvalidation.php" class="listview-item">
                 <div class="col">
-                    <div class="listview-icon"><i class="bi bi-exclamation-diamond"></i></div> <strong>Form Validation</strong>
+                    <div class="listview-icon"><i class="bi bi-exclamation-diamond"></i></div> <strong>Form
+                        Validation</strong>
                 </div>
             </a>
 
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/formwizard.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-segmented-nav"></i></div> <strong>Form Wizard</strong>
                 </div>
@@ -265,7 +268,8 @@
             </a>
             <a href="#" class="listview-item">
                 <div class="col">
-                    <div class="listview-icon"><i class="bi bi-layout-three-columns"></i></div> <strong>Header with Tab</strong>
+                    <div class="listview-icon"><i class="bi bi-layout-three-columns"></i></div> <strong>Header with
+                        Tab</strong>
                 </div>
             </a>
             <a href="#" class="listview-item">

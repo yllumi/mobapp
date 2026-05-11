@@ -2321,3 +2321,3114 @@ a.listview-item::after {
     border-top: 1px solid rgba(0,0,0,0.1);
     background: #f2f2f7;
 }
+
+/*=====================================
+ * Offcanvas Component
+ *=====================================*/
+
+/* =========================
+   UTIL
+========================= */
+.extra-small {
+    font-size: 11px;
+}
+
+.app-container {
+    max-width: 500px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: #fff;
+}
+
+/* =========================
+   BACKDROP
+========================= */
+/* default = ANDROID */
+.custom-oc-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    /* gelap */
+    z-index: 1060;
+    transition: opacity 0.25s ease;
+}
+
+/* iOS override */
+.custom-oc-backdrop.ios {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.custom-oc-backdrop.active {
+    display: block;
+}
+
+/* =========================
+   BASE OFFCANVAS
+========================= */
+.custom-oc {
+    position: fixed;
+    z-index: 1070;
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* =========================
+   ANDROID STYLE
+========================= */
+.and-style {
+    background: #fdfbff;
+    color: #1c1b1f;
+}
+
+.and-style.oc-left {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 280px;
+    transform: translateX(-100%);
+    border-radius: 0 24px 24px 0;
+}
+
+.and-style.oc-right {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 280px;
+    transform: translateX(100%);
+    border-radius: 24px 0 0 24px;
+}
+
+.and-style.oc-top {
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+    border-radius: 0 0 24px 24px;
+}
+
+.and-style.oc-bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(100%);
+    border-radius: 28px 28px 0 0;
+}
+
+.and-handle {
+    width: 32px;
+    height: 4px;
+    background: #c4c7c5;
+    border-radius: 2px;
+    margin: 12px auto 8px;
+}
+
+/* =========================
+   IOS (CUPERTINO STYLE)
+========================= */
+.ios-style {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    color: #000;
+
+    border: 0.5px solid rgba(255, 255, 255, 0.5);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08),
+        0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.ios-style.oc-left {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 280px;
+    transform: translateX(-100%);
+}
+
+.ios-style.oc-right {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 280px;
+    transform: translateX(100%);
+}
+
+/* floating notif */
+.ios-style.oc-top {
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    height: 58px;
+
+    border-radius: 16px;
+    transform: translateY(-150%);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* bottom sheet */
+.ios-style.oc-bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateY(100%);
+    border-radius: 16px 16px 0 0;
+
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* handle */
+.ios-handle {
+    width: 36px;
+    height: 5px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    margin: 8px auto 6px;
+}
+
+/* header */
+.oc-header {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ios-style .oc-header {
+    padding: 14px 16px;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+/* text */
+.oc-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.ios-style h6 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* buttons */
+.btn-close-custom {
+    background: none;
+    border: none;
+    font-size: 20px;
+}
+
+.ios-txt-btn {
+    background: none;
+    border: none;
+    color: #007aff;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 4px 6px;
+}
+
+.ios-txt-btn:active {
+    opacity: 0.5;
+}
+
+/* =========================
+   ACTIVE STATE
+========================= */
+.custom-oc.active {
+    transform: translate(0, 0) !important;
+}
+
+
+/*=====================================
+ * Stories Component
+ *=====================================*/
+                 /* ── iOS STATUS BAR ── */
+                 .status-bar {
+                     height: 44px;
+                     background: #fff;
+                     display: flex;
+                     align-items: center;
+                     justify-content: space-between;
+                     padding: 10px 20px 0;
+                 }
+        
+                 .status-bar .time {
+                     font-size: 15px;
+                     font-weight: 600;
+                     color: #000;
+                     letter-spacing: -0.3px;
+                 }
+        
+                 .status-bar .icons {
+                     display: flex;
+                     gap: 7px;
+                     align-items: center;
+                 }
+        
+                 .status-bar .icons svg {
+                     width: 16px;
+                     height: 16px;
+                     fill: #000;
+                 }
+        
+                 /* ── iOS NAV BAR ── */
+                 .nav-bar {
+                     height: 44px;
+                     background: rgba(255, 255, 255, .85);
+                     backdrop-filter: blur(20px);
+                     -webkit-backdrop-filter: blur(20px);
+                     border-bottom: 0.5px solid rgba(0, 0, 0, .15);
+                     display: flex;
+                     align-items: center;
+                     padding: 0 8px;
+                     position: sticky;
+                     top: 44px;
+                     z-index: 100;
+                 }
+        
+                 .nav-btn {
+                     width: 44px;
+                     height: 44px;
+                     display: flex;
+                     align-items: center;
+                     justify-content: center;
+                     cursor: pointer;
+                 }
+        
+                 .nav-btn svg {
+                     width: 20px;
+                     height: 20px;
+                     fill: #007AFF;
+                 }
+        
+                 .nav-btn.chevron svg {
+                     width: 12px;
+                 }
+        
+                 .nav-title {
+                     flex: 1;
+                     text-align: center;
+                     font-size: 17px;
+                     font-weight: 600;
+                     color: #000;
+                     letter-spacing: -0.4px;
+                 }
+        
+                 /* ── CONTENT ── */
+                 #appCapsule {
+                     padding-bottom: 83px;
+                 }
+        
+                 /* Info section */
+                 .info-section {
+                     background: #fff;
+                     margin: 18px 16px 0;
+                     border-radius: 12px;
+                     padding: 14px 16px;
+                 }
+        
+                 .info-section p {
+                     font-size: 14px;
+                     color: #3c3c43;
+                     line-height: 1.5;
+                     margin-bottom: 10px;
+                 }
+        
+                 .info-section p:last-child {
+                     margin-bottom: 0;
+                 }
+        
+                 .info-section h4 {
+                     font-size: 14px;
+                     font-weight: 600;
+                     color: #000;
+                     margin-bottom: 5px;
+                 }
+        
+                 .info-section code {
+                     font-size: 12px;
+                     color: #007AFF;
+                     background: #EFF6FF;
+                     padding: 2px 6px;
+                     border-radius: 4px;
+                     font-family: 'SF Mono', 'Courier New', monospace;
+                 }
+        
+                 /* Section header */
+                 .section-header {
+                     font-size: 13px;
+                     font-weight: 400;
+                     text-transform: uppercase;
+                     letter-spacing: .5px;
+                     color: #6C6C70;
+                     padding: 18px 32px 6px;
+                 }
+        
+                 /* ── STORY BLOCK ── */
+                 .story-block {
+                     background: #fff;
+                     padding: 10px 0 10px 16px;
+                     display: flex;
+                     gap: 14px;
+                     overflow-x: auto;
+                     scrollbar-width: none;
+                     border-radius: 12px;
+                     margin: 0 16px;
+                 }
+        
+                 .story-block::-webkit-scrollbar {
+                     display: none;
+                 }
+        
+                 .story-item {
+                     display: flex;
+                     flex-direction: column;
+                     align-items: center;
+                     gap: 5px;
+                     cursor: pointer;
+                     flex-shrink: 0;
+                     -webkit-tap-highlight-color: transparent;
+                 }
+        
+                 .story-ring {
+                     width: 64px;
+                     height: 64px;
+                     border-radius: 50%;
+                     padding: 2.5px;
+                 }
+        
+                 .story-ring.seen {
+                     background: #C7C7CC;
+                 }
+        
+                 .story-ring.passive {
+                     background: #C7C7CC;
+                     opacity: .45;
+                 }
+        
+                 .story-ring .ring-inner {
+                     width: 100%;
+                     height: 100%;
+                     border-radius: 50%;
+                     border: 2.5px solid #fff;
+                     overflow: hidden;
+                     background: #e5e5ea;
+                 }
+        
+                 .story-ring img {
+                     width: 100%;
+                     height: 100%;
+                     object-fit: cover;
+                     border-radius: 50%;
+                 }
+        
+                 .story-name {
+                     font-size: 10.5px;
+                     color: #3c3c43;
+                     max-width: 64px;
+                     text-align: center;
+                     overflow: hidden;
+                     text-overflow: ellipsis;
+                     white-space: nowrap;
+                 }
+        
+                 /* ── iOS LIST ── */
+                 .ios-listview {
+                     background: #fff;
+                     border-radius: 12px;
+                     margin: 0 16px;
+                     overflow: hidden;
+                 }
+        
+                 .ios-list-item {
+                     display: flex;
+                     align-items: center;
+                     padding: 0 16px;
+                     min-height: 48px;
+                     cursor: pointer;
+                     -webkit-tap-highlight-color: transparent;
+                     position: relative;
+                 }
+        
+                 .ios-list-item:not(:last-child)::after {
+                     content: '';
+                     position: absolute;
+                     bottom: 0;
+                     left: 16px;
+                     right: 0;
+                     height: 0.5px;
+                     background: rgba(60, 60, 67, .18);
+                 }
+        
+                 .ios-list-item:active {
+                     background: #e5e5ea;
+                 }
+        
+                 .ios-item-label {
+                     flex: 1;
+                     font-size: 16px;
+                     color: #000;
+                     letter-spacing: -0.2px;
+                 }
+        
+                 .ios-chevron svg {
+                     width: 14px;
+                     height: 14px;
+                     fill: #C7C7CC;
+                 }
+        
+                 /* ── iOS TAB BAR ── */
+                 .tab-bar {
+                     position: fixed;
+                     bottom: 0;
+                     left: 0;
+                     right: 0;
+                     height: 83px;
+                     background: rgba(249, 249, 249, .94);
+                     backdrop-filter: blur(20px);
+                     -webkit-backdrop-filter: blur(20px);
+                     border-top: 0.5px solid rgba(0, 0, 0, .15);
+                     display: flex;
+                     align-items: flex-start;
+                     padding-top: 6px;
+                     z-index: 200;
+                 }
+        
+                 .tab-item {
+                     flex: 1;
+                     display: flex;
+                     flex-direction: column;
+                     align-items: center;
+                     gap: 3px;
+                     cursor: pointer;
+                     -webkit-tap-highlight-color: transparent;
+                     position: relative;
+                 }
+        
+                 .tab-item svg {
+                     width: 24px;
+                     height: 24px;
+                     fill: #8E8E93;
+                 }
+        
+                 .tab-item.active svg {
+                     fill: #007AFF;
+                 }
+        
+                 .tab-label {
+                     font-size: 10px;
+                     color: #8E8E93;
+                     letter-spacing: -0.1px;
+                 }
+        
+                 .tab-item.active .tab-label {
+                     color: #007AFF;
+                 }
+        
+                 .tab-badge {
+                     position: absolute;
+                     top: 0;
+                     right: calc(50% - 22px);
+                     background: #FF3B30;
+                     color: #fff;
+                     font-size: 10px;
+                     font-weight: 600;
+                     min-width: 18px;
+                     height: 18px;
+                     border-radius: 9px;
+                     display: flex;
+                     align-items: center;
+                     justify-content: center;
+                     padding: 0 4px;
+                     border: 2px solid rgba(249, 249, 249, .94);
+                 }
+        
+                 /* ── STORY MODAL ── */
+                 .story-backdrop {
+                     display: none;
+                     position: fixed;
+                     inset: 0;
+                     background: #000;
+                     z-index: 9999;
+                 }
+        
+                 .story-backdrop.show {
+                     display: block;
+                 }
+        
+                 .story-container {
+                     position: absolute;
+                     inset: 0;
+                     border-radius: 0;
+                 }
+        
+                 .story-bg-img {
+                     width: 100%;
+                     height: 100%;
+                     object-fit: cover;
+                 }
+        
+                 .story-gradient {
+                     position: absolute;
+                     inset: 0;
+                     background: linear-gradient(to bottom, rgba(0, 0, 0, .45) 0%, transparent 28%, transparent 58%, rgba(0, 0, 0, .65) 100%);
+                 }
+        
+                 /* Progress */
+                 .story-progress {
+                     position: absolute;
+                     top: 12px;
+                     left: 10px;
+                     right: 10px;
+                     display: flex;
+                     gap: 4px;
+                     z-index: 10;
+                 }
+        
+                 .prog-bar {
+                     flex: 1;
+                     height: 2px;
+                     background: rgba(255, 255, 255, .35);
+                     border-radius: 2px;
+                     overflow: hidden;
+                 }
+        
+                 .prog-bar .fill {
+                     height: 100%;
+                     background: #fff;
+                     width: 0%;
+                     border-radius: 2px;
+                 }
+        
+                 .prog-bar.done .fill {
+                     width: 100%;
+                 }
+        
+                 .prog-bar.active .fill {
+                     animation: fillAnim 5s linear forwards;
+                 }
+        
+                 @keyframes fillAnim {
+                     from {
+                         width: 0%
+                     }
+        
+                     to {
+                         width: 100%
+                     }
+                 }
+        
+                 /* Story Header */
+                 .story-header {
+                     position: absolute;
+                     top: 22px;
+                     left: 0;
+                     right: 0;
+                     display: flex;
+                     align-items: center;
+                     padding: 0 14px;
+                     gap: 10px;
+                     z-index: 10;
+                 }
+        
+                 .s-avatar {
+                     width: 36px;
+                     height: 36px;
+                     border-radius: 50%;
+                     border: 2px solid #fff;
+                     overflow: hidden;
+                     flex-shrink: 0;
+                 }
+        
+                 .s-avatar img {
+                     width: 100%;
+                     height: 100%;
+                     object-fit: cover;
+                 }
+        
+                 .s-info {
+                     flex: 1;
+                 }
+        
+                 .s-name {
+                     font-size: 13px;
+                     font-weight: 600;
+                     color: #fff;
+                     letter-spacing: -0.2px;
+                 }
+        
+                 .s-time {
+                     font-size: 11px;
+                     color: rgba(255, 255, 255, .72);
+                 }
+        
+                 .s-close {
+                     width: 32px;
+                     height: 32px;
+                     display: flex;
+                     align-items: center;
+                     justify-content: center;
+                     background: rgba(0, 0, 0, .25);
+                     border-radius: 50%;
+                     cursor: pointer;
+                 }
+        
+                 .s-close svg {
+                     fill: #fff;
+                     width: 16px;
+                     height: 16px;
+                 }
+        
+                 /* Story Body */
+                 .story-body {
+                     position: absolute;
+                     bottom: 40px;
+                     left: 0;
+                     right: 0;
+                     padding: 0 22px;
+                     z-index: 10;
+                 }
+        
+                 .story-body h2 {
+                     color: #fff;
+                     font-size: 22px;
+                     font-weight: 700;
+                     letter-spacing: -0.5px;
+                     margin-bottom: 8px;
+                 }
+        
+                 .story-body p {
+                     color: rgba(255, 255, 255, .9);
+                     font-size: 14px;
+                     line-height: 1.5;
+                     margin-bottom: 16px;
+                 }
+        
+                 .story-cta {
+                     display: inline-block;
+                     padding: 11px 28px;
+                     background: rgba(255, 255, 255, .92);
+                     color: #000;
+                     border-radius: 980px;
+                     font-size: 15px;
+                     font-weight: 600;
+                     cursor: pointer;
+                     border: none;
+                     letter-spacing: -0.2px;
+                 }
+        
+                 .story-fixed-btn {
+                     display: block;
+                     padding: 13px;
+                     background: rgba(255, 255, 255, .92);
+                     color: #000;
+                     border-radius: 14px;
+                     font-size: 15px;
+                     font-weight: 600;
+                     text-align: center;
+                     cursor: pointer;
+                     border: none;
+                 }
+        
+                 /* Tap zones */
+                 .tap-prev,
+                 .tap-next {
+                     position: absolute;
+                     top: 0;
+                     bottom: 0;
+                     width: 40%;
+                     z-index: 5;
+                     cursor: pointer;
+                 }
+        
+                 .tap-prev {
+                     left: 0;
+                 }
+        
+                 .tap-next {
+                     right: 0;
+                 }
+
+/*=====================================
+ * Multi Listview Component
+ *=====================================*/
+
+ /* Pastikan warna background nested list berbeda sedikit agar kontras */
+ .nested-wrapper {
+     max-height: 0;
+     overflow: hidden;
+     transition: max-height 0.3s ease-in-out;
+     background: #fafafa;
+ }
+
+ .nested-wrapper.show {
+     max-height: 500px;
+ }
+
+ /* Memutar arah chevron trigger saat aktif */
+ .nested-trigger.active::after {
+     transform: translateY(-50%) rotate(90deg) !important;
+ }
+
+ /* Jarak indentasi agar terlihat nested */
+ .nested-wrapper .listview-item {
+     padding-left: 32px !important;
+     /* Untuk simple */
+ }
+
+ /* Khusus kategori dengan gambar/icon besar di trigger agar list anaknya lebih menjorok */
+ .image-listview .nested-wrapper .listview-item,
+ .icon-listview .nested-wrapper .listview-item {
+     padding-left: 54px !important;
+ }
+
+ /*=====================================
+ * Sticky Listview Component
+ *=====================================*/
+
+ /* Header Grup yang Menempel */
+ .sticky-title {
+     position: -webkit-sticky;
+     /* Dukungan Safari */
+     position: sticky;
+     top: 56px;
+     /* SESUAIKAN: Jika ada header atas (appHeader), masukkan tingginya di sini */
+     z-index: 99;
+     background-color: #ffffff;
+     /* Pastikan background solid agar teks list di bawahnya tidak tembus */
+     padding: 10px 16px;
+     font-size: 14px;
+     border-bottom: 1px solid #E1E1E1;
+     margin-top: 0;
+ }
+
+ /* Konsistensi dengan Multiple Listview */
+ .listview {
+     background: #fff;
+     display: block;
+     width: 100%;
+ }
+
+ .listview-item {
+     padding: 10px 16px;
+     display: flex;
+     align-items: center;
+     text-decoration: none;
+     color: #27173E;
+     border-bottom: 1px solid #E1E1E1;
+ }
+
+ .listview-item .col {
+     display: flex;
+     align-items: center;
+     justify-content: flex-start !important;
+     /* Memperbaiki posisi aneh sebelumnya */
+     gap: 12px;
+     /* Jarak antara ikon/gambar dengan teks */
+ }
+
+ /* Hilangkan garis bawah pada item terakhir dalam satu grup list */
+ .listview .listview-item:last-child {
+     border-bottom: none;
+ }
+
+ /* Memberi sedikit bayangan saat judul grup menempel (opsional) */
+ .sticky-title {
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+ }
+
+ /*=====================================
+ * Accordion
+ *=====================================*/
+
+ /* Menghilangkan gaya tombol default agar menyatu dengan listview */
+ .accordion.listview .accordion-button {
+     padding: 12px 16px !important;
+     /* Padding standar list-item */
+     background-color: #fff !important;
+     box-shadow: none !important;
+     border: none !important;
+     color: inherit !important;
+ }
+
+ /* Mengatur container kolom di dalam button */
+ .accordion.listview .accordion-button .col {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     /* Jarak antara ikon dan teks */
+     padding: 0;
+ }
+
+ /* Mengatur panah chevron agar berada di kanan pas */
+ .accordion.listview .accordion-button::after {
+     width: 1rem;
+     height: 1rem;
+     background-size: 1rem;
+     margin-right: 0;
+ }
+
+ /* Style isi accordion (content) */
+ .accordion.listview .accordion-body {
+     padding: 10px 16px 15px 16px;
+     background: #fbfbfb;
+     /* Background sedikit gelap agar kontras */
+     color: #6c757d;
+     font-size: 14px;
+     line-height: 1.6;
+ }
+
+ /* Jika menggunakan ikon, teks body menjorok ke dalam agar rapi */
+ .accordion.listview .accordion-body.iconed {
+     padding-left: 60px !important;
+ }
+
+ /* Border antar item agar konsisten dengan listview */
+ .accordion.listview .accordion-item {
+     border: none;
+     border-bottom: 1px solid #E1E1E1 !important;
+ }
+
+ /* Border Inset */
+ .border-inset {
+     border: none;
+     border: 1px solid #E1E1E1 !important;
+ }
+
+ .accordion.listview .accordion-item:last-child {
+     border-bottom: none !important;
+ }
+
+  /*=====================================
+ * Comment Boxes Component
+ *=====================================*/
+
+        .i-navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 0.5px solid rgba(0, 0, 0, 0.15);
+            height: 44px;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            flex-shrink: 0;
+        }
+    
+        .i-back {
+            font-size: 16px;
+            color: #007aff;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            cursor: pointer;
+        }
+    
+        .i-back ion-icon {
+            font-size: 20px;
+        }
+    
+        .i-navtitle {
+            flex: 1;
+            text-align: center;
+            font-size: 17px;
+            font-weight: 600;
+            color: #000;
+            margin-right: 56px;
+        }
+    
+        .i-content {
+            flex: 1;
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
+    
+        .i-content::-webkit-scrollbar {
+            display: none;
+        }
+    
+        .i-section-hdr {
+            font-size: 13px;
+            font-weight: 600;
+            color: #8e8e93;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 18px 16px 6px;
+        }
+    
+        .i-block {
+            background: #fff;
+            border-radius: 12px;
+            margin: 0 16px 8px;
+            overflow: hidden;
+            border: 0.5px solid rgba(0, 0, 0, 0.08);
+        }
+    
+        /* ─── iOS Comment Block ─── */
+        .i-comment-item {
+            display: flex;
+            gap: 10px;
+            padding: 12px 14px;
+            border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+        }
+    
+        .i-comment-item:last-child {
+            border-bottom: none;
+        }
+    
+        .i-avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #007aff, #0051d5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+    
+        .i-comment-body {
+            flex: 1;
+            min-width: 0;
+        }
+    
+        .i-comment-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 3px;
+        }
+    
+        .i-comment-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #000;
+        }
+    
+        .i-comment-time {
+            font-size: 11px;
+            color: #8e8e93;
+        }
+    
+        .i-comment-text {
+            font-size: 13px;
+            color: #3c3c43;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+    
+        .i-comment-actions {
+            display: flex;
+            gap: 14px;
+        }
+    
+        .i-comment-btn {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            color: #8e8e93;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+    
+        .i-comment-btn:hover {
+            color: #007aff;
+        }
+    
+        .i-comment-btn ion-icon {
+            font-size: 14px;
+        }
+    
+        .i-comment-btn.liked {
+            color: #ff3b30;
+        }
+    
+        .i-comment-btn.liked ion-icon {
+            color: #ff3b30;
+        }
+    
+        /* ─── iOS Comment Boxes ─── */
+        .i-comment-box {
+            border-radius: 14px;
+            padding: 16px 14px;
+            margin: 0 16px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 6px;
+            border: 0.5px solid rgba(0, 0, 0, 0.08);
+        }
+    
+        .i-comment-box .cb-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+    
+        .i-comment-box.cb-default {
+            background: #fff;
+        }
+    
+        .i-comment-box.cb-default .cb-avatar {
+            background: #e5f0ff;
+            color: #007aff;
+        }
+    
+        .i-comment-box.cb-default .cb-name {
+            color: #000;
+        }
+    
+        .i-comment-box.cb-default .cb-date {
+            color: #8e8e93;
+        }
+    
+        .i-comment-box.cb-default .cb-text {
+            color: #3c3c43;
+        }
+    
+        .i-comment-box.cb-primary {
+            background: #007aff;
+        }
+    
+        .i-comment-box.cb-secondary {
+            background: #8e8e93;
+        }
+    
+        .i-comment-box.cb-success {
+            background: #34c759;
+        }
+    
+        .i-comment-box.cb-danger {
+            background: #ff3b30;
+        }
+    
+        .i-comment-box.cb-warning {
+            background: #ff9500;
+        }
+    
+        .i-comment-box.cb-info {
+            background: #5ac8fa;
+        }
+    
+        .i-comment-box.cb-dark {
+            background: #1c1c1e;
+        }
+    
+        .i-comment-box .cb-avatar {
+            background: rgba(255, 255, 255, 0.25);
+            color: #fff;
+        }
+    
+        .i-comment-box.cb-default .cb-avatar {
+            background: #e5f0ff;
+            color: #007aff;
+        }
+    
+        .i-comment-box .cb-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+        }
+    
+        .i-comment-box .cb-date {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.75);
+        }
+    
+        .i-comment-box .cb-text {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+        }
+    
+        .i-comment-box.cb-default .cb-name {
+            color: #000;
+        }
+    
+        .i-comment-box.cb-default .cb-date {
+            color: #8e8e93;
+        }
+    
+        .i-comment-box.cb-default .cb-text {
+            color: #3c3c43;
+        }
+    
+        /* ─── iOS reply bar ─── */
+        .i-reply-bar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            border-top: 0.5px solid rgba(0, 0, 0, 0.15);
+            padding: 10px 14px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-shrink: 0;
+        }
+    
+        .i-reply-inp {
+            flex: 1;
+            height: 36px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 18px;
+            padding: 0 14px;
+            font-size: 14px;
+            outline: none;
+            font-family: inherit;
+            color: #000;
+            background: rgba(118, 118, 128, 0.08);
+            transition: border-color 0.2s;
+        }
+    
+        .i-reply-inp:focus {
+            border-color: #007aff;
+            background: #fff;
+        }
+    
+        .i-reply-inp::placeholder {
+            color: #8e8e93;
+        }
+    
+        .i-reply-send {
+            width: 36px;
+            height: 36px;
+            background: #007aff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            flex-shrink: 0;
+            transition: background 0.15s;
+        }
+    
+        .i-reply-send:hover {
+            background: #006ae6;
+        }
+    
+        .i-reply-send ion-icon {
+            font-size: 16px;
+            color: #fff;
+        }
+    
+        /* ─── iOS tab bar ─── */
+        .i-tabbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            border-top: 0.5px solid rgba(0, 0, 0, 0.18);
+            height: 82px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-around;
+            padding-top: 8px;
+            flex-shrink: 0;
+        }
+    
+        .i-tabitem {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            color: #8e8e93;
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 0 8px;
+            position: relative;
+        }
+    
+        .i-tabitem ion-icon {
+            font-size: 24px;
+        }
+    
+        .i-tabitem.active {
+            color: #007aff;
+        }
+    
+        .i-tbadge {
+            position: absolute;
+            top: -2px;
+            right: 2px;
+            background: #ff3b30;
+            color: #fff;
+            font-size: 8px;
+            font-weight: 700;
+            border-radius: 10px;
+            padding: 1px 4px;
+            min-width: 14px;
+            text-align: center;
+        }
+
+/*=====================================
+ * Inputs Component
+ *=====================================*/
+* {
+       box-sizing: border-box;
+   }
+
+   body {
+       background: #f2f2f7;
+       font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+       color: #1c1c1e;
+       margin: 0;
+   }
+
+   #appCapsule {
+       padding-bottom: 24px;
+   }
+
+   .section-inputs {
+       margin-top: 16px;
+   }
+
+   .section-title-inputs {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 16px;
+        padding: 0 24px 0 24px;
+   }
+
+   .wide-block {
+       background: #fff;
+       padding: 12px 16px;
+       border-top: 0.5px solid rgba(60, 60, 67, 0.18);
+       border-bottom: 0.5px solid rgba(60, 60, 67, 0.18);
+   }
+
+   /* Upload */
+   .custom-file-upload {
+       border: 1.5px dashed #c7c7cc;
+       border-radius: 12px;
+       padding: 24px 16px;
+       text-align: center;
+       cursor: pointer;
+       background: #fff;
+   }
+
+   .custom-file-upload input {
+       display: none;
+   }
+
+   .custom-file-upload label {
+       cursor: pointer;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       gap: 6px;
+   }
+
+   .custom-file-upload ion-icon {
+       font-size: 28px;
+       color: #007AFF;
+   }
+
+   .custom-file-upload i {
+       font-style: normal;
+       font-size: 14px;
+       color: #007AFF;
+       font-weight: 500;
+   }
+
+   /* Form Groups */
+   .form-group {
+       margin-bottom: 0;
+       padding: 10px 0;
+       border-bottom: 0.5px solid rgba(60, 60, 67, 0.12);
+   }
+
+   .form-group:last-child {
+       border-bottom: none;
+   }
+
+   .input-wrapper {
+       position: relative;
+   }
+
+   .form-label {
+       font-size: 12px;
+       color: #6e6e73;
+       display: block;
+       margin-bottom: 3px;
+       font-weight: 400;
+   }
+
+   /* Basic style — underline */
+   .form-group.basic .form-control {
+       border: none;
+       border-bottom: 0.5px solid rgba(60, 60, 67, 0.2);
+       border-radius: 0;
+       background: transparent;
+       padding: 6px 28px 6px 0;
+       font-size: 15px;
+       color: #1c1c1e;
+       outline: none;
+       width: 100%;
+       box-shadow: none;
+   }
+
+   .form-group.basic .form-control:focus {
+       border-bottom-color: #007AFF;
+       outline: none;
+       box-shadow: none;
+   }
+
+   /* Boxed style */
+   .form-group.boxed {
+       padding: 8px 0;
+   }
+
+   .form-group.boxed .form-control {
+       border: 0.5px solid #c7c7cc;
+       border-radius: 10px;
+       background: #f9f9fb;
+       padding: 9px 28px 9px 12px;
+       font-size: 15px;
+       color: #1c1c1e;
+       outline: none;
+       width: 100%;
+       box-shadow: none;
+   }
+
+   .form-group.boxed .form-control:focus {
+       border-color: #007AFF;
+       outline: none;
+       box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.12);
+   }
+
+   select.form-control {
+       appearance: none;
+       -webkit-appearance: none;
+   }
+
+   .clear-input {
+       position: absolute;
+       right: 0;
+       top: 50%;
+       transform: translateY(-50%);
+       color: #c7c7cc;
+       cursor: pointer;
+       font-style: normal;
+       font-size: 16px;
+       line-height: 1;
+       padding: 4px;
+   }
+
+   .form-group.boxed .clear-input {
+       right: 8px;
+   }
+
+   .input-info {
+       font-size: 11px;
+       color: #8e8e93;
+       margin-top: 4px;
+   }
+
+   /* Animated */
+   .form-group.animated .form-label {
+       font-size: 15px;
+       color: #c7c7cc;
+       position: absolute;
+       top: 6px;
+       left: 0;
+       pointer-events: none;
+       transition: all 0.2s ease;
+       z-index: 1;
+   }
+
+   .form-group.animated .input-wrapper {
+       padding-top: 0;
+   }
+
+   .form-group.animated .form-control {
+       padding-top: 6px;
+   }
+
+   .form-group.animated .form-control:focus~.form-label,
+   .form-group.animated .form-control:not(:placeholder-shown)~.form-label {
+       font-size: 11px;
+       top: -14px;
+       color: #007AFF;
+   }
+
+   /* Listview */
+   .listview {
+       list-style: none;
+       padding: 0;
+       margin: 0;
+   }
+
+   .listview li .item {
+       display: flex;
+       align-items: flex-start;
+       gap: 12px;
+       padding: 8px 0;
+       border-bottom: 0.5px solid rgba(60, 60, 67, 0.12);
+   }
+
+   .listview li:last-child .item {
+       border-bottom: none;
+   }
+
+   .icon-box {
+       width: 34px;
+       height: 34px;
+       border-radius: 9px;
+       background: #007AFF;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       flex-shrink: 0;
+       margin-top: 4px;
+   }
+
+   .icon-box ion-icon {
+       font-size: 17px;
+       color: #fff;
+   }
+
+   .in {
+       flex: 1;
+       min-width: 0;
+   }
+
+   .image {
+       width: 36px;
+       height: 36px;
+       border-radius: 50%;
+       object-fit: cover;
+       flex-shrink: 0;
+       margin-top: 4px;
+       background: #e5e5ea;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       font-size: 13px;
+       font-weight: 500;
+       color: #6e6e73;
+   }
+
+/*=====================================
+ * Checkbox & Radio Component
+ *=====================================*/
+
+* {
+      box-sizing: border-box;
+  }
+
+  body {
+      background: #f2f2f7;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+      color: #1c1c1e;
+      margin: 0;
+  }
+
+  #appCapsule {
+      padding-bottom: 24px;
+  }
+
+  /* Section */
+  .section-checkbox {
+      margin: 16px 0 0;
+  }
+
+  /* .section-title-checkbox {
+      font-size: 12px;
+      font-weight: 600;
+      color: #6e6e73;
+      padding: 0 16px 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+  } */
+
+  /* Wide Block */
+  .wide-block {
+      background: #ffffff;
+      padding: 12px 16px;
+      border-top: 0.5px solid rgba(60, 60, 67, 0.18);
+      border-bottom: 0.5px solid rgba(60, 60, 67, 0.18);
+  }
+
+  .wide-block.p-0 {
+      padding: 0;
+  }
+
+  /* Block desc */
+  .block-desc {
+      font-size: 13px;
+      color: #8e8e93;
+      margin-bottom: 10px;
+      line-height: 1.5;
+  }
+
+  /* ===== iOS Checkbox ===== */
+  /* -- Block style -- */
+  .form-check {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 9px 0;
+      border-bottom: 0.5px solid rgba(60, 60, 67, 0.10);
+      margin: 0;
+  }
+
+  .form-check:last-child {
+      border-bottom: none;
+  }
+
+  .form-check-input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      border: 1.5px solid #c7c7cc;
+      border-radius: 50%;
+      background-color: #fff;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      flex-shrink: 0;
+      margin: 0;
+      position: relative;
+      transition: background 0.18s, border-color 0.18s;
+      box-shadow: none;
+  }
+
+  .form-check-input[type="checkbox"]:checked {
+      background-color: #007AFF;
+      border-color: #007AFF;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='10' viewBox='0 0 13 10'%3E%3Cpath d='M1.5 5L5 8.5L11.5 1.5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 13px 10px;
+  }
+
+  .form-check-input[type="checkbox"]:focus {
+      outline: none;
+      box-shadow: none;
+  }
+
+  .form-check-label {
+      font-size: 15px;
+      color: #1c1c1e;
+      cursor: pointer;
+      margin: 0;
+      user-select: none;
+  }
+
+  /* -- Inline style -- */
+  .form-check-inline {
+      display: inline-flex;
+      align-items: center;
+      margin: 0 4px;
+      padding: 0;
+      border: none;
+  }
+
+  .form-check-inline .form-check-input {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+  }
+
+  .inline-text {
+      font-size: 13px;
+      color: #3a3a3c;
+      line-height: 2.2;
+  }
+
+  /* -- Input List style (full-width rows) -- */
+  .input-list {
+      padding: 0;
+  }
+
+  .input-list .form-check {
+      padding: 13px 16px;
+      border-bottom: 0.5px solid rgba(60, 60, 67, 0.12);
+      gap: 14px;
+  }
+
+  .input-list .form-check:last-child {
+      border-bottom: none;
+  }
+
+  .input-list .form-check-label {
+      font-size: 15px;
+      flex: 1;
+  }
+
+  .input-list .chevron {
+      color: #c7c7cc;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1;
+  }
+
+  .form-check-inline {
+    display: inline-flex !important;
+    align-items: center;
+    margin: 0 6px;
+}
+
+.form-check-input {
+    margin: 0 !important;
+}
+
+/*=====================================
+ * Toggle Component
+ *=====================================*/
+
+* {
+     box-sizing: border-box;
+ }
+
+ body {
+     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+     background: #f2f2f7;
+     margin: 0;
+     color: #1c1c1e;
+ }
+
+ /* ════════════════════════════
+     ANDROID
+  ════════════════════════════ */
+ .android-body {
+     background: #f0f0f0;
+     padding-bottom: 20px;
+ }
+
+ .android-list-title {
+     font-size: 11px;
+     font-weight: 600;
+     color: #1976d2;
+     padding: 14px 12px 6px;
+     text-transform: uppercase;
+     letter-spacing: 0.6px;
+ }
+
+ /* Simple listview */
+ .android-listview {
+     list-style: none;
+     background: #fff;
+     border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+     border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+     padding: 0;
+     margin: 0;
+ }
+
+ .android-listview li {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 14px 16px;
+     border-bottom: 0.5px solid rgba(0, 0, 0, 0.07);
+ }
+
+ .android-listview li:last-child {
+     border-bottom: none;
+ }
+
+ .android-list-label {
+     font-size: 14px;
+     color: #1c1c1e;
+ }
+
+ /* Android Toggle */
+ .android-switch {
+     position: relative;
+     width: 38px;
+     height: 22px;
+     flex-shrink: 0;
+ }
+
+ .android-switch input {
+     opacity: 0;
+     width: 0;
+     height: 0;
+     position: absolute;
+ }
+
+ .android-track {
+     position: absolute;
+     inset: 0;
+     background: #bdbdbd;
+     border-radius: 11px;
+     transition: background 0.2s;
+     cursor: pointer;
+ }
+
+ .android-thumb {
+     position: absolute;
+     top: -1px;
+     left: -1px;
+     width: 24px;
+     height: 24px;
+     background: #fff;
+     border-radius: 50%;
+     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+     transition: left 0.2s, background 0.2s;
+     pointer-events: none;
+ }
+
+ .android-switch input:checked~.android-track {
+     background: #90caf9;
+ }
+
+ .android-switch input:checked~.android-thumb {
+     left: 15px;
+     background: #1976d2;
+ }
+
+ /* Icon listview */
+ .android-icon-list {
+     list-style: none;
+     background: #fff;
+     border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+     border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+     padding: 0;
+     margin: 0;
+ }
+
+ .android-icon-list li .item {
+     display: flex;
+     align-items: center;
+     gap: 14px;
+     padding: 12px 16px;
+     border-bottom: 0.5px solid rgba(0, 0, 0, 0.07);
+ }
+
+ .android-icon-list li:last-child .item {
+     border-bottom: none;
+ }
+
+ .android-icon-box {
+     width: 38px;
+     height: 38px;
+     border-radius: 8px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-shrink: 0;
+ }
+
+ .android-icon-box ion-icon {
+     font-size: 20px;
+     color: #fff;
+ }
+
+ .android-in {
+     flex: 1;
+ }
+
+ .android-in-row {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 8px;
+ }
+
+ .android-in .title {
+     font-size: 14px;
+     color: #1c1c1e;
+ }
+
+ .android-in .subtitle {
+     font-size: 12px;
+     color: #8e8e93;
+     margin-top: 2px;
+ }
+
+ /* ════════════════════════════
+     iOS
+  ════════════════════════════ */
+ .ios-body {
+     background: #f2f2f7;
+     padding-bottom: 20px;
+ }
+
+ .ios-list-title {
+     font-size: 12px;
+     font-weight: 400;
+     color: #6e6e73;
+     padding: 14px 16px 6px;
+     text-transform: uppercase;
+     letter-spacing: 0.3px;
+ }
+
+ /* Simple listview */
+ .ios-listview {
+     list-style: none;
+     background: #fff;
+     border-top: 0.5px solid rgba(60, 60, 67, 0.18);
+     border-bottom: 0.5px solid rgba(60, 60, 67, 0.18);
+     padding: 0;
+     margin: 0;
+ }
+
+ .ios-listview li {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 13px 16px;
+     border-bottom: 0.5px solid rgba(60, 60, 67, 0.10);
+ }
+
+ .ios-listview li:last-child {
+     border-bottom: none;
+ }
+
+ .ios-list-label {
+     font-size: 16px;
+     color: #1c1c1e;
+ }
+
+ /* iOS Toggle */
+ .ios-switch {
+     position: relative;
+     width: 51px;
+     height: 31px;
+     flex-shrink: 0;
+ }
+
+ .ios-switch input {
+     opacity: 0;
+     width: 0;
+     height: 0;
+     position: absolute;
+ }
+
+ .ios-track {
+     position: absolute;
+     inset: 0;
+     background: #e5e5ea;
+     border-radius: 16px;
+     transition: background 0.22s;
+     cursor: pointer;
+ }
+
+ .ios-thumb {
+     position: absolute;
+     top: 2px;
+     left: 2px;
+     width: 27px;
+     height: 27px;
+     background: #fff;
+     border-radius: 50%;
+     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.24);
+     transition: left 0.22s cubic-bezier(.4, 0, .2, 1);
+     pointer-events: none;
+ }
+
+ .ios-switch input:checked~.ios-track {
+     background: #34c759;
+ }
+
+ .ios-switch input:checked~.ios-thumb {
+     left: 22px;
+ }
+
+ /* Icon listview */
+ .ios-icon-list {
+     list-style: none;
+     background: #fff;
+     border-top: 0.5px solid rgba(60, 60, 67, 0.18);
+     border-bottom: 0.5px solid rgba(60, 60, 67, 0.18);
+     padding: 0;
+     margin: 0;
+ }
+
+ .ios-icon-list li .item {
+     display: flex;
+     align-items: center;
+     gap: 14px;
+     padding: 11px 16px;
+     border-bottom: 0.5px solid rgba(60, 60, 67, 0.10);
+ }
+
+ .ios-icon-list li:last-child .item {
+     border-bottom: none;
+ }
+
+ .ios-icon-box {
+     width: 36px;
+     height: 36px;
+     border-radius: 9px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-shrink: 0;
+ }
+
+ .ios-icon-box ion-icon {
+     font-size: 19px;
+     color: #fff;
+ }
+
+ .ios-in {
+     flex: 1;
+ }
+
+ .ios-in-row {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 8px;
+ }
+
+ .ios-in .title {
+     font-size: 15px;
+     color: #1c1c1e;
+ }
+
+ .ios-in .subtitle {
+     font-size: 12px;
+     color: #8e8e93;
+     margin-top: 2px;
+ }
+
+ /*=====================================
+ * Search Component
+ *=====================================*/
+
+ /* Android */
+
+  /* ─── Screen ─── */
+  .screen {
+      width: 100%;
+      height: 100%;
+      background: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+  }
+
+  .header-btn {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.15s;
+      flex-shrink: 0;
+  }
+
+  .header-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+  }
+
+  .header-btn ion-icon {
+      font-size: 22px;
+      color: #fff;
+  }
+
+  .header-title {
+      flex: 1;
+      font-size: 18px;
+      font-weight: 500;
+      color: #fff;
+      padding: 0 4px;
+      letter-spacing: 0.2px;
+  }
+
+  /* ─── Extra Header / Search Bar ─── */
+  .extra-header {
+      background: #fff;
+      padding: 10px 12px;
+      border-bottom: 1px solid #e0e0e0;
+      flex-shrink: 0;
+  }
+
+  .searchbox {
+      background: #f0f0f0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      padding: 8px 12px;
+      gap: 8px;
+  }
+
+  .searchbox ion-icon {
+      font-size: 18px;
+      color: #757575;
+      flex-shrink: 0;
+  }
+
+  .searchbox input {
+      border: none;
+      background: transparent;
+      font-size: 14px;
+      color: #212121;
+      flex: 1;
+      outline: none;
+      font-family: inherit;
+  }
+
+  .searchbox input::placeholder {
+      color: #9e9e9e;
+  }
+
+  /* ─── Content Area ─── */
+  .content-area {
+      flex: 1;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+  }
+
+  .content-area::-webkit-scrollbar {
+      display: none;
+  }
+
+  /* ─── Section Title ─── */
+  .section-title {
+      padding: 10px 16px 4px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #1a73e8;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      background: #f2f2f2;
+  }
+
+  /* ─── Result List ─── */
+  .result-list {
+      background: #fff;
+  }
+
+  .result-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid #f5f5f5;
+      gap: 12px;
+      cursor: pointer;
+      transition: background 0.12s;
+      text-decoration: none;
+  }
+
+  .result-item:hover {
+      background: #f9f9f9;
+  }
+
+  .result-item:last-child {
+      border-bottom: none;
+  }
+
+  /* ─── Thumbnail ─── */
+  .result-thumb {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+  }
+
+  .result-thumb ion-icon {
+      font-size: 22px;
+  }
+
+  /* ─── Result Text ─── */
+  .result-info {
+      flex: 1;
+      min-width: 0;
+  }
+
+  .result-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: #212121;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 2px;
+  }
+
+  .result-desc {
+      font-size: 12px;
+      color: #757575;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 3px;
+  }
+
+  .result-source {
+      font-size: 11px;
+      font-weight: 500;
+      color: #1a73e8;
+  }
+
+  .result-arrow ion-icon {
+      font-size: 18px;
+      color: #bdbdbd;
+  }
+
+  /* IOS */
+
+  /*=====================================
+ * Stepper component
+ *=====================================*/
+
+    /* Grid for colors */
+    .a-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        padding: 12px 20px 16px;
+        background: #fff;
+        margin-bottom: 2px;
+        }
+    
+    .a-grid-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        }
+    
+    .a-grid-item small {
+        font-size: 10px;
+        color: #9e9e9e;
+        font-weight: 500;
+        text-transform: uppercase;
+        }
+
+     /* Content */
+    .a-content {
+        flex: 1;
+        overflow-y: auto;
+        scrollbar-width: none;
+        }
+                        
+    .a-content::-webkit-scrollbar {
+        display: none;
+        }
+                        
+        /* Wide Block */
+    .a-block {
+         background: #fff;
+         padding: 14px 20px;
+         margin-bottom: 2px;
+        }
+                        
+    .a-block-center {
+        background: #fff;
+        padding: 14px 20px;
+        margin-bottom: 2px;
+        text-align: center;
+    }
+                        
+    /* Row (label + stepper) */
+    .a-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #f5f5f5;
+    }
+                        
+    .a-row:last-child {
+        border-bottom: none;
+    }
+                        
+    .a-label {
+        font-size: 13px;
+        color: #757575;
+        font-weight: 500;
+    }
+
+    .stepper-a {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 4px;
+        overflow: hidden;
+        height: 36px;
+    }
+        
+    .stepper-a.sm {
+        height: 28px;
+    }
+        
+    .stepper-a.lg {
+        height: 44px;
+    }
+        
+    .stepper-a .s-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        user-select: none;
+        font-size: 20px;
+        font-weight: 400;
+        transition: opacity 0.15s;
+        flex-shrink: 0;
+        width: 36px;
+        height: 100%;
+    }
+        
+    .stepper-a.sm .s-btn {
+        width: 28px;
+        font-size: 16px;
+    }
+        
+    .stepper-a.lg .s-btn {
+        width: 44px;
+        font-size: 24px;
+    }
+        
+    .stepper-a .s-btn:active {
+        opacity: 0.65;
+    }
+        
+    .stepper-a .s-val {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 40px;
+        height: 100%;
+        font-size: 14px;
+        font-weight: 600;
+        border-left: 1px solid rgba(255, 255, 255, 0.25);
+        border-right: 1px solid rgba(255, 255, 255, 0.25);
+    }
+        
+    .stepper-a.sm .s-val {
+        font-size: 12px;
+        min-width: 32px;
+    }
+        
+    .stepper-a.lg .s-val {
+        font-size: 16px;
+        min-width: 48px;
+    }
+        
+    /* Solid colors */
+    .sa-primary {
+        background: #1a73e8;
+        color: #fff;
+    }
+        
+    .sa-secondary {
+        background: #757575;
+        color: #fff;
+    }
+        
+    .sa-success {
+        background: #2e7d32;
+        color: #fff;
+    }
+        
+    .sa-danger {
+        background: #d32f2f;
+        color: #fff;
+    }
+        
+    .sa-warning {
+        background: #f57c00;
+        color: #fff;
+    }
+        
+    .sa-info {
+        background: #0288d1;
+        color: #fff;
+    }
+        
+    .sa-dark {
+        background: #212121;
+        color: #fff;
+    }
+        
+                 /* Outline colors */
+    .sa-outline-primary {
+        background: #fff;
+        color: #1a73e8;
+        border: 1.5px solid #1a73e8;
+    }
+        
+    .sa-outline-secondary {
+        background: #fff;
+        color: #757575;
+        border: 1.5px solid #757575;
+    }
+        
+    .sa-outline-success {
+        background: #fff;
+        color: #2e7d32;
+        border: 1.5px solid #2e7d32;
+    }
+        
+    .sa-outline-danger {
+        background: #fff;
+        color: #d32f2f;
+        border: 1.5px solid #d32f2f;
+    }
+        
+    .sa-outline-warning {
+        background: #fff;
+        color: #f57c00;
+        border: 1.5px solid #f57c00;
+    }
+        
+    .sa-outline-info {
+        background: #fff;
+        color: #0288d1;
+        border: 1.5px solid #0288d1;
+    }
+        
+    .sa-outline-dark {
+        background: #fff;
+        color: #212121;
+        border: 1.5px solid #212121;
+    }
+        
+    .sa-outline-primary .s-val {
+        border-color: #1a73e8;
+    }
+        
+    .sa-outline-secondary .s-val {
+        border-color: #757575;
+    }
+        
+    .sa-outline-success .s-val {
+        border-color: #2e7d32;
+    }
+        
+    .sa-outline-danger .s-val {
+        border-color: #d32f2f;
+    }
+        
+    .sa-outline-warning .s-val {
+        border-color: #f57c00;
+    }
+        
+    .sa-outline-info .s-val {
+        border-color: #0288d1;
+    }
+        
+    .sa-outline-dark .s-val {
+        border-color: #212121;
+    }
+        
+    /* Bottom Nav Android */
+    .a-bottomnav {
+        background: #fff;
+        border-top: 1px solid #e0e0e0;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-shrink: 0;
+    }
+        
+    .a-navitem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        color: #9e9e9e;
+        cursor: pointer;
+        font-size: 10px;
+        font-weight: 500;
+        padding: 4px 10px;
+        text-decoration: none;
+    }
+        
+    .a-navitem ion-icon {
+        font-size: 22px;
+    }
+        
+    .a-navitem.active {
+        color: #1a73e8;
+    }
+        
+    .a-navitem .badge-dot {
+        position: absolute;
+        top: 2px;
+        right: 4px;
+        background: #e53935;
+        color: #fff;
+        font-size: 8px;
+        font-weight: 700;
+        border-radius: 10px;
+        padding: 1px 4px;
+        min-width: 14px;
+        text-align: center;
+        line-height: 1.4;
+    }
+
+  /*=====================================
+ * form Validation component
+*=====================================*/
+
+        /* Success toast */
+        .success-toast {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #222;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 24px;
+            font-size: 13px;
+            display: none;
+            z-index: 9999;
+            white-space: nowrap;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
+        }
+    
+        .success-toast.show {
+            display: block;
+            animation: fadeInDown .3s ease;
+        }
+    
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                top: 10px;
+            }
+    
+            to {
+                opacity: 1;
+                top: 30px;
+            }
+        }
+    
+        /* Material Card */
+        .md-card {
+            background: #fff;
+            margin: 8px 10px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .07);
+        }
+    
+        .md-card-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: #1976d2;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            padding: 14px 16px 0;
+        }
+    
+        .md-card-body {
+            padding: 6px 16px 16px;
+        }
+    
+        /* Material Text Field */
+        .md-field {
+            position: relative;
+            margin-bottom: 6px;
+        }
+    
+        .md-input {
+            width: 100%;
+            border: none;
+            border-bottom: 1.5px solid #bdbdbd;
+            background: transparent;
+            padding: 22px 36px 6px 0;
+            font-size: 15px;
+            color: #212121;
+            outline: none;
+            transition: border-color .2s;
+        }
+    
+        .md-input:focus {
+            border-bottom: 2px solid #1976d2;
+        }
+    
+        .md-input.is-valid {
+            border-bottom-color: #2e7d32;
+        }
+    
+        .md-input.is-invalid {
+            border-bottom-color: #c62828;
+        }
+    
+        .md-label {
+            position: absolute;
+            top: 22px;
+            left: 0;
+            font-size: 15px;
+            color: #757575;
+            pointer-events: none;
+            transition: .2s;
+        }
+    
+        .md-input:focus~.md-label,
+        .md-input:not(:placeholder-shown)~.md-label {
+            top: 4px;
+            font-size: 11px;
+            color: #1976d2;
+        }
+    
+        .md-input.is-invalid~.md-label {
+            color: #c62828;
+        }
+    
+        .md-input.is-valid~.md-label {
+            color: #2e7d32;
+        }
+    
+        .md-clear {
+            position: absolute;
+            right: 0;
+            top: 16px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #9e9e9e;
+            display: none;
+            align-items: center;
+            padding: 4px;
+            font-size: 18px;
+        }
+    
+        .md-input:not(:placeholder-shown)~.md-clear,
+        .md-input:focus~.md-clear {
+            display: flex;
+        }
+    
+        .md-feedback {
+            font-size: 11.5px;
+            margin-top: 3px;
+            display: none;
+        }
+    
+        .md-valid-text {
+            color: #2e7d32;
+        }
+    
+        .md-invalid-text {
+            color: #c62828;
+        }
+    
+        /* Material Select */
+        .md-select {
+            width: 100%;
+            border: none;
+            border-bottom: 1.5px solid #bdbdbd;
+            background: transparent;
+            padding: 22px 36px 6px 0;
+            font-size: 15px;
+            color: #212121;
+            outline: none;
+            appearance: none;
+            cursor: pointer;
+            transition: border-color .2s;
+        }
+    
+        .md-select:focus {
+            border-bottom: 2px solid #1976d2;
+        }
+    
+        .md-select.is-valid {
+            border-bottom-color: #2e7d32;
+        }
+    
+        .md-select.is-invalid {
+            border-bottom-color: #c62828;
+        }
+    
+        .md-select-label {
+            position: absolute;
+            top: 4px;
+            left: 0;
+            font-size: 11px;
+            color: #1976d2;
+            pointer-events: none;
+        }
+    
+        /* Material Checkbox */
+        .md-check-group {
+            margin: 10px 0 8px;
+        }
+    
+        .md-check {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+    
+        .md-check input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #1976d2;
+            cursor: pointer;
+        }
+    
+        .md-check label {
+            font-size: 14px;
+            color: #424242;
+            cursor: pointer;
+            line-height: 1.3;
+        }
+    
+        /* Material Button */
+        .md-btn {
+            width: 100%;
+            background: #1976d2;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(25, 118, 210, .35);
+            transition: .15s;
+        }
+    
+        .md-btn:hover {
+            background: #1565c0;
+        }
+    
+        .md-btn:active {
+            box-shadow: none;
+            transform: scale(.98);
+        }
+    
+        /* Android Bottom Nav */
+        .android-bottomnav {
+            position: sticky;
+            bottom: 0;
+            background: #fff;
+            border-top: 1px solid #e0e0e0;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            height: 56px;
+            z-index: 10;
+        }
+    
+        .android-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            color: #757575;
+            font-size: 10px;
+            cursor: pointer;
+            transition: .15s;
+            position: relative;
+        }
+    
+        .android-nav-item.active {
+            color: #1976d2;
+        }
+    
+        .android-nav-item ion-icon {
+            font-size: 22px;
+        }
+    
+        .nav-badge {
+            position: absolute;
+            top: 6px;
+            right: 18px;
+            background: #d32f2f;
+            color: #fff;
+            font-size: 9px;
+            border-radius: 8px;
+            padding: 0 4px;
+            min-width: 14px;
+            text-align: center;
+            line-height: 15px;
+        }
+
+    /*=====================================
+    * Form Wizard
+    *=====================================*/
+
+                /* ─── iOS Progress Steps ─── */
+                .i-wizard-bar {
+                    background: rgba(255, 255, 255, 0.92);
+                    backdrop-filter: blur(20px);
+                    border-bottom: 0.5px solid rgba(0, 0, 0, 0.15);
+                    padding: 12px 16px 14px;
+                    flex-shrink: 0;
+                }
+        
+                .i-steps-track {
+                    display: flex;
+                    align-items: center;
+                    gap: 0;
+                    position: relative;
+                }
+        
+                .i-step-wrap {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 6px;
+                    flex: 1;
+                }
+        
+                .i-step-circle {
+                    width: 28px;
+                    height: 28px;
+                    border-radius: 50%;
+                    background: #e5e5ea;
+                    color: #8e8e93;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 12px;
+                    font-weight: 600;
+                    z-index: 2;
+                    position: relative;
+                    transition: all 0.25s;
+                }
+        
+                .i-step-circle ion-icon {
+                    font-size: 14px;
+                }
+        
+                .i-step-lbl {
+                    font-size: 9px;
+                    font-weight: 500;
+                    color: #8e8e93;
+                    text-align: center;
+                    white-space: nowrap;
+                }
+        
+                .i-step-line {
+                    flex: 1;
+                    height: 2px;
+                    background: #e5e5ea;
+                    margin: 0 -2px;
+                    margin-bottom: 18px;
+                    transition: background 0.25s;
+                    z-index: 1;
+                }
+        
+                .i-step-wrap.done .i-step-circle {
+                    background: #007aff;
+                    color: #fff;
+                }
+        
+                .i-step-wrap.done .i-step-lbl {
+                    color: #007aff;
+                    font-weight: 600;
+                }
+        
+                .i-step-wrap.active .i-step-circle {
+                    background: #007aff;
+                    color: #fff;
+                    box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.18);
+                }
+        
+                .i-step-wrap.active .i-step-lbl {
+                    color: #007aff;
+                    font-weight: 700;
+                }
+        
+                .i-step-line.done {
+                    background: #007aff;
+                }
+        
+                /* ─── iOS Content ─── */
+                .i-content {
+                    flex: 1;
+                    overflow-y: auto;
+                    scrollbar-width: none;
+                    padding: 0;
+                }
+        
+                .i-content::-webkit-scrollbar {
+                    display: none;
+                }
+        
+                .i-step-content {
+                    display: none;
+                }
+        
+                .i-step-content.active {
+                    display: block;
+                }
+        
+                .i-section-hdr {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: #8e8e93;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                    padding: 18px 16px 6px;
+                }
+        
+                .i-card {
+                    background: #fff;
+                    border-radius: 12px;
+                    margin: 0 16px 8px;
+                    overflow: visible;
+                    border: 0.5px solid rgba(0, 0, 0, 0.08);
+                }
+        
+                .i-row {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 10px 14px;
+                    border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+                    position: relative;
+                }
+        
+                .i-row:last-child {
+                    border-bottom: none;
+                }
+        
+                .i-row label {
+                    font-size: 11px;
+                    font-weight: 600;
+                    color: #8e8e93;
+                    text-transform: uppercase;
+                    letter-spacing: 0.4px;
+                    margin-bottom: 4px;
+                }
+        
+                .i-inp {
+                    width: 100%;
+                    border: none;
+                    background: transparent;
+                    font-size: 15px;
+                    color: #000;
+                    outline: none;
+                    font-family: inherit;
+                    padding: 0;
+                    height: 28px;
+                }
+        
+                .i-inp::placeholder {
+                    color: #c7c7cc;
+                }
+        
+                .i-sel {
+                    width: 100%;
+                    border: none;
+                    background: transparent;
+                    font-size: 15px;
+                    color: #000;
+                    outline: none;
+                    font-family: inherit;
+                    padding: 0;
+                    height: 28px;
+                    appearance: none;
+                    cursor: pointer;
+                }
+        
+                .i-sel option {
+                    color: #000;
+                }
+        
+                .i-textarea {
+                    width: 100%;
+                    border: none;
+                    background: transparent;
+                    font-size: 15px;
+                    color: #000;
+                    outline: none;
+                    font-family: inherit;
+                    padding: 0;
+                    resize: none;
+                }
+        
+                .i-chevron {
+                    position: absolute;
+                    right: 14px;
+                    bottom: 14px;
+                    font-size: 14px;
+                    color: #c7c7cc;
+                }
+        
+                .i-chevron ion-icon {
+                    font-size: 16px;
+                }
+        
+                /* ─── iOS summary ─── */
+                .i-summary-row {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 11px 14px;
+                    border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+                    font-size: 14px;
+                }
+        
+                .i-summary-row:last-child {
+                    border-bottom: none;
+                }
+        
+                .i-summary-row .lbl {
+                    color: #8e8e93;
+                }
+        
+                .i-summary-row .val {
+                    font-weight: 500;
+                    color: #000;
+                }
+        
+                /* ─── iOS success ─── */
+                .i-success {
+                    text-align: center;
+                    padding: 32px 20px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 14px;
+                }
+        
+                .i-success-icon {
+                    width: 72px;
+                    height: 72px;
+                    background: #e8f5e9;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+        
+                .i-success-icon ion-icon {
+                    font-size: 40px;
+                    color: #34c759;
+                }
+        
+                .i-success h3 {
+                    font-size: 22px;
+                    font-weight: 700;
+                    color: #000;
+                }
+        
+                .i-success p {
+                    font-size: 14px;
+                    color: #8e8e93;
+                    line-height: 1.5;
+                }
+        
+                /* ─── iOS nav buttons ─── */
+                .i-nav-btns {
+                    display: flex;
+                    gap: 10px;
+                    padding: 12px 16px 16px;
+                    flex-shrink: 0;
+                    background: #f2f2f7;
+                    border-top: 0.5px solid rgba(0, 0, 0, 0.12);
+                }
+        
+                .i-btn-prev {
+                    flex: 1;
+                    height: 48px;
+                    border: 1.5px solid #007aff;
+                    border-radius: 12px;
+                    background: #fff;
+                    color: #007aff;
+                    font-size: 16px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    font-family: inherit;
+                    transition: background 0.15s;
+                }
+        
+                .i-btn-prev:hover {
+                    background: #f0f7ff;
+                }
+        
+                .i-btn-next {
+                    flex: 2;
+                    height: 48px;
+                    background: #007aff;
+                    border: none;
+                    border-radius: 12px;
+                    color: #fff;
+                    font-size: 16px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    font-family: inherit;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 6px;
+                    transition: background 0.15s;
+                }
+        
+                .i-btn-next:hover {
+                    background: #006ae6;
+                }
+        
+                .i-btn-next ion-icon {
+                    font-size: 18px;
+                }
+        
+                .i-btn-next.success {
+                    background: #34c759;
+                }
+        
+                /* ─── iOS Tab Bar ─── */
+                .i-tabbar {
+                    background: rgba(255, 255, 255, 0.92);
+                    backdrop-filter: blur(20px);
+                    border-top: 0.5px solid rgba(0, 0, 0, 0.18);
+                    height: 82px;
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: space-around;
+                    padding-top: 8px;
+                    flex-shrink: 0;
+                }
+        
+                .i-tabitem {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 3px;
+                    color: #8e8e93;
+                    cursor: pointer;
+                    font-size: 10px;
+                    font-weight: 500;
+                    text-decoration: none;
+                    padding: 0 8px;
+                    position: relative;
+                }
+        
+                .i-tabitem ion-icon {
+                    font-size: 24px;
+                }
+        
+                .i-tabitem.active {
+                    color: #007aff;
+                }
+        
+                .i-tbadge {
+                    position: absolute;
+                    top: -2px;
+                    right: 2px;
+                    background: #ff3b30;
+                    color: #fff;
+                    font-size: 8px;
+                    font-weight: 700;
+                    border-radius: 10px;
+                    padding: 1px 4px;
+                    min-width: 14px;
+                    text-align: center;
+                }

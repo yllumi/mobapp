@@ -12,7 +12,7 @@
         <a href="#"><i class="bi bi-heart"></i> Favorites</a>
         <a href="#"><i class="bi bi-file-earmark"></i> Pages</a>
         <div class="nav-divider"></div>
-        <a href="#"><i class="bi bi-grid"></i> Components</a>
+        <a href="/components"><i class="bi bi-grid"></i> Components</a>
         <a href="#"><i class="bi bi-palette"></i> Themes</a>
         <div class="nav-divider"></div>
         <a href="#"><i class="bi bi-gear"></i> Settings</a>

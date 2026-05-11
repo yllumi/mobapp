@@ -1,0 +1,198 @@
+<?php include __DIR__ . '/../partials/header.php' ?>
+
+<div id="components">
+
+    <div class="app-header">
+        <div class="left">
+            <a href="javascript:void()" onclick="history.back()">
+                <i class="bi bi-arrow-left"></i>
+            </a>
+        </div>
+        <div class="page-title">Offcanvas</div>
+        <div class="right">
+        </div>
+    </div>
+
+    <div class="app-container px-2 pb-5">
+
+        <!-- ANDROID SECTION -->
+        <div class="section-title fw-bold small mb-2 px-3">Android</div>
+        <div class="list-group shadow-sm rounded-4 overflow-hidden mb-4 border-0">
+            <button class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="toggleOffcanvas('andLeft')">
+                <div class="flex-grow-1">
+                    <div class="fw-semibold small">Android Left</div>
+                    <div class="text-muted extra-small">Panel navigasi muncul dari sisi kiri</div>
+                </div>
+                <i class="bi bi-chevron-right text-muted small"></i>
+            </button>
+            <button class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="toggleOffcanvas('andRight')">
+                <div class="flex-grow-1">
+                    <div class="fw-semibold small">Android Right</div>
+                    <div class="text-muted extra-small">Panel informasi muncul dari sisi kanan</div>
+                </div>
+                <i class="bi bi-chevron-right text-muted small"></i>
+            </button>
+            <button class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="toggleOffcanvas('andTop')">
+                <div class="flex-grow-1">
+                    <div class="fw-semibold small">Android Top</div>
+                    <div class="text-muted extra-small">Banner sistem muncul dari atas</div>
+                </div>
+                <i class="bi bi-chevron-right text-muted small"></i>
+            </button>
+            <button class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="toggleOffcanvas('andBottom')">
+                <div class="flex-grow-1">
+                    <div class="fw-semibold small">Android Bottom</div>
+                    <div class="text-muted extra-small">Standard bottom sheet khas Android</div>
+                </div>
+                <i class="bi bi-chevron-right text-muted small"></i>
+            </button>
+        </div>
+
+        <!-- iOS SECTION -->
+        <div class="section-title fw-bold small mb-2 px-3">iOS — Cupertino Style</div>
+        <div class="list-group shadow-sm rounded-4 overflow-hidden border-0">
+            <button class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="toggleOffcanvas('iosLeft')">
+                <div class="flex-grow-1">
+                    <div class="fw-semibold small">iOS Left</div>
+                    <div class="text-muted extra-small">Panel navigasi muncul dari sisi kiri</div>
+                </div>
+                <i class="bi bi-chevron-right text-muted small"></i>
+            </button>
+            <button class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="toggleOffcanvas('iosRight')">
+                <div class="flex-grow-1">
+                    <div class="fw-semibold small">iOS Right</div>
+                    <div class="text-muted extra-small">Panel Navigasi muncul dari sisi kanan</div>
+                </div>
+                <i class="bi bi-chevron-right text-muted small"></i>
+            </button>
+            <button class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="toggleOffcanvas('iosTop')">
+                <div class="flex-grow-1">
+                    <div class="fw-semibold small">iOS Top</div>
+                    <div class="text-muted extra-small">Floating banner melayang dari atas</div>
+                </div>
+                <i class="bi bi-chevron-right text-muted small"></i>
+            </button>
+            <button class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="toggleOffcanvas('iosBottom')">
+                <div class="flex-grow-1">
+                    <div class="fw-semibold small">iOS Bottom</div>
+                    <div class="text-muted extra-small">Panel bawah </div>
+                </div>
+                <i class="bi bi-chevron-right text-muted small"></i>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- BACKDROP -->
+    <div class="custom-oc-backdrop" id="ocBackdrop" onclick="closeAllOffcanvas()"></div>
+
+    <!-- =============================================
+     PANEL COMPONENTS (ANDROID)
+     ============================================= -->
+    <div class="custom-oc and-style oc-left" id="andLeft">
+        <div class="oc-header shadow-sm">
+            <h5 class="oc-title">Title</h5>
+            <button class="btn-close-custom" onclick="closeAllOffcanvas()"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="oc-body px-3 py-3 text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum commodi illo laudantium sed enim dignissimos, neque natus rem animi quibusdam, vero, ex modi ipsa beatae libero tempore eos expedita adipisci at tenetur iure possimus. Commodi soluta facilis id eligendi, illum magni fugiat quaerat optio rerum voluptas. Nihil, asperiores. Suscipit, unde.</div>
+    </div>
+
+    <div class="custom-oc and-style oc-right" id="andRight">
+        <div class="oc-header shadow-sm">
+            <h5 class="oc-title">Title</h5>
+            <button class="btn-close-custom" onclick="closeAllOffcanvas()"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="oc-body px-3 py-3 text-start">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi perferendis porro, blanditiis error architecto sequi ipsam! Et, porro. Ratione culpa, dolores totam ducimus est fugit! Laboriosam nobis dicta ad earum debitis harum praesentium maiores eius voluptatum. Odio dolorem animi temporibus quisquam incidunt eveniet provident nobis quidem. Iure natus esse facilis!.</div>
+    </div>
+
+    <div class="custom-oc and-style oc-top" id="andTop">
+        <div class="oc-header shadow-sm">
+            <h5 class="oc-title">Title</h5>
+            <button class="btn-close-custom" onclick="closeAllOffcanvas()"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="oc-body p-3 text-start small fw-medium">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, mollitia ipsum voluptatem ex blanditiis tenetur at quaerat nisi veritatis aspernatur dolores eveniet ab magni modi doloribus quos accusamus reprehenderit est beatae nesciunt quia qui dolorem? Quae repudiandae accusantium praesentium. Voluptatum itaque reiciendis adipisci ex enim ad a cumque. Laboriosam, asperiores?</div>
+    </div>
+
+    <div class="custom-oc and-style oc-bottom" id="andBottom">
+        <div class="and-handle"></div>
+        <div class="oc-header pt-0 shadow-sm">
+            <h5 class="oc-title">Title</h5>
+        </div>
+        <div class="oc-body px-3 py-3 pb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati nostrum velit, facilis dolore, amet soluta laboriosam cumque et ducimus pariatur impedit laborum quas perferendis ipsam officia molestiae dolores sunt voluptatibus repudiandae necessitatibus. Quas libero aspernatur error. Illo quaerat, ex quidem minima ratione quae numquam, neque quia, fugit eius repudiandae exercitationem.</div>
+    </div>
+
+    <!-- =============================================
+     PANEL COMPONENTS (iOS BLUR)
+     ============================================= -->
+    <div class="custom-oc ios-style oc-left" id="iosLeft">
+        <div class="oc-header border-bottom border-light bg-ios">
+            <h6 class="mb-0 fw-bold">Title</h6>
+            <button class="ios-txt-btn" onclick="closeAllOffcanvas()">Selesai <i class="bi bi-chevron-right"></i></button>
+        </div>
+        <div class="oc-body p-3 text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea nesciunt harum totam, est doloribus reprehenderit provident vel aut error eius labore atque sapiente dicta? Incidunt minima voluptatum iusto aliquam sunt rem nam laudantium ratione atque fuga, aut quis quibusdam totam ab laborum magnam esse eos accusamus repellendus sequi, voluptatem perferendis!.</div>
+    </div>
+
+    <div class="custom-oc ios-style oc-right" id="iosRight">
+        <div class="oc-header border-bottom border-light">
+            <button class="ios-txt-btn" onclick="closeAllOffcanvas()"><i class="bi bi-chevron-left"></i> Kembali</button>
+            <h6 class="mb-0 fw-bold">Title</h6>
+        </div>
+        <div class="oc-body p-3 text-start">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, hic quibusdam similique sit vero ullam placeat velit id numquam rerum iste inventore autem mollitia molestiae fuga voluptatibus beatae maiores vitae quos. Inventore et, expedita ratione harum omnis sed iste quaerat odit temporibus dolorem magni, provident, itaque reprehenderit! Autem, aliquid a?</div>
+    </div>
+
+    <div class="custom-oc ios-style oc-top" id="iosTop">
+        <div class="d-flex align-items-center justify-content-between px-3 h-100">
+            <span class="small fw-semibold">Pesan Baru</span>
+            <button class="ios-txt-btn" onclick="closeAllOffcanvas()">Tutup</button>
+        </div>
+    </div>
+
+    <div class="custom-oc ios-style oc-bottom" id="iosBottom">
+        <div class="ios-handle"></div>
+        <div class="oc-header pt-0">
+            <h6 class="fw-bold mb-0">Menu iOS</h6>
+        </div>
+        <div class="oc-body px-3 pb-5 mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam officiis doloribus voluptates quae culpa eligendi pariatur esse ex eaque optio tempora libero ducimus ea, unde ullam minus dolores obcaecati a, ipsum dolor id? Impedit repudiandae, recusandae possimus mollitia nobis modi illum, similique officiis dicta assumenda odio itaque omnis amet doloremque.</div>
+    </div>
+
+    <script>
+        function toggleOffcanvas(id) {
+            const backdrop = document.getElementById('ocBackdrop');
+            const target = document.getElementById(id);
+
+            closeAllOffcanvas();
+
+            if (target) {
+                backdrop.classList.add('active');
+
+                if (target.classList.contains('ios-style')) {
+                    backdrop.classList.add('ios');
+                } else {
+                    backdrop.classList.remove('ios');
+                }
+
+                target.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeAllOffcanvas() {
+            const backdrop = document.getElementById('ocBackdrop');
+            const allPanels = document.querySelectorAll('.custom-oc');
+
+            backdrop.classList.remove('active', 'ios');
+            allPanels.forEach(panel => panel.classList.remove('active'));
+
+            document.body.style.overflow = '';
+        }
+
+        // ESC close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") closeAllOffcanvas();
+        });
+    </script>
+
+    <?php include __DIR__ . '/../partials/bottommenu.php' ?>
+</div>
+
+<?php include __DIR__ . '/../partials/footer.php' ?>
