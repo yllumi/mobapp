@@ -5,7 +5,7 @@ chdir(__DIR__ . "/src");
 
 // Konfigurasi direktori sumber dan output
 $sourceDir = __DIR__ . "/src";  
-$outputDir = isset($argv[1]) ? __DIR__ . "/" . trim($argv[1], "/") : __DIR__ . "/dist"; 
+$outputDir = isset($argv[1]) ? __DIR__ . "/" . trim($argv[1], "/") : __DIR__ . "/docs"; 
 
 $assetsSource = $sourceDir . "/assets"; 
 $assetsDestination = $outputDir . "/assets"; 
