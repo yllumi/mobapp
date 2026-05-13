@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="/assets/style.css" rel="stylesheet">
+  </head>
+  <body>
+<div id="components">
+
+    <div class="app-header">
+        <div class="left">
+            <a href="javascript:void()" onclick="history.back()">
+                <i class="bi bi-arrow-left"></i>
+            </a>
+        </div>
+        <div class="page-title">Notifications</div>
+        <div class="right">
+        </div>
+    </div>
+
+    <div class="app-container px-2">
+
+        <!-- Demo Buttons -->
+        <div class="section-title">Interactive Notifications</div>
+        
+        <div class="button-group">
+            <button class="btn btn-success" onclick="showNotification('success', 'Success!', 'Operation completed successfully.')">
+                Show Success
+            </button>
+            <button class="btn btn-danger" onclick="showNotification('error', 'Error!', 'Something went wrong.')">
+                Show Error
+            </button>
+            <button class="btn btn-warning" onclick="showNotification('warning', 'Warning!', 'Please be careful.')">
+                Show Warning
+            </button>
+            <button class="btn btn-info" onclick="showNotification('info', 'Info', 'Here is some information.')">
+                Show Info
+            </button>
+        </div>
+
+        <!-- Demo Buttons for Fixed Notifications -->
+        <div class="section-title">Fixed Top Notifications</div>
+        
+        <div class="button-group">
+            <button class="btn btn-success" onclick="showNotification('success', 'Success!', 'Operation completed successfully.', {position: 'fixed-top', style: 'fullwidth'})">
+                Fullwidth Success
+            </button>
+            <button class="btn btn-danger" onclick="showNotification('error', 'Error!', 'Something went wrong.', {position: 'fixed-top', style: 'rounded'})">
+                Rounded Error
+            </button>
+            <button class="btn btn-warning" onclick="showNotification('warning', 'Warning!', 'Please be careful.', {position: 'fixed-top', style: 'fullwidth'})">
+                Fullwidth Warning
+            </button>
+            <button class="btn btn-info" onclick="showNotification('info', 'Info', 'Here is some information.', {position: 'fixed-top', style: 'rounded'})">
+                Rounded Info
+            </button>
+        </div>
+
+        <!-- Demo Multiple Notifications -->
+        <div class="section-title">Test Multiple Notifications</div>
+        
+        <div class="button-group">
+            <button class="btn btn-outline-primary" onclick="testMultipleNotifications()">
+                Test Rapid Notifications
+            </button>
+            <button class="btn btn-outline-danger" onclick="clearAllNotifications()">
+                Clear All Notifications
+            </button>
+        </div>
+
+    </div>
+
+    <div class="app-bottommenu no-border">
+    <a href="/" id="bottommenu-item" class="item active">
+        <div class="col">
+            <div class="bullet">
+                <i class="bi bi-house"></i> 
+            </div>
+            Home
+        </div>
+    </a>
+    <a href="/components" id="bottommenu-item" class="item">
+        <div class="col">
+            <div class="bullet">
+                <i class="bi bi-heart"></i> 
+            </div>
+            Components
+        </div>
+    </a>
+    <a href="/pages" id="bottommenu-item" class="item">
+        <div class="col">
+            <div class="bullet">
+                <i class="bi bi-file-earmark"></i> 
+            </div>
+            Pages
+        </div>
+    </a>
+    <a href="#" id="bottommenu-item" class="item">
+        <div class="col">
+            <div class="bullet">
+                <i class="bi bi-menu-app"></i> 
+            </div>
+            Menu
+        </div>
+    </a>
+</div></div>
+
+<script>
+// Test function for multiple notifications
+function testMultipleNotifications() {
+    const notifications = [
+        {type: 'info', title: 'First', message: 'This will be replaced immediately'},
+        {type: 'warning', title: 'Second', message: 'This will also be replaced'},
+        {type: 'success', title: 'Third', message: 'This will be replaced too'},
+        {type: 'error', title: 'Final', message: 'Only this one should remain visible'}
+    ];
+    
+    notifications.forEach((notif, index) => {
+        setTimeout(() => {
+            showNotification(notif.type, notif.title, notif.message, {
+                position: 'fixed-top',
+                style: 'rounded'
+            });
+        }, index * 500);
+    });
+}
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="/assets/main.js"></script>
+  </body>
+</html>
