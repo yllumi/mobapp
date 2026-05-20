@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="/mobapp/assets/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="components">
+
+        <div class="app-header">
+            <div class="left">
+                <a href="javascript:void(0)" onclick="history.back()">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+            </div>
+            <div class="page-title">Tabs</div>
+            <div class="right">
+            </div>
+        </div>
+
+        <div class="app-container px-2">
+
+            <!-- Navigasi Utama: Penukar Tipe Konten (Pilled vs Lined) -->
+            <div class="extra-header-tabs my-3">
+                <ul class="nav nav-tabs capsuled" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#pilled-content" role="tab">
+                            Pilled
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#lined-content" role="tab">
+                            Lined
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Master Tab Content -->
+            <div class="tab-content">
+
+                <!-- ================= SECTION: PILLED CONTENT ================= -->
+                <div class="tab-pane fade show active" id="pilled-content" role="tabpanel">
+
+                    <!-- Pilled Tabs Standard -->
+                    <div class="card border-0 shadow-sm rounded-3 mb-3">
+                        <div class="card-body">
+                            <h6 class="card-title mb-3 text-muted">Pilled Tabs</h6>
+                            <ul class="nav nav-tabs capsuled" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#home" role="tab">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#profile" role="tab">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#contact" role="tab">Contact</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content mt-3 small text-secondary">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel">
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis beatae laudantium
+                                    similique at sint hic veritatis, suscipit, dolorum quae voluptatibus dolore,
+                                    perspiciatis itaque optio! Vel neque, excepturi nemo, voluptatum repellendus itaque
+                                    numquam unde labore ea consectetur nostrum deleniti exercitationem nobis?
+                                </div>
+                                <div class="tab-pane fade" id="profile" role="tabpanel">
+                                    Maecenas malesuada, massa non vehicula dictum, lorem ipsum semper lectus, id egestas
+                                    velit leo vel nunc.
+                                </div>
+                                <div class="tab-pane fade" id="contact" role="tabpanel">
+                                    Sed cursus sollicitudin gravida. In hac habitasse platea dictumst. Etiam aliquam
+                                    neque
+                                    ac posuere congue.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pilled dengan Kombinasi Ikon -->
+                    <div class="card border-0 shadow-sm rounded-3 mb-3">
+                        <div class="card-body">
+                            <h6 class="card-title mb-3 text-muted">Using with Icons</h6>
+
+                            <!-- Teks + Ikon -->
+                            <ul class="nav nav-tabs capsuled mb-3" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#pilled-ico-1" role="tab">
+                                        <i class="bi bi-house-door-fill"></i> Home
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#pilled-ico-2" role="tab">
+                                        <i class="bi bi-person-circle"></i> Profile
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <!-- Hanya Ikon Saja -->
+                            <!-- 1 -->
+                            <ul class="nav nav-tabs capsuled iconed" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#pilled-ico-1" role="tab">
+                                        <i class="bi bi-house-door-fill"></i>Home
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#pilled-ico-2" role="tab">
+                                        <i class="bi bi-person-circle"></i>Profile
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#pilled-ico-3" role="tab">
+                                        <i class="bi bi-telephone-fill"></i>Contact
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <!-- 2 -->
+                            <ul class="nav nav-tabs capsuled iconed my-4" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#pilled-ico-1" role="tab">
+                                        <i class="bi bi-house-door-fill"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#pilled-ico-2" role="tab">
+                                        <i class="bi bi-person-circle"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#pilled-ico-3" role="tab">
+                                        <i class="bi bi-telephone-fill"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#pilled-ico-4" role="tab">
+                                        <i class="bi bi-geo-alt-fill"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- * pilled content -->
+
+
+                <!-- ================= SECTION: LINED CONTENT ================= -->
+                <div class="tab-pane fade" id="lined-content" role="tabpanel">
+
+                    <!-- Lined Tabs Standard -->
+                    <div class="card border-0 shadow-sm rounded-3 mb-3">
+                        <div class="card-body">
+                            <h6 class="card-title mb-3 text-muted">Lined Tabs</h6>
+                            <ul class="nav nav-tabs lined" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#home-lined"
+                                        role="tab">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#profile-lined"
+                                        role="tab">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#contact-lined"
+                                        role="tab">Contact</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content mt-3 small text-secondary">
+                                <div class="tab-pane fade show active" id="home-lined" role="tabpanel">
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis beatae laudantium
+                                    similique at sint hic veritatis, suscipit, dolorum quae voluptatibus dolore,
+                                    perspiciatis itaque optio! Vel neque, excepturi nemo, voluptatum repellendus itaque
+                                    numquam unde labore ea consectetur nostrum deleniti exercitationem nobis?
+                                </div>
+                                <div class="tab-pane fade" id="profile-lined" role="tabpanel">
+                                    Suspendisse maximus ligula eu ligula iaculis, eu bibendum odio dignissim.
+                                    Pellentesque
+                                    elementum nisl.
+                                </div>
+                                <div class="tab-pane fade" id="contact-lined" role="tabpanel">
+                                    Vestibulum sed facilisis diam, vel sodales leo. Aenean lacinia, nisi sit amet
+                                    iaculis
+                                    maximus.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lined dengan Kombinasi Ikon -->
+                    <div class="card border-0 shadow-sm rounded-3 mb-3">
+                        <div class="card-body">
+                            <h6 class="card-title mb-3 text-muted">Lined with Icons</h6>
+                            <!-- 1 -->
+                            <ul class="nav nav-tabs lined" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#lined-ico-1" role="tab">
+                                        <i class="bi bi-house-door"></i> Home
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#lined-ico-2" role="tab">
+                                        <i class="bi bi-person-circle"></i> Profile
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <!-- 2 -->
+                            <ul class="nav nav-tabs lined my-4" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#lined-ico-1" role="tab">
+                                        <i class="bi bi-house-door"></i> Home
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#lined-ico-2" role="tab">
+                                        <i class="bi bi-person-circle"></i> Profile
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#lined-ico-2" role="tab">
+                                        <i class="bi bi-telephone-fill"></i> Contact
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <!-- 3 -->
+                            <ul class="nav nav-tabs lined my-4" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#lined-ico-1" role="tab">
+                                        <i class="bi bi-house-door"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#lined-ico-2" role="tab">
+                                        <i class="bi bi-person-circle"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#lined-ico-2" role="tab">
+                                        <i class="bi bi-telephone-fill"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#lined-ico-2" role="tab">
+                                        <i class="bi bi-geo-alt-fill"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- * lined content -->
+
+            </div>
+            <!-- * Master Tab Content -->
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="/mobapp/assets/main.js"></script>
+</body>
+
+</html>

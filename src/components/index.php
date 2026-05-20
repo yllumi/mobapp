@@ -215,27 +215,27 @@
                     <div class="listview-icon"><i class="bi bi-arrow-right-short"></i></div> <strong>Pagination</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/placeholders.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-card-heading"></i></div> <strong>Placeholders</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/preloader.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-arrow-clockwise"></i></div> <strong>Preloader</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/progress-bar.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-bar-chart"></i></div> <strong>Progress bar</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/table.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-table"></i></div> <strong>Table</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/tabs.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-layout-split"></i></div> <strong>Tabs</strong>
                 </div>
