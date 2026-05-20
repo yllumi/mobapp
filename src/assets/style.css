@@ -5432,3 +5432,1401 @@ a.listview-item::after {
                     min-width: 14px;
                     text-align: center;
                 }
+
+/*=====================================
+ * Badges component
+ *=====================================*/
+
+/* PHONES WRAPPER */
+.phones-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.phone-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+
+    animation: fadeUp 0.45s ease both;
+}
+
+.phone-col:nth-child(2) {
+    animation-delay: 0.12s;
+}
+
+.platform-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-sub);
+}
+
+/* SCROLL BODY */
+.phone-body {
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.phone-body::-webkit-scrollbar {
+    display: none;
+}
+
+/* SECTION TITLE */
+.sec-title {
+    font-size: 11.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+}
+
+/* LIST CARD */
+.list-card {
+    background: #fff;
+}
+
+/* LIST ITEM */
+.list-item,
+.media-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+}
+
+.list-item:last-child,
+.media-item:last-child {
+    border-bottom: none;
+}
+
+/* AVATAR */
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    flex-shrink: 0;
+    color: #fff;
+}
+
+.item-name {
+    flex: 1;
+    color: var(--text-main);
+}
+
+/* BADGE */
+.bdg,
+.bdg-lg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+/* MEDIA */
+.media-thumb {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.media-thumb i {
+    font-size: 22px;
+    color: #9aa0a6;
+}
+
+.media-info {
+    flex: 1;
+}
+
+frame .media-info .media-name {
+    color: var(--text-main);
+    font-weight: 400;
+}
+
+.media-info .media-sub {
+    color: var(--text-sub);
+}
+
+/* BADGE GRID */
+.badge-grid-section {
+    padding: 10px 16px 14px;
+}
+
+.badge-grid-section .grid-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* SECTION */
+.android .sec-title {
+    color: var(--text-sub);
+    padding: 12px 16px 6px;
+}
+
+/* LIST */
+.android .list-card {
+    border-top: 0.5px solid rgba(0, 0, 0, 0.10);
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.10);
+}
+
+.android .list-item,
+.android .media-item {
+    padding: 10px 16px;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+}
+
+.android .item-name,
+.android .media-info .media-name {
+    font-size: 15px;
+}
+
+.android .media-info .media-sub {
+    font-size: 12px;
+    margin-top: 1px;
+}
+
+.android .media-thumb {
+    border-radius: 8px;
+    background: #f1f3f4;
+}
+
+/* BADGES */
+.android .bdg {
+    font-size: 14px;
+    min-width: 22px;
+    height: 20px;
+    padding: 0 6px;
+    line-height: 1;
+    border-radius: 4px;
+}
+
+.android .bdg-lg {
+    font-size: 12px;
+    height: 22px;
+    padding: 0 10px;
+    border-radius: 4px;
+}
+
+.android .bdg-primary {
+    background: #e8f0fe;
+    color: #1a73e8;
+}
+
+.android .bdg-success {
+    background: #e6f4ea;
+    color: #188038;
+}
+
+.android .bdg-danger {
+    background: #fce8e6;
+    color: #c5221f;
+}
+
+.android .bdg-warning {
+    background: #fef9e7;
+    color: #b06000;
+    border: 1px solid #fbbc04;
+}
+
+.android .bdg-info {
+    background: #e3f6fc;
+    color: #0277bd;
+}
+
+.android .bdg-dark {
+    background: #f1f3f4;
+    color: #3c4043;
+}
+
+.android .bdg-light {
+    background: #fff;
+    color: #5f6368;
+    border: 0.5px solid #dadce0;
+}
+
+/* DOT */
+.bdg-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/*=====================================
+ * Buttons component
+ *=====================================*/
+
+.android .phone-body {
+    background: #f5f5f5;
+}
+
+.android .sec-body {
+    background: #fff;
+    border-top: .5px solid rgba(0, 0, 0, 0.09);
+    border-bottom: .5px solid rgba(0, 0, 0, 0.09);
+    padding: 14px 16px;
+}
+
+/* ═══════════════════════════════════
+   ANDROID BUTTON OVERRIDES
+═══════════════════════════════════ */
+
+.android .sec-body .btn:active {
+    transform: scale(.97);
+}
+
+.android .sec-body .btn.rounded {
+    border-radius: 50px !important;
+}
+
+.android .sec-body .btn.square {
+    border-radius: 0 !important;
+}
+
+/* ── BUTTON SIZES (FIX) ── */
+.android .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.android .btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+}
+
+/* Shadowed */
+.android .shadowed {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .20);
+}
+
+.android .shadowed:hover {
+    box-shadow: 0 5px 14px rgba(0, 0, 0, .26);
+}
+
+/* ── ICON BUTTONS & SIZES (FIX) ── */
+.android .btn-icon {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Override untuk Icon Button SM */
+.android .btn-icon.btn-sm {
+    width: 32px;
+    height: 32px;
+    font-size: 0.875rem;
+}
+
+/* Override untuk Icon Button LG */
+.android .btn-icon.btn-lg {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+}
+
+.android .btn-block {
+    width: 100%;
+    display: block;
+}
+
+/* btn-check highlight Android */
+.android .btn-check:checked+.btn-outline-primary {
+    background: #1a73e8;
+    color: #fff;
+}
+
+.android .btn-check:checked+.btn-outline-secondary {
+    background: #757575;
+    color: #fff;
+}
+
+.android .btn-check:checked+.btn-outline-danger {
+    background: #ea4335;
+    color: #fff;
+}
+
+.android .btn-check:checked+.btn-outline-success {
+    background: #34a853;
+    color: #fff;
+}
+
+.android .btn-check:checked+.btn-outline-warning {
+    background: #fbbc04;
+    color: #212121;
+}
+
+.android .btn-check:checked+.btn-outline-info {
+    background: #0dcaf0;
+    color: #003a47;
+}
+
+.android .btn-check:checked+.btn-outline-dark {
+    background: #212121;
+    color: #fff;
+}
+
+.android .btn-check:checked+.btn-icon.btn-outline-primary {
+    background: #1a73e8;
+    color: #fff;
+}
+
+.android code {
+    color: #c0392b;
+}
+
+/* ── SOCIAL BUTTONS (shared) ── */
+.btn-facebook {
+    background-color: #39579b !important;
+    color: #fff !important;
+    border-color: #39579b;
+}
+
+.btn-twitter {
+    background: #1da1f2 !important;
+    color: #fff !important;
+    border-color: #1da1f2;
+}
+
+.btn-instagram {
+    background: #e1306c !important;
+    color: #fff !important;
+    border-color: #e1306c;
+}
+
+.btn-linkedin {
+    background: #0a66c2 !important;
+    color: #fff !important;
+    border-color: #0a66c2;
+}
+
+.btn-twitch {
+    background: #9146ff !important;
+    color: #fff !important;
+    border-color: #9146ff;
+}
+
+.btn-whatsapp {
+    background: #25d366 !important;
+    color: #fff !important;
+    border-color: #25d366;
+}
+
+.btn-youtube {
+    background: #ff0000 !important;
+    color: #fff !important;
+    border-color: #ff0000;
+}
+
+.btn-amazon {
+    background: #ff9900 !important;
+    color: #fff !important;
+    border-color: #ff9900;
+}
+
+.btn-android-s {
+    background: #3ddc84 !important;
+    color: #fff !important;
+    border-color: #3ddc84;
+}
+
+.btn-apple-s {
+    background: #555555 !important;
+    color: #fff !important;
+    border-color: #555555;
+}
+
+.btn-dribbble {
+    background: #ea4c89 !important;
+    color: #fff !important;
+    border-color: #ea4c89;
+}
+
+.btn-skype {
+    background: #00aff0 !important;
+    color: #fff !important;
+    border-color: #00aff0;
+}
+
+.btn-pinterest {
+    background: #e60023 !important;
+    color: #fff !important;
+    border-color: #e60023;
+}
+
+.btn-dropbox {
+    background: #0061ff !important;
+    color: #fff !important;
+    border-color: #0061ff;
+}
+
+.btn-bitcoin {
+    background: #f7931a !important;
+    color: #fff !important;
+    border-color: #f7931a;
+}
+
+.btn-github {
+    background: #181717 !important;
+    color: #fff !important;
+    border-color: #181717;
+}
+
+/* ── HELPER ── */
+.gap-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.gap-wrap.col {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sec-note {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+code {
+    font-size: 11px;
+    color: #c0392b;
+    background: #fdf2f0;
+    padding: 1px 5px;
+    border-radius: 3px;
+}
+
+.android code {
+    color: #c0392b;
+}
+
+/*=====================================
+ * Cards component
+ *=====================================*/
+.a-hbtn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    font-size: 19px;
+}
+
+.a-htitle {
+    flex: 1;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    padding: 0 4px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.a-content {
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: none;
+    padding-bottom: 8px;
+}
+
+.a-content::-webkit-scrollbar {
+    display: none;
+}
+
+.a-pad {
+    padding: 14px 14px 0;
+}
+
+/* ── Android Section Label ── */
+.a-sec {
+    font-size: 10px;
+    font-weight: 800;
+    color: #1a73e8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 14px 0 6px;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* ── Android Card Base ── */
+.a-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.10);
+    margin-bottom: 12px;
+}
+
+.a-card-img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    display: block;
+}
+
+.a-card-body {
+    padding: 12px 14px 14px;
+}
+
+.a-card-subtitle {
+    font-size: 10px;
+    font-weight: 700;
+    color: #1a73e8;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 2px;
+}
+
+.a-card-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: #111;
+    font-family: 'Nunito', sans-serif;
+}
+
+.a-card-text {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.55;
+}
+
+.a-card-meta {
+    font-size: 11px;
+    color: #9e9e9e;
+    margin-top: 6px;
+}
+
+/* ── Android Overlay Card ── */
+.a-overlay-card {
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+    margin-bottom: 12px;
+}
+
+.a-overlay-img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    display: block;
+}
+
+.a-overlay-body {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 14px;
+}
+
+.a-overlay-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 2px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.a-overlay-text {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.a-overlay-meta {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 4px;
+}
+
+/* ── Android Plain body card ── */
+.a-plain {
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.10);
+    font-size: 13px;
+    color: #424242;
+}
+
+/* ── Android Product Grid ── */
+.a-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.a-product {
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.a-product-thumb {
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+    background: #f0f4ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+
+.a-product-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111;
+    font-family: 'Nunito', sans-serif;
+}
+
+.a-product-unit {
+    font-size: 11px;
+    color: #9e9e9e;
+}
+
+.a-product-price {
+    font-size: 15px;
+    font-weight: 800;
+    color: #1a73e8;
+    font-family: 'Nunito', sans-serif;
+}
+
+.a-product-btn {
+    width: 100%;
+    height: 32px;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.4px;
+}
+
+/* ── Android List Card ── */
+.a-list-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.10);
+}
+
+.a-list-row {
+    display: flex;
+    align-items: center;
+    padding: 11px 14px;
+    gap: 12px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.a-list-row:last-child {
+    border-bottom: none;
+}
+
+.a-list-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: #1a73e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.a-list-label {
+    flex: 1;
+    font-size: 13px;
+    color: #212121;
+    font-weight: 500;
+}
+
+.a-list-meta {
+    font-size: 11px;
+    color: #9e9e9e;
+}
+
+.a-badge {
+    background: #1a73e8;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 2px 7px;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* ── Android Header/Footer Card ── */
+.a-hf-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.10);
+}
+
+.a-hf-header {
+    padding: 10px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #757575;
+    border-bottom: 1px solid #f0f0f0;
+    background: #fafafa;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.a-hf-body {
+    padding: 14px;
+}
+
+.a-hf-footer {
+    padding: 10px 14px;
+    font-size: 11px;
+    color: #9e9e9e;
+    border-top: 1px solid #f0f0f0;
+    background: #fafafa;
+}
+
+.a-hf-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    height: 34px;
+    padding: 0 16px;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* ── Android Color Cards ── */
+.a-color-card {
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+}
+
+.a-color-card .a-card-title {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.a-color-card .a-card-text {
+    font-size: 12px;
+}
+
+.a-color-card-header {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+    opacity: 0.75;
+}
+
+/* ── Android bottom nav ── */
+.a-bottomnav {
+    background: #fff;
+    border-top: 1px solid #e5e7eb;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-shrink: 0;
+}
+
+.a-ni {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    color: #9e9e9e;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 4px 8px;
+    font-family: 'Nunito', sans-serif;
+    position: relative;
+}
+
+.a-ni i {
+    font-size: 22px;
+}
+
+.a-ni.active {
+    color: #1a73e8;
+}
+
+.a-nb {
+    position: absolute;
+    top: 0;
+    right: 3px;
+    background: #e53935;
+    color: #fff;
+    font-size: 8px;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 1px 4px;
+    min-width: 14px;
+    text-align: center;
+}
+
+/*=====================================
+ * Carousel component
+ *=====================================*/
+
+ .carousel-title {
+     font-size: 14px;
+     font-weight: 700;
+     color: #141414;
+     text-transform: uppercase;
+     letter-spacing: .5px;
+     margin: 20px 16px 10px 16px;
+ }
+
+ .splide__track {
+     overflow: visible !important;
+     /* Supaya slide cadangan loop tidak tersembunyi keliru */
+ }
+
+ .splide {
+     overflow: hidden;
+     /* Pembatas luarnya tetap di level komponen splide */
+ }
+
+ /* Memastikan rasio gambar carousel pas */
+ .splide__slide img {
+     width: 100%;
+     height: auto;
+     object-fit: cover;
+     display: block;
+ }
+
+ /* FIX KHUSUS: Agar Small Carousel tetap lingkaran sempurna & ukurannya konsisten */
+ #small-carousel .splide__slide img {
+     width: 70px;
+     height: 70px;
+     border-radius: 50% !important;
+     object-fit: cover;
+     margin: 0 auto;
+ }
+
+ /*=====================================
+ * Chips component
+ *=====================================*/
+
+ .chip-title {
+     font-size: 14px;
+     font-weight: 700;
+     color: #141414;
+     text-transform: uppercase;
+     letter-spacing: .5px;
+     margin: 20px 16px 10px 16px;
+ }
+
+ .wide-block {
+     background: #ffffff;
+     padding: 16px;
+     border-top: 1px solid #E1E1E1;
+     border-bottom: 1px solid #E1E1E1;
+ }
+
+ /* ==================== CORE CHIPS COMPONENT ==================== */
+ .chip {
+     display: inline-flex;
+     align-items: center;
+     height: 32px;
+     padding: 0 12px;
+     font-size: 13px;
+     font-weight: 500;
+     color: #4f5050;
+     background-color: #E1E1E1;
+     border-radius: 16px;
+     margin-right: 6px;
+     margin-bottom: 8px;
+     vertical-align: middle;
+     text-decoration: none;
+     transition: all 0.2s ease;
+ }
+
+ /* Variant: Outline */
+ .chip-outline {
+     background-color: transparent !important;
+     border: 1px solid #E1E1E1;
+ }
+
+ /* Komponen di dalam Chip (Icon / Media Gambar) */
+ .chip .chip-icon {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     width: 24px;
+     height: 24px;
+     border-radius: 50%;
+     margin-left: -8px;
+     margin-right: 6px;
+     color: #ffffff;
+     font-size: 11px;
+ }
+
+ .chip img {
+     width: 24px;
+     height: 24px;
+     border-radius: 50%;
+     margin-left: -8px;
+     margin-right: 6px;
+     object-fit: cover;
+ }
+
+ /* Tombol Aksi Hapus (Delete Action) */
+ .chip .chip-delete {
+     display: inline-flex;
+     align-items: center;
+     margin-right: -6px;
+     margin-left: 6px;
+     color: rgba(0, 0, 0, 0.25);
+     font-size: 16px;
+     text-decoration: none;
+     cursor: pointer;
+ }
+
+ .chip .chip-delete:hover {
+     color: rgba(0, 0, 0, 0.5);
+ }
+
+ /* ==================== SKEMA WARNA CHIPS ==================== */
+ /* Solid Colors */
+ .chip-primary {
+     background-color: #0d6efd;
+     color: #fff;
+ }
+
+ .chip-danger {
+     background-color: #dc3545;
+     color: #fff;
+ }
+
+ .chip-success {
+     background-color: #198754;
+     color: #fff;
+ }
+
+ .chip-warning {
+     background-color: #ffc107;
+     color: #000;
+ }
+
+ .chip-info {
+     background-color: #0dcaf0;
+     color: #000;
+ }
+
+ .chip-dark {
+     background-color: #212529;
+     color: #fff;
+ }
+
+ .chip-light {
+     background-color: #f8f9fa;
+     color: #000;
+     border: 1px solid #dee2e6;
+ }
+
+ /* Outline Colors & Delete Buttons white adjustments */
+ .chip-primary .chip-delete,
+ .chip-danger .chip-delete,
+ .chip-success .chip-delete,
+ .chip-dark .chip-delete {
+     color: rgba(255, 255, 255, 0.65);
+ }
+
+ .chip-primary .chip-delete:hover,
+ .chip-danger .chip-delete:hover,
+ .chip-success .chip-delete:hover,
+ .chip-dark .chip-delete:hover {
+     color: #ffffff;
+ }
+
+ /* Outline Specific Colors */
+ .chip-outline.chip-primary {
+     border-color: #0d6efd;
+     color: #0d6efd;
+ }
+
+ .chip-outline.chip-success {
+     border-color: #198754;
+     color: #198754;
+ }
+
+ .chip-outline.chip-warning {
+     border-color: #ffc107;
+     color: #ffc107;
+ }
+
+ .chip-outline.chip-danger {
+     border-color: #dc3545;
+     color: #dc3545;
+ }
+
+ .chip-outline.chip-info {
+     border-color: #0dcaf0;
+     color: #0dcaf0;
+ }
+
+ .chip-outline.chip-dark {
+     border-color: #212529;
+     color: #212529;
+ }
+
+ /* Penyesuaian ikon hapus pada versi outline warna */
+ .chip-outline .chip-delete {
+     color: inherit;
+     opacity: 0.6;
+ }
+
+ .chip-outline .chip-delete:hover {
+     opacity: 1;
+ }
+
+  /*=====================================
+ * Dropdown component
+ *=====================================*/
+
+/* ---------- */
+ 
+  /*=====================================
+ * Fab Button component
+ *=====================================*/
+
+/* =========================
+FAB
+========================== */
+
+.fab-button {
+    position: fixed;
+    z-index: 1050;
+}
+
+.fab {
+    width: 56px;
+    height: 56px;
+    font-size: 22px;
+
+    box-shadow:
+        0 4px 12px rgba(13, 110, 253, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.08);
+
+    transition: all .25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fab:hover {
+    transform: scale(1.05) translateY(-2px);
+}
+
+.fab i {
+    transition: transform .25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fab[aria-expanded="true"] i {
+    transform: rotate(135deg);
+}
+
+/* =========================
+EXTENDED FAB
+========================== */
+
+.fab-button.text .fab {
+    width: auto;
+    padding-inline: 22px;
+}
+
+/* =========================
+DROPDOWN BASE
+========================== */
+
+.fab-button .dropdown-menu {
+
+    position: absolute !important;
+    inset: auto !important;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    min-width: auto;
+
+    padding: 0;
+    margin: 0;
+
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: all .2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fab-button .dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.fab-button .dropdown-item {
+    width: 44px;
+    height: 44px;
+
+    transition: .2s ease;
+}
+
+.fab-button .dropdown-item:hover {
+    transform: scale(1.08);
+}
+
+/* =========================
+LABEL
+========================== */
+
+.fab-label {
+    position: absolute;
+
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+
+    background: rgba(33, 37, 41, 0.92);
+    color: white;
+
+    padding: 4px 9px;
+    border-radius: 6px;
+}
+
+/* =========================
+TOP POSITION
+========================== */
+
+.top-left {
+    top: 72px;
+    left: 16px;
+}
+
+.top-center {
+    top: 72px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.top-right {
+    top: 72px;
+    right: 16px;
+}
+
+/* =========================
+TOP DROPDOWN
+========================== */
+
+.top-left .dropdown-menu,
+.top-center .dropdown-menu,
+.top-right .dropdown-menu {
+
+    top: 70px !important;
+
+    flex-direction: column !important;
+
+    align-items: center;
+    gap: 12px;
+
+    z-index: 3000;
+}
+
+/* LEFT */
+
+.top-left .dropdown-menu {
+    left: 0 !important;
+    transform: translateY(-10px);
+}
+
+.top-left .dropdown-menu.show {
+    transform: translateY(0);
+}
+
+/* CENTER */
+
+.top-center .dropdown-menu {
+    left: 50% !important;
+
+    transform:
+        translateX(-50%) translateY(-10px);
+}
+
+.top-center .dropdown-menu.show {
+
+    transform:
+        translateX(-50%) translateY(0);
+}
+
+/* RIGHT */
+
+.top-right .dropdown-menu {
+    right: 0 !important;
+    transform: translateY(-10px);
+}
+
+.top-right .dropdown-menu.show {
+    transform: translateY(0);
+}
+
+/* =========================
+BOTTOM POSITION
+========================== */
+
+.bottom-left {
+    bottom: 24px;
+    left: 16px;
+}
+
+.bottom-center {
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bottom-right {
+    bottom: 24px;
+    right: 16px;
+}
+
+/* =========================
+BOTTOM DROPDOWN
+========================== */
+
+.bottom-left .dropdown-menu,
+.bottom-right .dropdown-menu {
+
+    bottom: 64px !important;
+
+    flex-direction: column-reverse !important;
+
+    align-items: center;
+    gap: 12px;
+
+    z-index: 3000;
+}
+
+.bottom-left .dropdown-menu {
+    left: 6px !important;
+    transform: translateY(10px);
+}
+
+.bottom-left .dropdown-menu.show {
+    transform: translateY(0);
+}
+
+.bottom-right .dropdown-menu {
+    right: 6px !important;
+    transform: translateY(10px);
+}
+
+.bottom-right .dropdown-menu.show {
+    transform: translateY(0);
+}
+
+/* =========================
+LABEL POSITION
+========================== */
+
+.top-left .fab-label,
+.bottom-left .fab-label {
+    left: 54px;
+}
+
+.top-right .fab-label,
+.bottom-right .fab-label {
+    right: 54px;
+}
+
+/* TOP CENTER LABEL */
+
+.top-center .fab-label {
+
+    left: 58px;
+    bottom: auto;
+
+    background: rgba(33, 37, 41, 0.92);
+    color: white;
+
+    border: 0;
+}
+
+/*=====================================
+ * Icons component
+ *=====================================*/
+
+/* -------- */
+
+/*=====================================
+ * Images component
+ *=====================================*/
+
+/* -------- */

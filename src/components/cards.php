@@ -1,0 +1,235 @@
+<?php include __DIR__ . '/../partials/header.php' ?>
+
+<div id="components">
+
+    <div class="app-header">
+        <div class="left">
+            <a href="javascript:void()" onclick="history.back()">
+                <i class="bi bi-arrow-left"></i>
+            </a>
+        </div>
+        <div class="page-title">Cards</div>
+        <div class="right">
+        </div>
+    </div>
+
+    <div class="app-container">
+        <div id="panel-android" class="panel active">
+            <div class="phone-frame">
+                <div class="screen a">
+                    <div class="a-content">
+                        <div class="a-pad">
+
+                            <!-- Image Card 1 -->
+                            <div class="a-sec">Image Card</div>
+                            <div class="a-card">
+                                <img src="https://placehold.co/475x179?text=IMAGE" class="img-fluid" alt="">
+                                <div class="a-card-body">
+                                    <div class="a-card-subtitle">Card Subtitle</div>
+                                    <div class="a-card-title my-1">Card Title</div>
+                                    <div class="a-card-text">Quick example text to build on the card title and make up
+                                        the
+                                        bulk of the card's content.</div>
+                                </div>
+                            </div>
+
+                            <!-- Image Card 2 -->
+                            <div class="a-card">
+                                <img src="https://placehold.co/475x179?text=IMAGE" class="img-fluid" alt="">
+                                <div class="a-card-body">
+                                    <div class="a-card-title my-1">Card Title</div>
+                                    <div class="a-card-text mb-1">A wider card with supporting text below as a natural
+                                        lead-in to
+                                        additional content. This content is a bit longer.</div>
+                                    <div class="a-card-meta"><i class="bi bi-clock"></i> Last updated 3 mins ago</div>
+                                </div>
+                            </div>
+
+                            <!-- Overlay Card -->
+                            <div class="a-overlay-card">
+                                <img src="<?= $basePath ?>assets/wide2.jpg" class="img-fluid" alt="">
+                                <div class="a-overlay-body">
+                                    <div class="a-overlay-title">Card Title</div>
+                                    <div class="a-overlay-text">Some card text here and more natural content.</div>
+                                    <div class="a-overlay-meta"><i class="bi bi-clock"></i> Last updated 3 mins ago
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Plain Text Card -->
+                            <div class="a-sec">Plain Card</div>
+                            <div class="a-plain">This is some text within a card body. Simple and clean.</div>
+
+                            <!-- Product Grid -->
+                            <div class="a-sec">Product Cards</div>
+                            <div class="a-grid">
+                                <div class="a-product">
+                                    <img src="https://placehold.co/120x116" class="rounded-3" alt="">
+                                    <div class="a-product-name">Apple</div>
+                                    <div class="a-product-unit">1 kg</div>
+                                    <div class="a-product-price">$1.50</div>
+                                    <button class="a-product-btn">ADD TO CART</button>
+                                </div>
+                                <div class="a-product">
+                                    <img src="https://placehold.co/120x116" class="rounded-3" alt="">
+                                    <div class="a-product-name">Broccoli</div>
+                                    <div class="a-product-unit">1 piece</div>
+                                    <div class="a-product-price">$2.30</div>
+                                    <button class="a-product-btn">ADD TO CART</button>
+                                </div>
+                            </div>
+
+                            <!-- Simple List Card -->
+                            <div class="a-sec">List Card</div>
+                            <div class="a-list-card">
+                                <div class="a-list-row">
+                                    <span class="a-list-label">List item 1</span>
+                                    <i class="bi bi-chevron-right" style="color:#bdbdbd;font-size:13px"></i>
+                                </div>
+                                <div class="a-list-row">
+                                    <span class="a-list-label">List item 2</span>
+                                    <i class="bi bi-chevron-right" style="color:#bdbdbd;font-size:13px"></i>
+                                </div>
+                                <div class="a-list-row">
+                                    <span class="a-list-label">List item 3</span>
+                                    <span class="a-badge">8</span>
+                                </div>
+                            </div>
+
+                            <!-- Icon List Card -->
+                            <div class="a-sec">Icon List Card</div>
+                            <div class="a-list-card">
+                                <div class="a-list-row">
+                                    <div class="a-list-icon"><i class="bi bi-house-fill"></i></div>
+                                    <div class="a-list-label">Home</div>
+                                    <span class="a-badge">10</span>
+                                </div>
+                                <div class="a-list-row">
+                                    <div class="a-list-icon"><i class="bi bi-alarm-fill"></i></div>
+                                    <div class="a-list-label">Alarm</div>
+                                    <span class="a-list-meta">05:20 AM</span>
+                                </div>
+                                <div class="a-list-row">
+                                    <div class="a-list-icon"><i class="bi bi-plus-lg"></i></div>
+                                    <div class="a-list-label">Add New</div>
+                                    <i class="bi bi-chevron-right" style="color:#bdbdbd;font-size:13px"></i>
+                                </div>
+                            </div>
+
+                            <!-- Header / Footer Card -->
+                            <div class="a-sec">Header / Footer</div>
+                            <div class="a-hf-card">
+                                <div class="a-hf-header">Card Header</div>
+                                <div class="a-hf-body">
+                                    <div class="a-card-title">Title</div>
+                                    <div class="a-card-text">With supporting text below as a natural lead-in to
+                                        additional
+                                        content.</div>
+                                    <button class="a-hf-btn"><i class="bi bi-arrow-right-circle"></i> Go
+                                        somewhere</button>
+                                </div>
+                                <div class="a-hf-footer"><i class="bi bi-clock"></i> This is card footer</div>
+                            </div>
+
+                            <!-- Centered card -->
+                            <div class="a-hf-card" style="text-align:center">
+                                <div class="a-hf-header">Featured</div>
+                                <div class="a-hf-body">
+                                    <div class="a-card-title">Special title treatment</div>
+                                    <div class="a-card-text">With supporting text below as a natural lead-in to
+                                        additional
+                                        content.</div>
+                                    <button class="a-hf-btn" style="margin:8px auto 0;display:inline-flex"><i
+                                            class="bi bi-star"></i> Go somewhere</button>
+                                </div>
+                                <div class="a-hf-footer"><i class="bi bi-calendar3"></i> 2 days ago</div>
+                            </div>
+
+                            <!-- Blockquote Card -->
+                            <div class="a-sec">Quote Card</div>
+                            <div class="a-hf-card">
+                                <div class="a-hf-header">Quote</div>
+                                <div class="a-hf-body">
+                                    <div
+                                        style="font-size:13px;color:#424242;line-height:1.6;border-left:3px solid #1a73e8;padding-left:12px;font-style:italic">
+                                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a
+                                        ante."
+                                    </div>
+                                    <div style="font-size:11px;color:#9e9e9e;margin-top:8px">— Someone famous in
+                                        <em>Source
+                                            Title</em>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Color Cards -->
+                            <div class="a-sec">Color Cards</div>
+
+                            <div class="a-color-card" style="background:#1a73e8">
+                                <div class="a-color-card-header" style="color:rgba(255,255,255,0.7)">Header</div>
+                                <div class="a-card-title" style="color:#fff">Primary Card</div>
+                                <div class="a-card-text" style="color:rgba(255,255,255,0.85)">Some quick example text to
+                                    build on the card title.</div>
+                            </div>
+
+                            <div class="a-color-card" style="background:#616161">
+                                <div class="a-color-card-header" style="color:rgba(255,255,255,0.7)">Header</div>
+                                <div class="a-card-title" style="color:#fff">Secondary Card</div>
+                                <div class="a-card-text" style="color:rgba(255,255,255,0.85)">Some quick example text to
+                                    build on the card title.</div>
+                            </div>
+
+                            <div class="a-color-card" style="background:#2e7d32">
+                                <div class="a-color-card-header" style="color:rgba(255,255,255,0.7)">Header</div>
+                                <div class="a-card-title" style="color:#fff">Success Card</div>
+                                <div class="a-card-text" style="color:rgba(255,255,255,0.85)">Some quick example text to
+                                    build on the card title.</div>
+                            </div>
+
+                            <div class="a-color-card" style="background:#c62828">
+                                <div class="a-color-card-header" style="color:rgba(255,255,255,0.7)">Header</div>
+                                <div class="a-card-title" style="color:#fff">Danger Card</div>
+                                <div class="a-card-text" style="color:rgba(255,255,255,0.85)">Some quick example text to
+                                    build on the card title.</div>
+                            </div>
+
+                            <div class="a-color-card" style="background:#f57f17">
+                                <div class="a-color-card-header" style="color:rgba(255,255,255,0.7)">Header</div>
+                                <div class="a-card-title" style="color:#fff">Warning Card</div>
+                                <div class="a-card-text" style="color:rgba(255,255,255,0.85)">Some quick example text to
+                                    build on the card title.</div>
+                            </div>
+
+                            <div class="a-color-card" style="background:#0277bd">
+                                <div class="a-color-card-header" style="color:rgba(255,255,255,0.7)">Header</div>
+                                <div class="a-card-title" style="color:#fff">Info Card</div>
+                                <div class="a-card-text" style="color:rgba(255,255,255,0.85)">Some quick example text to
+                                    build on the card title.</div>
+                            </div>
+
+                            <div class="a-color-card" style="background:#f5f5f5;border:1px solid #e0e0e0">
+                                <div class="a-color-card-header" style="color:#9e9e9e">Header</div>
+                                <div class="a-card-title" style="color:#212121">Light Card</div>
+                                <div class="a-card-text" style="color:#616161">Some quick example text to build on the
+                                    card
+                                    title.</div>
+                            </div>
+
+                            <div class="a-color-card" style="background:#212121;margin-bottom:14px">
+                                <div class="a-color-card-header" style="color:rgba(255,255,255,0.5)">Header</div>
+                                <div class="a-card-title" style="color:#fff">Dark Card</div>
+                                <div class="a-card-text" style="color:rgba(255,255,255,0.75)">Some quick example text to
+                                    build on the card title.</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php include __DIR__ . '/../partials/bottommenu.php' ?>
+</div>
+
+<?php include __DIR__ . '/../partials/footer.php' ?>

@@ -1,0 +1,181 @@
+<?php include __DIR__ . '/../partials/header.php' ?>
+
+<!-- Splide.js Core CSS CDN -->
+<link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+
+<div id="components">
+
+    <div class="app-header">
+        <div class="left">
+            <a href="javascript:void()" onclick="history.back()">
+                <i class="bi bi-arrow-left"></i>
+            </a>
+        </div>
+        <div class="page-title">Carousel</div>
+        <div class="right">
+        </div>
+    </div>
+
+    <div class="app-container">
+        <div id="appCapsule" class="container-fluid px-0">
+
+            <!-- 1. Full Carousel -->
+            <div class="section full mb-3">
+                <div class="carousel-title py-2">Full Carousel</div>
+                <div id="full-carousel" class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <img src="https://placehold.co/800x400?text=FULL+1" class="w-100" alt="Slide 1">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="https://placehold.co/800x400?text=FULL+2" class="w-100" alt="Slide 2">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="https://placehold.co/800x400?text=FULL+3" class="w-100" alt="Slide 3">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Single Carousel (Dengan Indikator Titik Bawah) -->
+            <div class="section full mb-3">
+                <div class="carousel-title">Single Carousel</div>
+                <div class="px-3">
+                    <div id="single-carousel" class="splide">
+                        <div class="splide__track rounded-3 shadow-sm">
+                            <ul class="splide__list">
+                                <li class="splide__slide">
+                                    <img src="https://placehold.co/800x400?text=SINGLE+1" class="w-100" alt="...">
+                                </li>
+                                <li class="splide__slide">
+                                    <img src="https://placehold.co/800x400?text=SINGLE+2" class="w-100" alt="...">
+                                </li>
+                                <li class="splide__slide">
+                                    <img src="https://placehold.co/800x400?text=SINGLE+3" class="w-100" alt="...">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Multiple Carousel -->
+            <div class="section full mb-3">
+                <div class="carousel-title">Multiple Carousel</div>
+                <div class="px-3">
+                    <div id="multiple-carousel" class="splide">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <li class="splide__slide pe-2">
+                                    <img src="https://placehold.co/300x400?text=MULTIPLE+1"
+                                        class="img-fluid rounded shadow-sm" alt="">
+                                </li>
+                                <li class="splide__slide pe-2">
+                                    <img src="https://placehold.co/300x400?text=MULTIPLE+2"
+                                        class="img-fluid rounded shadow-sm" alt="">
+                                </li>
+                                <li class="splide__slide pe-2">
+                                    <img src="https://placehold.co/300x400?text=MULTIPLE+3"
+                                        class="img-fluid rounded shadow-sm" alt="">
+                                </li>
+                                <li class="splide__slide pe-2">
+                                    <img src="https://placehold.co/300x400?text=MULTIPLE+4"
+                                        class="img-fluid rounded shadow-sm" alt="">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Small Carousel -->
+            <div class="section full mb-4">
+                <div class="carousel-title">Small Carousel</div>
+                <div class="px-3">
+                    <div id="small-carousel" class="splide">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <li class="splide__slide pe-2">
+                                    <img src="https://placehold.co/200x200?text=1"
+                                        class="img-fluid rounded-circle shadow-sm" alt="">
+                                </li>
+                                <li class="splide__slide pe-2">
+                                    <img src="https://placehold.co/200x200?text=2"
+                                        class="img-fluid rounded-circle shadow-sm" alt="">
+                                </li>
+                                <li class="splide__slide pe-2">
+                                    <img src="https://placehold.co/200x200?text=3"
+                                        class="img-fluid rounded-circle shadow-sm" alt="">
+                                </li>
+                                <li class="splide__slide pe-2">
+                                    <img src="https://placehold.co/200x200?text=4"
+                                        class="img-fluid rounded-circle shadow-sm" alt="">
+                                </li>
+                                <li class="splide__slide pe-2">
+                                    <img src="https://placehold.co/200x200?text=5"
+                                        class="img-fluid rounded-circle shadow-sm" alt="">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // 1. Full Carousel Setup
+            new Splide('#full-carousel', {
+                type: 'loop',
+                perPage: 1,
+                arrows: false,
+                pagination: false,
+                clones: 3,
+            }).mount();
+
+            // 2. Single Carousel Setup
+            new Splide('#single-carousel', {
+                type: 'loop',
+                perPage: 1,
+                arrows: false,
+                pagination: true,
+                clones: 3,
+            }).mount();
+
+            // 3. Multiple Carousel Setup
+            new Splide('#multiple-carousel', {
+                type: 'loop',
+                perPage: 2.5,
+                focus: 0,
+                gap: '10px',
+                arrows: false,
+                pagination: false,
+                clones: 4,
+            }).mount();
+
+            // 4. Small Carousel Setup
+            new Splide('#small-carousel', {
+                type: 'loop',
+                perPage: 4.5,
+                focus: 0,
+                gap: '10px',
+                arrows: false,
+                pagination: false,
+                clones: 5,
+            }).mount();
+
+        });
+    </script>
+
+    <!-- Splide.js JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+    <?php include __DIR__ . '/../partials/bottommenu.php' ?>
+</div>
+
+<?php include __DIR__ . '/../partials/footer.php' ?>

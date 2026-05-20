@@ -165,52 +165,52 @@
         <!-- UI Elements -->
         <div class="listview image-listview">
             <div class="listview-title">UI Elements</div>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/badges.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-patch-exclamation"></i></div> <strong>Badges</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/buttons.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-hand-index-thumb"></i></div> <strong>Buttons</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/cards.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-card-text"></i></div> <strong>Cards</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/carousel.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-sliders"></i></div> <strong>Carousel</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/chips.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-dash-circle"></i></div> <strong>Chips</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/dropdown.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-caret-down-square"></i></div> <strong>Dropdown</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/fab-button.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-plus-circle"></i></div> <strong>Fab Button</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/icons.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-grid-3x3-gap"></i></div> <strong>Icons</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/images.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-image"></i></div> <strong>Images</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/pagination.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-arrow-right-short"></i></div> <strong>Pagination</strong>
                 </div>
