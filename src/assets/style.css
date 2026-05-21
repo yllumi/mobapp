@@ -7304,3 +7304,429 @@ LABEL POSITION
      font-size: 18px;
      line-height: 1;
  }
+
+ /*=====================================
+ * Tooltips component
+ *=====================================*/
+
+ .tooltip-android {
+     --bs-tooltip-bg: #323232;
+     --bs-tooltip-border-radius: 4px;
+     --bs-tooltip-padding-x: 16px;
+     --bs-tooltip-padding-y: 6px;
+     --bs-tooltip-color: #ffffff;
+     font-family: Roboto, sans-serif;
+ }
+
+ .tooltip-android .tooltip-inner {
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+ }
+
+ /* iOS (Cupertino) - Agak transparan, blur, radius membulat */
+ .tooltip-ios {
+     --bs-tooltip-bg: rgba(20, 20, 20, 0.85);
+     --bs-tooltip-border-radius: 10px;
+     --bs-tooltip-padding-x: 14px;
+     --bs-tooltip-padding-y: 7px;
+     --bs-tooltip-color: #ffffff;
+     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+ }
+
+ .tooltip-ios .tooltip-inner {
+     backdrop-filter: blur(8px);
+     -webkit-backdrop-filter: blur(8px);
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+ }
+
+/*=====================================
+ * Header Components
+ *=====================================*/
+.header-demo {
+    margin-bottom: 24px;
+}
+
+/* Base Header Styles */
+.header-basic,
+.header-search,
+.header-icons,
+.header-profile,
+.header-text-icon,
+.header-minimal,
+.header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 12px 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    gap: 12px;
+}
+
+.header-left,
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 0 0 auto;
+}
+
+.header-title {
+    flex: 1;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.header-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.header-btn:hover {
+    background: #f0f0f0;
+    color: #007bff;
+}
+
+.header-btn i {
+    display: block;
+}
+
+.header-btn span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Badge for notifications */
+.badge-notification {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: #ff4444;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Header with Search */
+.header-search-box {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    max-width: 300px;
+    padding: 8px 12px;
+    background: #f5f5f5;
+    border-radius: 6px;
+    gap: 8px;
+}
+
+.header-search-box i {
+    color: #999;
+    font-size: 18px;
+}
+
+.header-search-box input {
+    border: none;
+    background: transparent;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
+    color: #333;
+}
+
+.header-search-box input::placeholder {
+    color: #999;
+}
+
+/* Header with Icons Group */
+.header-icon-group {
+    gap: 8px;
+}
+
+/* Header Profile */
+.header-profile-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+    text-decoration: none;
+}
+
+.header-profile-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: block;
+}
+
+/* Header Action Buttons with colored states */
+.header-btn.btn-primary {
+    background: #007bff;
+    color: #fff;
+}
+
+.header-btn.btn-primary:hover {
+    background: #0056b3;
+    color: #fff;
+}
+
+.header-btn.btn-outline {
+    border: 1px solid #ddd;
+    background: #fff;
+}
+
+.header-btn.btn-outline:hover {
+    border-color: #007bff;
+    background: #f0f7ff;
+}
+
+/* Minimal header */
+.header-minimal {
+    padding: 10px 16px;
+}
+
+.header-minimal .header-title {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+
+    .header-basic,
+    .header-search,
+    .header-icons,
+    .header-profile,
+    .header-text-icon,
+    .header-minimal,
+    .header-actions {
+        padding: 10px 12px;
+        gap: 8px;
+    }
+
+    .header-title {
+        font-size: 16px;
+    }
+
+    .header-btn {
+        padding: 6px;
+        font-size: 18px;
+    }
+
+    .header-search-box {
+        max-width: 200px;
+        padding: 6px 10px;
+    }
+
+    .header-btn span {
+        font-size: 12px;
+    }
+
+    .header-icon-group {
+        gap: 4px;
+    }
+}
+
+/*=====================================
+ * Animated Header component
+ *=====================================*/
+
+.app-header.anim-header-effect {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    transition: background-color 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
+}
+
+.app-header.anim-header-effect .page-title {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: transform 0.35s cubic-bezier(0.1, 0.76, 0.55, 0.94), opacity 0.35s ease-in-out;
+}
+
+/* 2. Tombol Navigasi Kiri & Kanan (Selalu Terlihat) */
+.app-header.anim-header-effect .left,
+.app-header.anim-header-effect .right {
+    z-index: 1010;
+}
+
+.anim-nav-btn {
+    color: inherit;
+    font-size: 1.25rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    transition: color 0.3s ease;
+}
+
+.app-header.anim-header-effect.anim-header-show {
+    background-color: var(--bs-light, #ffffff) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.app-header.anim-header-effect.anim-header-show .page-title {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.anim-hero-banner {
+    background: var(--bs-secondary);
+    color: #ffffff;
+    padding: 50px 20px 35px 20px;
+    margin-top: 15px;
+    border-radius: 16px;
+}
+
+.anim-hero-banner .hero-title {
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.anim-hero-banner .hero-subtitle {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    margin-bottom: 0;
+}
+
+.anim-search-dropdown {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    right: 0;
+    height: 58px;
+    background-color: #ffffff;
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    transition: top 0.3s cubic-bezier(0.1, 0.76, 0.55, 0.94);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.anim-search-dropdown.is-active {
+    top: 0;
+}
+
+.anim-search-box {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.anim-search-box .form-control {
+    padding-left: 38px;
+    border-radius: 30px;
+    background-color: #f2f4f7;
+    border: none;
+}
+
+.anim-search-box .search-icon-left {
+    position: absolute;
+    left: 14px;
+    color: #6c757d;
+}
+
+.anim-search-box .close-icon-right {
+    color: var(--bs-danger);
+    font-size: 1.4rem;
+    margin-left: 10px;
+    text-decoration: none;
+    display: flex;
+}
+
+/*=====================================
+ * Header with tab component
+ *=====================================*/
+
+.header-with-tab {
+    position: fixed;
+    top: 56px;
+    /* Menyesuaikan tinggi default .app-header Anda */
+    left: 0;
+    right: 0;
+    height: 48px;
+    z-index: 990;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e1e1e1;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+/* Gaya Navigasi Bergaris (Lined Tabs) khas Mobile UI */
+.header-with-tab .nav-tabs.tabs-lined {
+    border-bottom: none;
+    width: 100%;
+    height: 100%;
+}
+
+.header-with-tab .nav-tabs.tabs-lined .nav-item {
+    flex: 1;
+    text-align: center;
+    height: 100%;
+}
+
+.header-with-tab .nav-tabs.tabs-lined .nav-link {
+    border: none;
+    background: transparent;
+    color: #6c757d;
+    font-size: 0.9rem;
+    font-weight: 500;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 0;
+    padding: 0;
+}
+
+/* Garis indikator aktif di bagian bawah tab */
+.header-with-tab .nav-tabs.tabs-lined .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: transparent;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.header-with-tab .nav-tabs.tabs-lined .nav-link.active {
+    color: var(--bs-primary) !important;
+    /* Mengikuti warna utama tema Anda */
+    font-weight: 600;
+}
+
+.header-with-tab .nav-tabs.tabs-lined .nav-link.active::after {
+    background-color: var(--bs-primary);
+}
+
+/* Kompensasi padding atas kontainer konten agar tidak tertutup header ganda */
+.has-header-with-tab {
+    padding-top: 80px !important;
+}

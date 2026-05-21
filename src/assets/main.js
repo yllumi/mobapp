@@ -1394,3 +1394,42 @@ document.addEventListener("DOMContentLoaded", () => {
  *=====================================*/
 
 // -----------
+
+/*=====================================
+ * Tooltips component
+ *=====================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Bootstrap 5 requires explicit initialization for tooltips
+  var tooltipTriggerList = [].slice.call(
+    document.querySelectorAll('[data-bs-toggle="tooltip"]'),
+  );
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl, {
+      trigger: "hover focus", // Memastikan bekerja baik di sentuhan layar (mobile) dan kursor (desktop)
+    });
+  });
+});
+
+/*=====================================
+ * Bottom Menu component
+ *=====================================*/
+
+// -----------
+
+/*=====================================
+ * Header component
+ *=====================================*/
+
+// -----------
+
+/*=====================================
+ * Animated Header component
+ *=====================================*/
+
+// ------------
+/*=====================================
+ * Header with Tab component
+ *=====================================*/
+
+// -----------

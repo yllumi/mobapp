@@ -249,7 +249,7 @@
                     <div class="listview-icon"><i class="bi bi-layout-split"></i></div> <strong>Tabs</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="/mobapp/components/tooltips.html" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-lightbulb"></i></div> <strong>Tooltips</strong>
                 </div>
@@ -265,25 +265,28 @@
                     <div class="listview-icon"><i class="bi bi-menu-app"></i></div> <strong>Bottom Menu</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="/mobapp/components/header.html" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-layout-text-sidebar"></i></div> <strong>Header</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="/mobapp/components/animated-header.html" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-stars"></i></div> <strong>Animated Header</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="/mobapp/components/header-with-tab.html" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-layout-three-columns"></i></div> <strong>Header with
                         Tab</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
-                <div class="col">
-                    <div class="listview-icon"><i class="bi bi-columns"></i></div> <strong>Sidebar</strong>
+            <a href="javascript:void(0)" class="listview-item" onclick="openSidebar()">
+                 <div class="col">
+                    <div class="listview-icon">
+                    <i class="bi bi-columns"></i>
+                </div>
+             <strong>Sidebar</strong>
                 </div>
             </a>
         </div>
@@ -345,6 +348,30 @@
         </div>
     </a>
 </div></div>
+
+<!-- SIDEBAR -->
+<script>
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    const toggleBtn = document.getElementById('sidebarToggle');
+    const closeBtn = document.getElementById('sidebarClose');
+
+    function openSidebar() {
+        sidebar.classList.add('show');
+        overlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+        sidebar.classList.remove('show');
+        overlay.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
+    toggleBtn.addEventListener('click', openSidebar);
+    closeBtn.addEventListener('click', closeSidebar);
+    overlay.addEventListener('click', closeSidebar);
+</script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="/mobapp/assets/main.js"></script>

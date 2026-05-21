@@ -4,9 +4,7 @@
 
     <div class="app-header">
         <div class="left">
-            <a href="javascript:void()" onclick="history.back()">
-                <i class="bi bi-arrow-left"></i>
-            </a>
+            <i class="bi bi-list icon" id="sidebarToggle" style="cursor:pointer"></i>
         </div>
         <div class="page-title">Components</div>
         <div class="right">
@@ -240,7 +238,7 @@
                     <div class="listview-icon"><i class="bi bi-layout-split"></i></div> <strong>Tabs</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/tooltips.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-lightbulb"></i></div> <strong>Tooltips</strong>
                 </div>
@@ -256,25 +254,28 @@
                     <div class="listview-icon"><i class="bi bi-menu-app"></i></div> <strong>Bottom Menu</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/header.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-layout-text-sidebar"></i></div> <strong>Header</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/animated-header.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-stars"></i></div> <strong>Animated Header</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/header-with-tab.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-layout-three-columns"></i></div> <strong>Header with
                         Tab</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="javascript:void(0)" class="listview-item" onclick="openSidebar()">
                 <div class="col">
-                    <div class="listview-icon"><i class="bi bi-columns"></i></div> <strong>Sidebar</strong>
+                    <div class="listview-icon">
+                        <i class="bi bi-columns"></i>
+                    </div>
+                    <strong>Sidebar</strong>
                 </div>
             </a>
         </div>
@@ -302,7 +303,32 @@
 
     </div>
 
+    <?php include __DIR__ . '/../partials/sidebar.php' ?>
     <?php include __DIR__ . '/../partials/bottommenu.php' ?>
 </div>
+
+<!-- SIDEBAR -->
+<script>
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    const toggleBtn = document.getElementById('sidebarToggle');
+    const closeBtn = document.getElementById('sidebarClose');
+
+    function openSidebar() {
+        sidebar.classList.add('show');
+        overlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+        sidebar.classList.remove('show');
+        overlay.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
+    toggleBtn.addEventListener('click', openSidebar);
+    closeBtn.addEventListener('click', closeSidebar);
+    overlay.addEventListener('click', closeSidebar);
+</script>
 
 <?php include __DIR__ . '/../partials/footer.php' ?>
