@@ -7730,3 +7730,165 @@ LABEL POSITION
 .has-header-with-tab {
     padding-top: 80px !important;
 }
+
+/*=====================================
+ * Sidebar component
+ *=====================================*/
+
+ /* --------- */
+
+ /*=====================================
+ * OS Detection component
+ *=====================================*/
+
+ /* Sembunyikan semua box deteksi di awal secara default */
+ .osdet-box-desktop,
+ .osdet-box-ios,
+ .osdet-box-android,
+ .osdet-box-windows {
+     display: none;
+ }
+
+ /* Card styling yang diserasikan dengan tema mobilekit */
+ .osdet-card {
+     background-color: #ffffff;
+     border: 1px solid #f0f0f2;
+     border-radius: 16px;
+     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+     overflow: hidden;
+ }
+
+ .osdet-icon-wrapper {
+     font-size: 3rem;
+     margin-bottom: 15px;
+ }
+
+ /* Dokumentasi block */
+ .osdet-wide-block {
+     background: #ffffff;
+     padding: 20px;
+     border-radius: 16px;
+     border: 1px solid #f0f0f2;
+ }
+
+  /*=====================================
+ * Typography component
+ *=====================================*/
+
+ /* Box pembungkus section putih melengkung */
+ .typo-wide-block {
+     background-color: #ffffff;
+     border: 1px solid #f0f0f2;
+     border-radius: 16px;
+     padding: 16px;
+     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+ }
+
+ /* Judul sub-section mobile kit */
+ .typo-section-title {
+     font-size: 0.85rem;
+     font-weight: 700;
+     text-transform: uppercase;
+     letter-spacing: 0.5px;
+     color: #8e8e93;
+     margin-bottom: 10px;
+     padding-left: 4px;
+ }
+
+ /* Kustomisasi font tabel variabel agar rapi di device mobile */
+ .typo-table th {
+     font-size: 0.85rem;
+     color: #495057;
+     font-weight: 600;
+     border-bottom-width: 1px;
+ }
+
+ .typo-table td {
+     font-size: 0.85rem;
+     vertical-align: middle;
+ }
+
+ .typo-table code {
+     font-size: 0.8rem;
+     color: var(--bs-danger, #dc3545);
+     background-color: #f8f9fa;
+     padding: 2px 6px;
+     border-radius: 4px;
+ }
+
+   /*=====================================
+ * Go to Top component
+ *=====================================*/
+
+ /* Box blok konten putih melengkung */
+ .gtt-wide-block {
+     background-color: #ffffff;
+     border: 1px solid #f0f0f2;
+     border-radius: 16px;
+     padding: 20px;
+     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+ }
+
+ .gtt-section-title {
+     font-size: 0.85rem;
+     font-weight: 700;
+     text-transform: uppercase;
+     letter-spacing: 0.5px;
+     color: #8e8e93;
+     margin-bottom: 10px;
+     padding-left: 4px;
+ }
+
+ /* Tombol pemicu statis (yang ada di dalam box komponen) */
+ .gtt-btn-inline {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     width: 44px;
+     height: 44px;
+     background-color: var(--bs-primary, #0d6efd);
+     color: #ffffff !important;
+     border-radius: 10px;
+     text-decoration: none;
+     font-size: 1.25rem;
+     transition: transform 0.2s ease;
+ }
+
+ .gtt-btn-inline:active {
+     transform: scale(0.95);
+ }
+
+ /* Tombol Mengambang Otomatis (Fixed Floating Button) */
+ .gtt-button-fixed {
+     position: fixed;
+     bottom: 76px;
+     /* Disesuaikan agar berada tepat di atas .appBottomMenu Anda */
+     right: 16px;
+     width: 48px;
+     height: 48px;
+     background-color: var(--bs-primary, #0d6efd);
+     color: #ffffff !important;
+     border-radius: 50%;
+     /* Bulat penuh khas mobile app */
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 1.4rem;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+     z-index: 999;
+     text-decoration: none;
+
+     /* Efek Transisi Sembunyi / Muncul */
+     opacity: 0;
+     transform: translateY(20px);
+     pointer-events: none;
+     transition: transform 0.3s cubic-bezier(0.1, 0.76, 0.55, 0.94),
+         opacity 0.3s ease-in-out;
+ }
+
+ /* Kelas Aktif untuk memunculkan tombol fixed saat di-scroll down */
+ .gtt-button-fixed.gtt-show {
+     opacity: 1;
+     transform: translateY(0);
+     pointer-events: auto;
+ }

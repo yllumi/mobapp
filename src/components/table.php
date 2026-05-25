@@ -23,7 +23,7 @@
                     Table standar Bootstrap dengan <code>.table-responsive</code> agar tetap responsive di layar mobile.
                 </p>
             </div>
-            <div class="card table-demo-card">
+            <div class="card table-demo-card text-center">
                 <div class="table-responsive">
                     <table class="table align-middle">
                         <thead thead>
@@ -66,7 +66,7 @@
             <div class="px-3">
                 <p class="table-description">Menggunakan warna Bootstrap untuk membuat tampilan table lebih menarik.</p>
             </div>
-            <div class="card table-demo-card">
+            <div class="card table-demo-card text-center">
                 <div class="table-responsive">
                     <table class="table table-primary">
                         <thead>
@@ -110,7 +110,7 @@
                 <p class="table-description"><code>.table-striped</code> memberikan warna selang-seling pada baris
                     table.</p>
             </div>
-            <div class="card table-demo-card">
+            <div class="card table-demo-card text-center">
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
@@ -153,7 +153,7 @@
             <div class="px-3">
                 <p class="table-description">Kombinasi Bootstrap Table dengan Bootstrap Icons.</p>
             </div>
-            <div class="card table-demo-card">
+            <div class="card table-demo-card text-center">
                 <div class="table-responsive">
                     <table class="table align-middle">
                         <thead>

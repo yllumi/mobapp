@@ -8,7 +8,7 @@
                 <i class="bi bi-arrow-left"></i>
             </a>
         </div>
-        <div class="page-title">Images Name</div>
+        <div class="page-title">Images</div>
         <div class="right">
         </div>
     </div>

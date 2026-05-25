@@ -283,17 +283,17 @@
         <!-- Others -->
         <div class="listview image-listview">
             <div class="listview-title">Others</div>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/os-detection.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-phone"></i></div> <strong>OS Detection</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/typography.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-type"></i></div> <strong>Typography</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="<?= $basePath ?>components/go-to-top.php" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-arrow-up-circle"></i></div> <strong>Go to Top</strong>
                 </div>
