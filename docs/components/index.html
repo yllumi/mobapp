@@ -13,9 +13,7 @@
 
     <div class="app-header">
         <div class="left">
-            <a href="javascript:void()" onclick="history.back()">
-                <i class="bi bi-arrow-left"></i>
-            </a>
+            <i class="bi bi-list icon" id="sidebarToggle" style="cursor:pointer"></i>
         </div>
         <div class="page-title">Components</div>
         <div class="right">
@@ -282,11 +280,11 @@
                 </div>
             </a>
             <a href="javascript:void(0)" class="listview-item" onclick="openSidebar()">
-                 <div class="col">
+                <div class="col">
                     <div class="listview-icon">
-                    <i class="bi bi-columns"></i>
-                </div>
-             <strong>Sidebar</strong>
+                        <i class="bi bi-columns"></i>
+                    </div>
+                    <strong>Sidebar</strong>
                 </div>
             </a>
         </div>
@@ -294,17 +292,17 @@
         <!-- Others -->
         <div class="listview image-listview">
             <div class="listview-title">Others</div>
-            <a href="#" class="listview-item">
+            <a href="/mobapp/components/os-detection.html" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-phone"></i></div> <strong>OS Detection</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="/mobapp/components/typography.html" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-type"></i></div> <strong>Typography</strong>
                 </div>
             </a>
-            <a href="#" class="listview-item">
+            <a href="/mobapp/components/go-to-top.html" class="listview-item">
                 <div class="col">
                     <div class="listview-icon"><i class="bi bi-arrow-up-circle"></i></div> <strong>Go to Top</strong>
                 </div>
@@ -314,6 +312,30 @@
 
     </div>
 
+    <!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <span class="sidebar-logo"><i class="bi bi-grid-1x2-fill me-2 text-primary"></i>MobApp</span>
+        <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <nav class="sidebar-nav">
+        <a href="#" class="active"><i class="bi bi-house-door"></i> Home</a>
+        <a href="#"><i class="bi bi-heart"></i> Favorites</a>
+        <a href="#"><i class="bi bi-file-earmark"></i> Pages</a>
+        <div class="nav-divider"></div>
+        <a href="/components"><i class="bi bi-grid"></i> Components</a>
+        <a href="#"><i class="bi bi-palette"></i> Themes</a>
+        <div class="nav-divider"></div>
+        <a href="#"><i class="bi bi-gear"></i> Settings</a>
+        <a href="#"><i class="bi bi-question-circle"></i> Help</a>
+    </nav>
+    <div class="sidebar-footer">
+        &copy; 2026 MobApp
+    </div>
+</div>
     <div class="app-bottommenu no-border">
     <a href="/mobapp/" id="bottommenu-item" class="item active">
         <div class="col">
@@ -349,30 +371,7 @@
     </a>
 </div></div>
 
-<!-- Sidebar Overlay -->
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-<!-- Sidebar -->
-<div class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-        <span class="sidebar-logo"><i class="bi bi-grid-1x2-fill me-2 text-primary"></i>MobApp</span>
-        <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
-    </div>
-    <nav class="sidebar-nav">
-        <a href="/mobapp/" class="active"><i class="bi bi-house-door"></i> Home</a>
-        <a href="/mobapp/components"><i class="bi bi-heart"></i> Components</a>
-        <a href="/mobapp/pages"><i class="bi bi-file-earmark"></i> Pages</a>
-        <div class="nav-divider"></div>
-        <a href="#"><i class="bi bi-palette"></i> Themes</a>
-        <div class="nav-divider"></div>
-        <a href="#"><i class="bi bi-gear"></i> Settings</a>
-        <a href="#"><i class="bi bi-question-circle"></i> Help</a>
-    </nav>
-    <div class="sidebar-footer">
-        &copy; 2026 MobApp
-    </div>
-</div>
-
+<!-- SIDEBAR -->
 <script>
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('sidebarOverlay');

@@ -277,4 +277,13 @@ function iPrev() {
 if (iStep>0) {
 iStep--;iUpdateUI();}
 }
-iUpdateUI();
+document.addEventListener("DOMContentLoaded",()=>{
+const progressCircles=document.querySelectorAll(".progress-circle");progressCircles.forEach((circle)=>{
+const target=parseInt(circle.dataset.progress);let current=0;const animation=setInterval(()=>{
+current++;circle.style.setProperty("--progress-value",current);if (current>=target) {
+clearInterval(animation);}
+},15);});});document.addEventListener("DOMContentLoaded",function () {
+var tooltipTriggerList=[].slice.call(
+document.querySelectorAll('[data-bs-toggle="tooltip"]'),);var tooltipList=tooltipTriggerList.map(function (tooltipTriggerEl) {
+return new bootstrap.Tooltip(tooltipTriggerEl,{
+trigger:"hover focus",});});});
